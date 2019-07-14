@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/index.ts"],"names":["test","value","console","log"],"mappings":";;;;;;;AAAO,SAASA,IAAT,CAAcC,KAAd,EAA6B;AAClCC,EAAAA,OAAO,CAACC,GAAR,CAAYF,KAAZ;AACD","sourcesContent":["export function test(value: string) {\n  console.log(value);\n}\n"],"file":"index.js"}
