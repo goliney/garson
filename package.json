@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "garson": "node ./dist/bin",
     "build": "babel src --out-dir dist --extensions .js,.jsx,.ts,.tsx --source-maps",
     "typecheck": "tsc",
     "eslint": "eslint --ext .js,.jsx,.ts,.tsx ./",
@@ -17,6 +18,7 @@
     "@babel/core": "^7.5.4",
     "@babel/preset-env": "^7.5.4",
     "@babel/preset-typescript": "^7.3.3",
+    "@types/node": "^12.6.8",
     "@typescript-eslint/eslint-plugin": "^1.12.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.1",
