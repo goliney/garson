@@ -10,6 +10,13 @@ const init = results =>
         items: [{ label: 'Work', value: 'work' }, { label: 'Rest', value: 'rest' }],
       }),
     )
+    .prompt(
+      'rly',
+      choices({
+        message: 'rly?',
+        items: [{ label: 'Yes', value: true }, { label: 'No', value: false }],
+      }),
+    )
     .action(results => {
       switch (results.init) {
         case 'work':
@@ -25,7 +32,11 @@ const restChoices = results =>
       'restChoices',
       choices({
         message: 'What type of rest?',
-        items: [{ label: 'Read', value: 'read' }, { label: 'Watch', value: 'watch' }, { label: 'Back', value: 'back' }],
+        items: [
+          { label: 'Read', value: 'read' },
+          { label: 'Watch', value: 'watch' },
+          { label: 'Back', value: 'back' },
+        ],
       }),
     )
     .action(results => {

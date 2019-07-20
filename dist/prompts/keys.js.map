@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/prompts/keys.ts"],"names":["ARROW_UP","ARROW_DOWN","ENTER"],"mappings":";;;;;;AAAO,MAAMA,QAAQ,GAAG,UAAjB;;AACA,MAAMC,UAAU,GAAG,UAAnB;;AACA,MAAMC,KAAK,GAAG,IAAd","sourcesContent":["export const ARROW_UP = '\\u001B[A';\nexport const ARROW_DOWN = '\\u001B[B';\nexport const ENTER = '\\r';\n"],"file":"keys.js"}

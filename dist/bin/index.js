@@ -1,14 +1,18 @@
 "use strict";
 
+var _runner = require("./runner");
+
 const cwd = process.cwd();
-let config;
+let garsonConfig;
 
 try {
   // eslint-disable-next-line import/no-dynamic-require, global-require
-  config = require(`${cwd}/garson.config.js`);
+  garsonConfig = require(`${cwd}/garson.config.js`);
 } catch (e) {
   console.error('Failed to load config', e);
-} // if (config) {
-//   runner(config);
-// }
+}
+
+if (garsonConfig) {
+  (0, _runner.runner)(garsonConfig);
+}
 //# sourceMappingURL=index.js.map

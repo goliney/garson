@@ -9,6 +9,7 @@ module.exports = {
   env: {
     node: true,
   },
+  plugins: ['react-hooks'],
   rules: {
     // Too restrictive, writing ugly code to defend against a very unlikely scenario: https://eslint.org/docs/rules/no-prototype-builtins
     'no-prototype-builtins': 'off',
@@ -25,5 +26,14 @@ module.exports = {
       'error',
       { functions: false, classes: true, variables: true, typedefs: true },
     ],
+    // No need in this rule because TypeScript is on it
+    'import/no-unresolved': 'off',
+    // If we can delete it - we should delete it: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-vars.md
+    '@typescript-eslint/no-unused-vars': 'error',
+    //Too restrictive: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-function-return-type.md
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    // The Rules of Hooks: https://reactjs.org/docs/hooks-rules.html
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
   },
 };

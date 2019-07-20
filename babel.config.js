@@ -1,3 +1,5 @@
+const path = require('path');
+
 const presets = [
   '@babel/preset-typescript',
   [
@@ -12,6 +14,6 @@ const presets = [
   ],
 ];
 
-const plugins = [];
+const plugins = ['@babel/plugin-transform-react-jsx'];
 
 module.exports = { presets, plugins };

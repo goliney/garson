@@ -18,55 +18,18 @@ function garsonHandler({
   prompts = []
 }) {
   return {
-    prompt: (key, _prompt) => promptHandler({
+    prompt: (key, _prompt) => garsonHandler({
       results,
-      key,
-      prompt: _prompt,
-      prompts
+      prompts: [...prompts, {
+        key,
+        prompt: _prompt
+      }]
     }),
-    action: function (_action) {
-      function action(_x) {
-        return _action.apply(this, arguments);
-      }
-
-      action.toString = function () {
-        return _action.toString();
-      };
-
-      return action;
-    }(action => actionHandler({
+    action: _action => ({
       results,
       prompts,
-      action
-    }))
-  };
-}
-
-function promptHandler({
-  results,
-  key,
-  prompt,
-  prompts
-}) {
-  return garsonHandler({
-    results,
-    prompts: [...prompts, {
-      key,
-      prompt
-    }]
-  });
-}
-
-function actionHandler({
-  results,
-  prompts,
-  action
-}) {
-  // The result of .action() is picked up by a runner
-  return {
-    results,
-    prompts,
-    action
+      action: _action
+    })
   };
 }
 //# sourceMappingURL=index.js.map
