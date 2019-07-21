@@ -1,9 +1,12 @@
+const path = require('path');
 const garson = require('./dist').garson;
-const choices = require('./dist/prompts').choices;
+const { input, choices, fuzzyPath } = require('./dist/prompts');
 const spawn = require('./dist/actions').spawn;
 
 const init = results =>
   garson(results)
+    .prompt('input', input({ message: 'Type something:' }))
+    // .prompt('filePath', fuzzyPath({ message: 'Select a file', root: path.join(__dirname, 'src') }))
     .prompt(
       'init',
       choices({
