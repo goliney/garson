@@ -26,8 +26,6 @@ module.exports = {
       'error',
       { functions: false, classes: true, variables: true, typedefs: true },
     ],
-    // No need in this rule because TypeScript is on it
-    'import/no-unresolved': 'off',
     // If we can delete it - we should delete it: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-vars.md
     '@typescript-eslint/no-unused-vars': 'error',
     //Too restrictive: https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-function-return-type.md

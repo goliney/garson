@@ -1,5 +1,6 @@
 const garson = require('./dist').garson;
 const choices = require('./dist/prompts').choices;
+const spawn = require('./dist/actions').spawn;
 
 const init = results =>
   garson(results)
@@ -8,13 +9,6 @@ const init = results =>
       choices({
         message: "What'd you like today?",
         items: [{ label: 'Work', value: 'work' }, { label: 'Rest', value: 'rest' }],
-      }),
-    )
-    .prompt(
-      'rly',
-      choices({
-        message: 'rly?',
-        items: [{ label: 'Yes', value: true }, { label: 'No', value: false }],
       }),
     )
     .action(results => {
