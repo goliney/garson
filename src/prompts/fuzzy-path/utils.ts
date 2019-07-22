@@ -1,10 +1,13 @@
 import fs from 'fs';
 import path from 'path';
 import util from 'util';
+import fuzzy from 'fuzzy';
+
+export type NodesList = string[];
 
 const readdir = util.promisify(fs.readdir);
 
-export async function listNodes(nodePath: string): Promise<string[]> {
+export async function listNodes(nodePath: string): Promise<NodesList> {
   try {
     const nodes = await readdir(nodePath);
     const currentNode = [nodePath];
@@ -20,4 +23,10 @@ export async function listNodes(nodePath: string): Promise<string[]> {
     }
     return [];
   }
+}
+
+export function fuzzySearchNodes(nodes: NodesList, pattern: string): NodesList {
+  return fuzzy
+    .filter(pattern, nodes, { pre: '<Color green>', post: '</Color>' })
+    .map(match => match.string);
 }

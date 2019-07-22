@@ -1,4 +1,4 @@
-import { keyType, promptCallback, Results, actionCallback, GarsonHandlerParams } from './types';
+import { KeyType, PromptCallback, Results, ActionCallback, GarsonHandlerParams } from './types';
 
 export function garson(results?: Results) {
   return garsonHandler({ results });
@@ -6,9 +6,9 @@ export function garson(results?: Results) {
 
 function garsonHandler({ results = {}, prompts = [] }: GarsonHandlerParams) {
   return {
-    prompt: (key: keyType, prompt: promptCallback) =>
+    prompt: (key: KeyType, prompt: PromptCallback) =>
       garsonHandler({ results, prompts: [...prompts, { key, prompt }] }),
-    action: (action: actionCallback) => ({
+    action: (action: ActionCallback) => ({
       results,
       prompts,
       action,

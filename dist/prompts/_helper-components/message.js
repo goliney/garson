@@ -22,4 +22,4 @@ function Indicator({
     blue: true
   }, _figures.default.square) : ' ');
 }
-//# sourceMappingURL=indicator.js.map
+//# sourceMappingURL=message.js.map

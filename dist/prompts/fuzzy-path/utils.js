@@ -2,6 +2,8 @@
 
 require("core-js/modules/es.array.concat");
 
+require("core-js/modules/es.array.filter");
+
 require("core-js/modules/es.array.iterator");
 
 require("core-js/modules/es.array.map");
@@ -12,12 +14,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.listNodes = listNodes;
+exports.fuzzySearchNodes = fuzzySearchNodes;
 
 var _fs = _interopRequireDefault(require("fs"));
 
 var _path = _interopRequireDefault(require("path"));
 
 var _util = _interopRequireDefault(require("util"));
+
+var _fuzzy = _interopRequireDefault(require("fuzzy"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53,5 +58,12 @@ function _listNodes() {
     }
   });
   return _listNodes.apply(this, arguments);
+}
+
+function fuzzySearchNodes(nodes, pattern) {
+  return _fuzzy.default.filter(pattern, nodes, {
+    pre: '<Color green>',
+    post: '</Color>'
+  }).map(match => match.string);
 }
 //# sourceMappingURL=utils.js.map

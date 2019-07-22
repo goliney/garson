@@ -16,6 +16,8 @@ var _ink = require("ink");
 
 var _inkTextInput = _interopRequireDefault(require("ink-text-input"));
 
+var _helpers = require("../_helpers");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
@@ -30,6 +32,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function InputComponent({
   message,
+  placeholder,
+  onChange,
   onSubmit
 }) {
   const _useState = (0, _react.useState)(''),
@@ -40,22 +44,30 @@ function InputComponent({
   const handleSubmit = (0, _react.useCallback)(submittedValue => {
     onSubmit(submittedValue);
   }, [onSubmit]);
-  return _react.default.createElement(_ink.Box, null, message && _react.default.createElement(_ink.Box, {
-    marginRight: 1
-  }, _react.default.createElement(_ink.Color, {
-    green: true
-  }, message)), _react.default.createElement(_inkTextInput.default, {
+  const handleChange = (0, _react.useCallback)(newValue => {
+    setValue(newValue);
+
+    if (onChange) {
+      onChange(newValue);
+    }
+  }, [onSubmit]);
+  return _react.default.createElement(_ink.Box, null, _react.default.createElement(_helpers.Question, {
+    message: message
+  }), _react.default.createElement(_inkTextInput.default, {
     value: value,
-    onChange: setValue,
-    onSubmit: handleSubmit
+    onChange: handleChange,
+    onSubmit: handleSubmit,
+    placeholder: placeholder
   }));
 }
 
 function input({
-  message
+  message,
+  placeholder
 }) {
   return onSubmit => _react.default.createElement(InputComponent, {
     message: message,
+    placeholder: placeholder,
     onSubmit: onSubmit
   });
 }

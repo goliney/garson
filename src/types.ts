@@ -1,17 +1,17 @@
-export type keyType = string;
+export type KeyType = string;
 
-export type onSubmitCallback = (result: any) => void;
+export type OnSubmitCallback = (result: any) => void;
 
-export type promptCallback = (onSubmit: onSubmitCallback) => JSX.Element;
+export type PromptCallback = (onSubmit: OnSubmitCallback) => JSX.Element;
 
-export type promptKeyPairs = PromptKeyPair[];
+export type PromptKeyPairs = PromptKeyPair[];
 
 // action should return either nothing or another garson config
-export type actionCallback = (results: Results) => GarsonConfig | void;
+export type ActionCallback = (results: Results) => GarsonConfig | void;
 
 export interface PromptKeyPair {
-  key: keyType;
-  prompt: promptCallback;
+  key: KeyType;
+  prompt: PromptCallback;
 }
 
 export interface Results {
@@ -20,11 +20,11 @@ export interface Results {
 
 export interface GarsonHandlerParams {
   results?: Results;
-  prompts?: promptKeyPairs;
+  prompts?: PromptKeyPairs;
 }
 
 export interface GarsonConfig {
   results?: Results;
-  prompts: promptKeyPairs;
-  action: actionCallback;
+  prompts: PromptKeyPairs;
+  action: ActionCallback;
 }

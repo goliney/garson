@@ -5,8 +5,8 @@ const spawn = require('./dist/actions').spawn;
 
 const init = results =>
   garson(results)
-    .prompt('input', input({ message: 'Type something:' }))
-    // .prompt('filePath', fuzzyPath({ message: 'Select a file', root: path.join(__dirname, 'src') }))
+    .prompt('input', input({ placeholder: '(Type something)' }))
+    .prompt('filePath', fuzzyPath({ message: 'Select a file:', root: path.join(__dirname, 'src') }))
     .prompt(
       'init',
       choices({

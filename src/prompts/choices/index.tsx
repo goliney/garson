@@ -1,14 +1,15 @@
 import React from 'react';
-import { Box, Color } from 'ink';
 import SelectInput from 'ink-select-input';
-import { onSubmitCallback } from '../../types';
+import { Indicator } from './indicator';
+import { OnSubmitCallback } from '../../types';
+import { Question } from '../_helpers';
 
-type choiceValue = any;
+type ChoiceValue = any;
 
 interface ChoiceOption {
   key?: string;
   label: string;
-  value: choiceValue;
+  value: ChoiceValue;
 }
 
 interface Choices {
@@ -17,24 +18,24 @@ interface Choices {
 }
 
 interface ChoicesProps extends Choices {
-  onSubmit: onSubmitCallback;
+  onSubmit: OnSubmitCallback;
 }
 
 export function ChoicesComponent({ message, items, onSubmit }: ChoicesProps) {
   return (
     <React.Fragment>
-      {message && (
-        <Box>
-          <Color green>{message}</Color>
-        </Box>
-      )}
-      <SelectInput items={items} onSelect={item => onSubmit(item.value)} />
+      {message && <Question message={message} />}
+      <SelectInput
+        items={items}
+        onSelect={item => onSubmit(item.value)}
+        indicatorComponent={Indicator}
+      />
     </React.Fragment>
   );
 }
 
 export function choices({ message, items }: Choices) {
-  return (onSubmit: onSubmitCallback) => (
+  return (onSubmit: OnSubmitCallback) => (
     <ChoicesComponent message={message} items={items} onSubmit={onSubmit} />
   );
 }

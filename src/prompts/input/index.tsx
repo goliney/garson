@@ -1,17 +1,20 @@
 import React, { useState, useCallback } from 'react';
-import { Box, Color } from 'ink';
+import { Box } from 'ink';
 import TextInput from 'ink-text-input';
-import { onSubmitCallback } from '../../types';
+import { Question } from '../_helpers';
+import { OnSubmitCallback } from '../../types';
 
 interface Input {
   message?: string;
+  placeholder?: string;
 }
 
 interface InputProps extends Input {
-  onSubmit: onSubmitCallback;
+  onChange?: (value: string) => void;
+  onSubmit: OnSubmitCallback;
 }
 
-export function InputComponent({ message, onSubmit }: InputProps) {
+export function InputComponent({ message, placeholder, onChange, onSubmit }: InputProps) {
   const [value, setValue] = useState('');
 
   const handleSubmit = useCallback(
@@ -21,18 +24,31 @@ export function InputComponent({ message, onSubmit }: InputProps) {
     [onSubmit],
   );
 
+  const handleChange = useCallback(
+    newValue => {
+      setValue(newValue);
+      if (onChange) {
+        onChange(newValue);
+      }
+    },
+    [onSubmit],
+  );
+
   return (
     <Box>
-      {message && (
-        <Box marginRight={1}>
-          <Color green>{message}</Color>
-        </Box>
-      )}
-      <TextInput value={value} onChange={setValue} onSubmit={handleSubmit} />
+      <Question message={message} />
+      <TextInput
+        value={value}
+        onChange={handleChange}
+        onSubmit={handleSubmit}
+        placeholder={placeholder}
+      />
     </Box>
   );
 }
 
-export function input({ message }: Input) {
-  return (onSubmit: onSubmitCallback) => <InputComponent message={message} onSubmit={onSubmit} />;
+export function input({ message, placeholder }: Input) {
+  return (onSubmit: OnSubmitCallback) => (
+    <InputComponent message={message} placeholder={placeholder} onSubmit={onSubmit} />
+  );
 }
