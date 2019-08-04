@@ -17,9 +17,10 @@ function Indicator({
   isSelected
 }) {
   return _react.default.createElement(_ink.Box, {
-    marginRight: 1
+    marginRight: 1,
+    flexShrink: 0
   }, isSelected ? _react.default.createElement(_ink.Color, {
     blue: true
   }, _figures.default.square) : ' ');
 }
-//# sourceMappingURL=message.js.map
+//# sourceMappingURL=indicator.js.map

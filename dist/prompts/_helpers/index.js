@@ -15,8 +15,16 @@ Object.defineProperty(exports, "useKeyHandler", {
     return _useKeyHandler.useKeyHandler;
   }
 });
+Object.defineProperty(exports, "useEnterKeyHandler", {
+  enumerable: true,
+  get: function get() {
+    return _useEnterKeyHandler.useEnterKeyHandler;
+  }
+});
 
 var _question = require("./components/question");
 
 var _useKeyHandler = require("./use-key-handler");
+
+var _useEnterKeyHandler = require("./use-enter-key-handler");
 //# sourceMappingURL=index.js.map

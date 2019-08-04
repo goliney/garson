@@ -1,26 +1,21 @@
 const path = require('path');
-const garson = require('./dist').garson;
+const { garson } = require('./dist');
 const { input, choices, fuzzyPath } = require('./dist/prompts');
-const spawn = require('./dist/actions').spawn;
+const { spawn } = require('./dist/actions');
 
 const init = results =>
   garson(results)
-    .prompt('input', input({ placeholder: '(Type something)' }))
-    .prompt('filePath', fuzzyPath({ message: 'Select a file:', root: path.join(__dirname, 'src') }))
     .prompt(
-      'init',
-      choices({
-        message: "What'd you like today?",
-        items: [{ label: 'Work', value: 'work' }, { label: 'Rest', value: 'rest' }],
+      'filePath',
+      fuzzyPath({
+        message: 'Select a file:',
+        root: '/home/goliney/workspace/DataRobot/tests/js/unit',
+        filter: node => !node.isDir,
       }),
     )
+    .prompt('input', input({ placeholder: '(Type something)' }))
     .action(results => {
-      switch (results.init) {
-        case 'work':
-          return gitChoices(results);
-        case 'rest':
-          return restChoices(results);
-      }
+      console.log(JSON.stringify(results.filePath));
     });
 
 const restChoices = results =>

@@ -16,4 +16,4 @@ const presets = [
 
 const plugins = ['@babel/plugin-transform-react-jsx'];
 
-module.exports = { presets, plugins };
+module.exports = { presets, plugins, ignore: ['src/@types'] };

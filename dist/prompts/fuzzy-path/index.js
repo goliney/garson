@@ -2,6 +2,8 @@
 
 require("core-js/modules/es.symbol.description");
 
+require("core-js/modules/es.array.filter");
+
 require("core-js/modules/es.array.iterator");
 
 require("core-js/modules/es.array.map");
@@ -20,11 +22,17 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _ink = require("ink");
 
-var _utils = require("./utils");
-
 var _input = require("../input");
 
-var _choices = require("../choices");
+var _choicesList = require("../choices/components/choicesList");
+
+var _useChoicesNavigation = require("../choices/use-choices-navigation");
+
+var _helpers = require("../_helpers");
+
+var _patternHighlightItem = require("./components/pattern-highlight-item");
+
+var _utils = require("./utils");
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
@@ -40,13 +48,14 @@ function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = 
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-const NODES_LIMIT = 7;
+const MATCHES_LIMIT = 7;
 const DEFAULT_PLACEHOLDER = '(Use arrow keys or start typing)';
 
 function FuzzyPathComponent({
   message,
   placeholder = DEFAULT_PLACEHOLDER,
   root,
+  filter,
   onSubmit
 }) {
   const _useState = (0, _react.useState)(null),
@@ -54,52 +63,70 @@ function FuzzyPathComponent({
         nodes = _useState2[0],
         setNodes = _useState2[1];
 
-  const _useState3 = (0, _react.useState)(''),
+  const _useState3 = (0, _react.useState)([]),
         _useState4 = _slicedToArray(_useState3, 2),
-        pattern = _useState4[0],
-        setPattern = _useState4[1];
+        matches = _useState4[0],
+        setMatches = _useState4[1];
+
+  const _useState5 = (0, _react.useState)(''),
+        _useState6 = _slicedToArray(_useState5, 2),
+        pattern = _useState6[0],
+        setPattern = _useState6[1];
+
+  const activeItem = (0, _useChoicesNavigation.useChoicesNavigation)(matches);
+  const handleSubmit = (0, _react.useCallback)(() => {
+    onSubmit(activeItem.value);
+  }, [onSubmit, activeItem]);
+  (0, _helpers.useEnterKeyHandler)(handleSubmit); // get the list of files based on the 'root' folder
 
   (0, _react.useEffect)(() => {
-    function getNodes() {
-      return _getNodes.apply(this, arguments);
-    }
-
-    function _getNodes() {
-      _getNodes = _asyncToGenerator(function* () {
+    (function () {
+      var _getNodes = _asyncToGenerator(function* () {
         const calculatedNodes = yield (0, _utils.listNodes)(root);
-        setNodes((0, _utils.fuzzySearchNodes)(calculatedNodes, pattern));
+        setNodes(calculatedNodes.filter(filter));
       });
-      return _getNodes.apply(this, arguments);
-    }
 
-    getNodes();
-  }, [root, pattern]);
-  const handleSubmit = (0, _react.useCallback)(value => {
-    onSubmit(value);
-  }, [onSubmit]);
+      function getNodes() {
+        return _getNodes.apply(this, arguments);
+      }
+
+      return getNodes;
+    })()();
+  }, [root, filter]); // search files by pattern
+
+  (0, _react.useEffect)(() => {
+    const searchResults = (0, _utils.fuzzySearchNodes)(nodes, pattern);
+    const searchResultsSliced = searchResults.slice(0, MATCHES_LIMIT).map(match => ({
+      key: match.path,
+      label: match.relativePath,
+      value: match
+    }));
+    setMatches(searchResultsSliced);
+  }, [nodes, pattern]);
   return _react.default.createElement(_ink.Box, {
     flexDirection: "column"
   }, _react.default.createElement(_input.InputComponent, {
     message: message,
     placeholder: placeholder,
-    onChange: setPattern,
-    onSubmit: () => {}
-  }), nodes && _react.default.createElement(_choices.ChoicesComponent, {
-    onSubmit: handleSubmit,
-    items: nodes.slice(0, NODES_LIMIT).map(node => ({
-      label: node,
-      value: node
-    }))
+    onChange: setPattern
+  }), matches && activeItem && _react.default.createElement(_choicesList.ChoicesList, {
+    activeItem: activeItem,
+    items: matches,
+    itemComponent: _patternHighlightItem.PatternHighlightItem
   }));
 }
 
 function fuzzyPath({
   message,
-  root
+  placeholder,
+  root,
+  filter
 }) {
   return onSubmit => _react.default.createElement(FuzzyPathComponent, {
     message: message,
+    placeholder: placeholder,
     root: root,
+    filter: filter,
     onSubmit: onSubmit
   });
 }

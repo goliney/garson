@@ -42,7 +42,9 @@ function InputComponent({
         setValue = _useState2[1];
 
   const handleSubmit = (0, _react.useCallback)(submittedValue => {
-    onSubmit(submittedValue);
+    if (onSubmit) {
+      onSubmit(submittedValue);
+    }
   }, [onSubmit]);
   const handleChange = (0, _react.useCallback)(newValue => {
     setValue(newValue);
@@ -50,7 +52,7 @@ function InputComponent({
     if (onChange) {
       onChange(newValue);
     }
-  }, [onSubmit]);
+  }, [onChange]);
   return _react.default.createElement(_ink.Box, null, _react.default.createElement(_helpers.Question, {
     message: message
   }), _react.default.createElement(_inkTextInput.default, {

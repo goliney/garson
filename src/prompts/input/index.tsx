@@ -1,8 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import { Box } from 'ink';
 import TextInput from 'ink-text-input';
-import { Question } from '../_helpers';
 import { OnSubmitCallback } from '../../types';
+import { Question } from '../_helpers';
 
 interface Input {
   message?: string;
@@ -11,7 +11,7 @@ interface Input {
 
 interface InputProps extends Input {
   onChange?: (value: string) => void;
-  onSubmit: OnSubmitCallback;
+  onSubmit?: OnSubmitCallback;
 }
 
 export function InputComponent({ message, placeholder, onChange, onSubmit }: InputProps) {
@@ -19,7 +19,9 @@ export function InputComponent({ message, placeholder, onChange, onSubmit }: Inp
 
   const handleSubmit = useCallback(
     submittedValue => {
-      onSubmit(submittedValue);
+      if (onSubmit) {
+        onSubmit(submittedValue);
+      }
     },
     [onSubmit],
   );
@@ -31,7 +33,7 @@ export function InputComponent({ message, placeholder, onChange, onSubmit }: Inp
         onChange(newValue);
       }
     },
-    [onSubmit],
+    [onChange],
   );
 
   return (
