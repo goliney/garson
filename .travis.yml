@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - "12"
+cache:
+  yarn: true
+  directories:
+    - "node_modules"
+jobs:
+  include:
+    - stage: "Lints"
+      name: "typescript"
+      script: "yarn run typecheck"
+    - stage: "Lints"
+      name: "eslint"
+      script: "yarn run eslint"
