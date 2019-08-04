@@ -19,4 +19,3 @@ function PatternHighlightItem({
     blue: isSelected
   }, item.label);
 }
-//# sourceMappingURL=pattern-highlight-item.js.map

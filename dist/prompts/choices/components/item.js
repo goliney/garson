@@ -19,4 +19,3 @@ function Item({
     blue: isSelected
   }, item.label);
 }
-//# sourceMappingURL=item.js.map

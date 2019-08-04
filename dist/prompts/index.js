@@ -27,4 +27,3 @@ var _input = require("./input");
 var _choices = require("./choices");
 
 var _fuzzyPath = require("./fuzzy-path");
-//# sourceMappingURL=index.js.map

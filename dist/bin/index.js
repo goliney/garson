@@ -15,4 +15,3 @@ try {
 if (garsonConfig) {
   (0, _runner.runner)(garsonConfig);
 }
-//# sourceMappingURL=index.js.map

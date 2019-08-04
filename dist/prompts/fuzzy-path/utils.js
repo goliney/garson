@@ -112,4 +112,3 @@ function fuzzySearchNodes(nodes, pattern) {
     highlightedRelativePath: fuzzy.highlight(item.relativePath)
   }));
 }
-//# sourceMappingURL=utils.js.map

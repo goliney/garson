@@ -130,4 +130,3 @@ function fuzzyPath({
     onSubmit: onSubmit
   });
 }
-//# sourceMappingURL=index.js.map

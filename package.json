@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "garson": "node ./dist/bin",
-    "build": "babel src --out-dir dist --extensions .js,.jsx,.ts,.tsx --source-maps",
+    "build": "babel src --out-dir dist --extensions .js,.jsx,.ts,.tsx",
     "typecheck": "tsc",
     "eslint": "eslint --ext .js,.jsx,.ts,.tsx ./",
     "test": "echo \"Error: no test specified\" && exit 1"

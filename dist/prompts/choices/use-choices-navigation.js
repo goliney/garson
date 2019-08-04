@@ -69,4 +69,3 @@ function useChoicesNavigation(items) {
   (0, _helpers.useKeyHandler)(handleKey);
   return activeItem;
 }
-//# sourceMappingURL=use-choices-navigation.js.map

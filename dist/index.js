@@ -32,4 +32,3 @@ function garsonHandler({
     })
   };
 }
-//# sourceMappingURL=index.js.map

@@ -44,4 +44,3 @@ function choices({
     onSubmit: onSubmit
   });
 }
-//# sourceMappingURL=index.js.map

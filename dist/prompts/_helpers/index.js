@@ -27,4 +27,3 @@ var _question = require("./components/question");
 var _useKeyHandler = require("./use-key-handler");
 
 var _useEnterKeyHandler = require("./use-enter-key-handler");
-//# sourceMappingURL=index.js.map

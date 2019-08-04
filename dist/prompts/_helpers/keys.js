@@ -20,4 +20,3 @@ const BACKSPACE = '\x08';
 exports.BACKSPACE = BACKSPACE;
 const DELETE = '\x7F';
 exports.DELETE = DELETE;
-//# sourceMappingURL=keys.js.map

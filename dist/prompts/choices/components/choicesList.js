@@ -39,4 +39,3 @@ function ChoicesList({
     }));
   }));
 }
-//# sourceMappingURL=choicesList.js.map

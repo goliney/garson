@@ -73,4 +73,3 @@ function input({
     onSubmit: onSubmit
   });
 }
-//# sourceMappingURL=index.js.map
