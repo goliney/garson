@@ -33,5 +33,8 @@ module.exports = {
     // The Rules of Hooks: https://reactjs.org/docs/hooks-rules.html
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    // https://github.com/typescript-eslint/typescript-eslint/issues/420
+    'no-useless-constructor': 'off',
+    '@typescript-eslint/no-useless-constructor': 'error',
   },
 };

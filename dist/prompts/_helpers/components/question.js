@@ -22,4 +22,3 @@ function Question({
     marginRight: 1
   }, message));
 }
-//# sourceMappingURL=question.js.map

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Question = Question;
+exports.PatternHighlightItem = PatternHighlightItem;
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -11,11 +11,11 @@ var _ink = require("ink");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function Question({
-  message
+function PatternHighlightItem({
+  isSelected,
+  item
 }) {
   return _react.default.createElement(_ink.Color, {
-    green: true
-  }, "? ", message);
+    blue: isSelected
+  }, item.label);
 }
-//# sourceMappingURL=question.js.map

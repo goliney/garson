@@ -29,4 +29,3 @@ function useKeyHandler(keyHandler) {
     };
   }, [stdin, setRawMode, keyHandler]);
 }
-//# sourceMappingURL=use-key-handler.js.map

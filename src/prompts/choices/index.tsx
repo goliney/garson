@@ -1,16 +1,9 @@
-import React from 'react';
-import SelectInput from 'ink-select-input';
-import { Indicator } from './indicator';
+import React, { useCallback } from 'react';
 import { OnSubmitCallback } from '../../types';
-import { Question } from '../_helpers';
-
-type ChoiceValue = any;
-
-interface ChoiceOption {
-  key?: string;
-  label: string;
-  value: ChoiceValue;
-}
+import { useEnterKeyHandler, Question } from '../_helpers';
+import { ChoicesList } from './components/choicesList';
+import { ChoiceOption } from './components/item';
+import { useChoicesNavigation } from './use-choices-navigation';
 
 interface Choices {
   message?: string;
@@ -22,14 +15,18 @@ interface ChoicesProps extends Choices {
 }
 
 export function ChoicesComponent({ message, items, onSubmit }: ChoicesProps) {
+  const activeItem = useChoicesNavigation(items);
+
+  const submitResult = useCallback(() => {
+    onSubmit(activeItem.value);
+  }, [activeItem, onSubmit]);
+
+  useEnterKeyHandler(submitResult);
+
   return (
     <React.Fragment>
       {message && <Question message={message} />}
-      <SelectInput
-        items={items}
-        onSelect={item => onSubmit(item.value)}
-        indicatorComponent={Indicator}
-      />
+      <ChoicesList items={items} activeItem={activeItem} />
     </React.Fragment>
   );
 }

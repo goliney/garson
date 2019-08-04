@@ -13,4 +13,3 @@ function garsonSpawn(command, options) {
     shell: true
   }));
 }
-//# sourceMappingURL=spawn.js.map

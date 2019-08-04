@@ -8,13 +8,18 @@ require("core-js/modules/es.array.iterator");
 
 require("core-js/modules/es.array.map");
 
+require("core-js/modules/es.object.get-own-property-descriptors");
+
 require("core-js/modules/es.promise");
+
+require("core-js/modules/es.string.search");
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.listNodes = listNodes;
 exports.fuzzySearchNodes = fuzzySearchNodes;
+exports.HIGHLIGHT_SYMBOL_END = exports.HIGHLIGHT_SYMBOL_START = void 0;
 
 var _fs = _interopRequireDefault(require("fs"));
 
@@ -22,9 +27,15 @@ var _path = _interopRequireDefault(require("path"));
 
 var _util = _interopRequireDefault(require("util"));
 
-var _fuzzy = _interopRequireDefault(require("fuzzy"));
+var _fzSearch = _interopRequireDefault(require("fz-search"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -32,26 +43,43 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 const readdir = _util.default.promisify(_fs.default.readdir);
 
-function listNodes(_x) {
+const HIGHLIGHT_SYMBOL_START = '<HIGHLIGHT_SYMBOL_START>';
+exports.HIGHLIGHT_SYMBOL_START = HIGHLIGHT_SYMBOL_START;
+const HIGHLIGHT_SYMBOL_END = '<HIGHLIGHT_SYMBOL_END>';
+exports.HIGHLIGHT_SYMBOL_END = HIGHLIGHT_SYMBOL_END;
+
+function listNodes(_x, _x2) {
   return _listNodes.apply(this, arguments);
 }
 
 function _listNodes() {
-  _listNodes = _asyncToGenerator(function* (nodePath) {
+  _listNodes = _asyncToGenerator(function* (nodePath, root) {
+    const relativeRoot = root || nodePath;
+
     try {
       const nodes = yield readdir(nodePath);
-      const currentNode = [nodePath];
+      const currentNode = [{
+        isDir: true,
+        path: nodePath,
+        relativePath: _path.default.relative(relativeRoot, nodePath),
+        highlightedRelativePath: ''
+      }];
 
       if (nodes.length === 0) {
         return currentNode;
       }
 
-      const nodesWithPath = nodes.map(nodeName => listNodes(_path.default.join(nodePath, nodeName)));
+      const nodesWithPath = nodes.map(nodeName => listNodes(_path.default.join(nodePath, nodeName), relativeRoot));
       const subNodes = yield Promise.all(nodesWithPath);
       return subNodes.reduce((acc, val) => acc.concat(val), currentNode);
     } catch (err) {
       if (err.code === 'ENOTDIR') {
-        return [nodePath];
+        return [{
+          isDir: false,
+          path: nodePath,
+          relativePath: _path.default.relative(relativeRoot, nodePath),
+          highlightedRelativePath: ''
+        }];
       }
 
       return [];
@@ -61,9 +89,26 @@ function _listNodes() {
 }
 
 function fuzzySearchNodes(nodes, pattern) {
-  return _fuzzy.default.filter(pattern, nodes, {
-    pre: '<Color green>',
-    post: '</Color>'
-  }).map(match => match.string);
+  if (!nodes) {
+    return [];
+  }
+
+  if (!pattern) {
+    return nodes.map(node => _objectSpread({}, node, {
+      indices: []
+    }));
+  }
+
+  const fuzzy = new _fzSearch.default({
+    source: nodes,
+    keys: 'relativePath',
+    token_field_min_length: 1,
+    // start searching with a query this long
+    highlight_before: HIGHLIGHT_SYMBOL_START,
+    highlight_after: HIGHLIGHT_SYMBOL_END
+  });
+  const results = fuzzy.search(pattern);
+  return results.map(item => _objectSpread({}, item, {
+    highlightedRelativePath: fuzzy.highlight(item.relativePath)
+  }));
 }
-//# sourceMappingURL=utils.js.map

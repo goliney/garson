@@ -11,4 +11,3 @@ Object.defineProperty(exports, "spawn", {
 });
 
 var _spawn = require("./spawn");
-//# sourceMappingURL=index.js.map
