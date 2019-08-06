@@ -16,8 +16,10 @@ export interface PathNodeMatched extends PathNode {
   indices: Indices;
 }
 
-interface FuseResultMatches {
-  indices: Indices;
+interface HighlightToken {
+  value: string;
+  highlighted: boolean;
+  key: number; // token key used by React map
 }
 
 const readdir = util.promisify(fs.readdir);
@@ -83,4 +85,24 @@ export function fuzzySearchNodes(nodes: PathNode[] | null, pattern: string): Pat
     ...item,
     highlightedRelativePath: fuzzy.highlight(item.relativePath),
   }));
+}
+
+export function parseHighlightedString(stringWithHighlights: string) {
+  /* eslint-disable no-plusplus */
+  let key = 0;
+  return stringWithHighlights
+    .split(HIGHLIGHT_SYMBOL_START) // RegExps are hard
+    .filter(match => !!match)
+    .reduce<HighlightToken[]>((acc, match) => {
+      if (match.includes(HIGHLIGHT_SYMBOL_END)) {
+        const [highlightedValue, value] = match.split(HIGHLIGHT_SYMBOL_END);
+        // eslint-disable-next-line no-plusplus
+        acc.push({ value: highlightedValue, highlighted: true, key: key++ });
+        acc.push({ value, highlighted: false, key: key++ });
+      } else {
+        acc.push({ value: match, highlighted: false, key: key++ });
+      }
+      return acc;
+    }, []);
+  /* eslint-enable no-plusplus */
 }
