@@ -1,8 +1,11 @@
 {
   "name": "garson",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Interactive config-based command line tool",
+  "main": "dist/bin/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "garson": "node ./dist/bin",
     "build": "babel src --out-dir dist --extensions .js,.jsx,.ts,.tsx",
@@ -10,9 +13,9 @@
     "eslint": "eslint --ext .js,.jsx,.ts,.tsx ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["interactive", "config-based", "command", "line", "tool"],
+  "author": "Sergey Goliney sergey@goliney.com",
+  "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.5.0",
     "@babel/core": "^7.5.4",
