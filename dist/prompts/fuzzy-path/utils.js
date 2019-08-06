@@ -1,8 +1,12 @@
 "use strict";
 
+require("core-js/modules/es.symbol.description");
+
 require("core-js/modules/es.array.concat");
 
 require("core-js/modules/es.array.filter");
+
+require("core-js/modules/es.array.includes");
 
 require("core-js/modules/es.array.iterator");
 
@@ -12,13 +16,18 @@ require("core-js/modules/es.object.get-own-property-descriptors");
 
 require("core-js/modules/es.promise");
 
+require("core-js/modules/es.string.includes");
+
 require("core-js/modules/es.string.search");
+
+require("core-js/modules/es.string.split");
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.listNodes = listNodes;
 exports.fuzzySearchNodes = fuzzySearchNodes;
+exports.parseHighlightedString = parseHighlightedString;
 exports.HIGHLIGHT_SYMBOL_END = exports.HIGHLIGHT_SYMBOL_START = void 0;
 
 var _fs = _interopRequireDefault(require("fs"));
@@ -30,6 +39,14 @@ var _util = _interopRequireDefault(require("util"));
 var _fzSearch = _interopRequireDefault(require("fz-search"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -111,4 +128,39 @@ function fuzzySearchNodes(nodes, pattern) {
   return results.map(item => _objectSpread({}, item, {
     highlightedRelativePath: fuzzy.highlight(item.relativePath)
   }));
+}
+
+function parseHighlightedString(stringWithHighlights) {
+  /* eslint-disable no-plusplus */
+  let key = 0;
+  return stringWithHighlights.split(HIGHLIGHT_SYMBOL_START) // RegExps are hard
+  .filter(match => !!match).reduce((acc, match) => {
+    if (match.includes(HIGHLIGHT_SYMBOL_END)) {
+      const _match$split = match.split(HIGHLIGHT_SYMBOL_END),
+            _match$split2 = _slicedToArray(_match$split, 2),
+            highlightedValue = _match$split2[0],
+            value = _match$split2[1]; // eslint-disable-next-line no-plusplus
+
+
+      acc.push({
+        value: highlightedValue,
+        highlighted: true,
+        key: key++
+      });
+      acc.push({
+        value,
+        highlighted: false,
+        key: key++
+      });
+    } else {
+      acc.push({
+        value: match,
+        highlighted: false,
+        key: key++
+      });
+    }
+
+    return acc;
+  }, []);
+  /* eslint-enable no-plusplus */
 }

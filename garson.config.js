@@ -6,16 +6,48 @@ const { spawn } = require('./dist/actions');
 const init = results =>
   garson(results)
     .prompt(
+      'init',
+      choices({
+        message: "What'd you like today?",
+        items: [
+          { label: 'See file content', value: 'seeFileContent' },
+          { label: 'Run git command', value: 'git' },
+          { label: 'Rest', value: 'rest' },
+        ],
+      }),
+    )
+    .action(results => {
+      switch (results.init) {
+        case 'seeFileContent':
+          return seeFileContent();
+        case 'git':
+          return gitChoices();
+        case 'rest':
+          return restChoices();
+      }
+    });
+
+const seeFileContent = results =>
+  garson(results)
+    .prompt(
       'filePath',
       fuzzyPath({
-        message: 'Select a file:',
-        root: '/home/goliney/workspace/DataRobot/tests/js/unit',
+        message: 'See content of a file:',
+        root: path.join(__dirname, 'src'),
         filter: node => !node.isDir,
       }),
     )
-    .prompt('input', input({ placeholder: '(Type something)' }))
+    .prompt('grep', input({ placeholder: '(Type something you want to grep)' }))
+    .prompt(
+      'showLineNumber',
+      choices({
+        message: 'Show line number?',
+        items: [{ label: 'Yes', value: true }, { label: 'No', value: false }],
+      }),
+    )
     .action(results => {
-      console.log(JSON.stringify(results.filePath));
+      const { filePath, grep, showLineNumber } = results;
+      return spawn(`cat ${filePath.path} | grep ${showLineNumber ? '-n' : ''} "${grep}"`);
     });
 
 const restChoices = results =>
