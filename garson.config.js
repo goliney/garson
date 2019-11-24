@@ -1,13 +1,11 @@
 const path = require('path');
-const { garson } = require('./dist');
-const { input, choices, fuzzyPath } = require('./dist/prompts');
-const { spawn } = require('./dist/actions');
+const { garson, prompts, actions } = require('./dist');
 
 const init = results =>
   garson(results)
     .prompt(
       'init',
-      choices({
+      prompts.choices({
         message: "What'd you like today?",
         items: [
           { label: 'See file content', value: 'seeFileContent' },
@@ -31,30 +29,30 @@ const seeFileContent = results =>
   garson(results)
     .prompt(
       'filePath',
-      fuzzyPath({
+      prompts.fuzzyPath({
         message: 'See content of a file:',
         root: path.join(__dirname, 'src'),
         filter: node => !node.isDir,
       }),
     )
-    .prompt('grep', input({ placeholder: '(Type something you want to grep)' }))
+    .prompt('grep', prompts.input({ placeholder: '(Type something you want to grep)' }))
     .prompt(
       'showLineNumber',
-      choices({
+      prompts.choices({
         message: 'Show line number?',
         items: [{ label: 'Yes', value: true }, { label: 'No', value: false }],
       }),
     )
     .action(results => {
       const { filePath, grep, showLineNumber } = results;
-      return spawn(`cat ${filePath.path} | grep ${showLineNumber ? '-n' : ''} "${grep}"`);
+      return actions.spawn(`cat ${filePath.path} | grep ${showLineNumber ? '-n' : ''} "${grep}"`);
     });
 
 const restChoices = results =>
   garson(results)
     .prompt(
       'restChoices',
-      choices({
+      prompts.choices({
         message: 'What type of rest?',
         items: [
           { label: 'Read', value: 'read' },
@@ -66,10 +64,10 @@ const restChoices = results =>
     .action(results => {
       switch (results.restChoices) {
         case 'read':
-          spawn('google-chrome twitter.com');
+           actions.spawn('google-chrome twitter.com');
           break;
         case 'watch':
-          spawn('google-chrome youtube.com');
+           actions.spawn('google-chrome youtube.com');
           break;
         case 'back':
           return init(results);
@@ -80,7 +78,7 @@ const gitChoices = results =>
   garson(results)
     .prompt(
       'git',
-      choices({
+      prompts.choices({
         message: 'What git command should I run?',
         items: [
           { label: 'Status', value: 'status' },
@@ -92,10 +90,10 @@ const gitChoices = results =>
     .action(results => {
       switch (results.git) {
         case 'status':
-          spawn('git status');
+           actions.spawn('git status');
           break;
         case 'branch':
-          spawn('git branch');
+           actions.spawn('git branch');
           break;
         case 'back':
           return init(results);

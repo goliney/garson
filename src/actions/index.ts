@@ -1,1 +1,5 @@
-export { spawn } from './spawn';
+import { spawn } from './spawn';
+
+export const actions = {
+  spawn,
+};

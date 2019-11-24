@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { runner } from './runner';
 
 const cwd = process.cwd();
