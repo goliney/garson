@@ -3,27 +3,17 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-Object.defineProperty(exports, "input", {
-  enumerable: true,
-  get: function get() {
-    return _input.input;
-  }
-});
-Object.defineProperty(exports, "choices", {
-  enumerable: true,
-  get: function get() {
-    return _choices.choices;
-  }
-});
-Object.defineProperty(exports, "fuzzyPath", {
-  enumerable: true,
-  get: function get() {
-    return _fuzzyPath.fuzzyPath;
-  }
-});
+exports.prompts = void 0;
 
 var _input = require("./input");
 
 var _choices = require("./choices");
 
 var _fuzzyPath = require("./fuzzy-path");
+
+const prompts = {
+  input: _input.input,
+  choices: _choices.choices,
+  fuzzyPath: _fuzzyPath.fuzzyPath
+};
+exports.prompts = prompts;

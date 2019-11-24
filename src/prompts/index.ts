@@ -1,3 +1,9 @@
-export { input } from './input';
-export { choices } from './choices';
-export { fuzzyPath } from './fuzzy-path';
+import { input } from './input';
+import { choices } from './choices';
+import { fuzzyPath } from './fuzzy-path';
+
+export const prompts = {
+  input,
+  choices,
+  fuzzyPath,
+};
