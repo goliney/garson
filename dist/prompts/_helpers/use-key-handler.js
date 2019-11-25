@@ -21,7 +21,7 @@ function useKeyHandler(keyHandler) {
 
     stdin.on('data', keyHandler);
     return () => {
-      stdin.off('data', keyHandler);
+      stdin.removeListener('data', keyHandler);
 
       if (setRawMode) {
         setRawMode(false);
