@@ -1,6 +1,6 @@
 {
   "name": "garson",
-  "version": "0.0.1-beta.0",
+  "version": "0.0.1-beta.1",
   "main": "dist/index.js",
   "bin": "dist/bin/index.js",
   "description": "Interactive config-based command line tool",
