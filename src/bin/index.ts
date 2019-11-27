@@ -1,16 +1,15 @@
 #!/usr/bin/env node
+import fs from 'fs';
+import path from 'path';
 import { runner } from './runner';
 
 const cwd = process.cwd();
-let garsonConfig;
+const CONFIG_FILEPATH = path.join(cwd, 'garson.config.js');
 
-try {
-  // eslint-disable-next-line import/no-dynamic-require, global-require
-  garsonConfig = require(`${cwd}/garson.config.js`);
-} catch (e) {
-  console.error('Failed to load config', e);
-}
-
-if (garsonConfig) {
+if (fs.existsSync(CONFIG_FILEPATH)) {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires,global-require,import/no-dynamic-require
+  const garsonConfig = require(CONFIG_FILEPATH);
   runner(garsonConfig);
+} else {
+  throw new Error(`Config file was not found: ${CONFIG_FILEPATH}`);
 }
