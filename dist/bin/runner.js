@@ -37,25 +37,27 @@ function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-const _render = (0, _ink.render)(_react.default.createElement(_ink.Box, null, "Initializing..."), {
-  debug: false
-}),
-      rerender = _render.rerender,
-      unmount = _render.unmount;
+let app;
 
 function runner({
   results,
   prompts,
   action
 }) {
+  if (!app) {
+    app = (0, _ink.render)(_react.default.createElement(_ink.Box, null, "Initializing..."), {
+      debug: false
+    });
+  }
+
   const _prompts = _toArray(prompts),
         _prompts$ = _prompts[0],
         prompt = _prompts$.prompt,
         key = _prompts$.key,
         rest = _prompts.slice(1);
 
-  rerender(prompt(result => {
-    rerender(_react.default.createElement(_react.default.Fragment, null)); // clear the previous prompt from the screen
+  app.rerender(prompt(result => {
+    app.rerender(_react.default.createElement(_react.default.Fragment, null)); // clear the previous prompt from the screen
 
     const newResults = _objectSpread({}, results, {
       [key]: result
@@ -68,7 +70,7 @@ function runner({
       if (actionResponse) {
         runner(actionResponse);
       } else {
-        unmount();
+        app.unmount();
       }
     } else {
       // there is another prompt
