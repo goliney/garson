@@ -5,7 +5,7 @@ import { InputComponent } from '../input';
 import { ChoicesList } from '../choices/components/choicesList';
 import { ChoiceOption } from '../choices/components/item';
 import { useChoicesNavigation } from '../choices/use-choices-navigation';
-import { useEnterKeyHandler } from '../_helpers';
+import { useEnterKeyHandler } from '../../_helpers';
 import { PatternHighlightItem } from './components/pattern-highlight-item';
 import { listNodes, fuzzySearchNodes, PathNode } from './utils';
 
@@ -23,8 +23,6 @@ interface FuzzyPathProps extends FuzzyPath {
 type PathNodesState = PathNode[] | null;
 
 type ChoiceOptionsState = ChoiceOption[];
-
-type ActiveItemState = ChoiceOption | null;
 
 const MATCHES_LIMIT = 7;
 

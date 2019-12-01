@@ -1,16 +1,12 @@
 import React from 'react';
-import { Box, render, Instance } from 'ink';
+import { Box, render } from 'ink';
 import { GarsonConfig } from '../types';
 
-let app: Instance;
+export const app = render(<Box>Initializing...</Box>, {
+  debug: false,
+});
 
 export function runner({ results, prompts, action }: GarsonConfig) {
-  if (!app) {
-    app = render(<Box>Initializing...</Box>, {
-      debug: false,
-    });
-  }
-
   const [{ prompt, key }, ...rest] = prompts;
   app.rerender(
     prompt(result => {

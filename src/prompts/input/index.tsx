@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { Box } from 'ink';
 import TextInput from 'ink-text-input';
 import { OnSubmitCallback } from '../../types';
-import { Question } from '../_helpers';
+import { Question } from '../../_helpers';
 
 interface Input {
   message?: string;

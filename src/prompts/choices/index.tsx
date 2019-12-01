@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { OnSubmitCallback } from '../../types';
-import { useEnterKeyHandler, Question } from '../_helpers';
+import { useEnterKeyHandler, Question } from '../../_helpers';
 import { ChoicesList } from './components/choicesList';
 import { ChoiceOption } from './components/item';
 import { useChoicesNavigation } from './use-choices-navigation';

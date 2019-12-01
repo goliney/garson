@@ -10,6 +10,7 @@ const init = results =>
         items: [
           { label: 'See file content', value: 'seeFileContent' },
           { label: 'Run git command', value: 'git' },
+          { label: 'Print message', value: 'message'},
           { label: 'Rest', value: 'rest' },
         ],
       }),
@@ -22,6 +23,11 @@ const init = results =>
           return gitChoices();
         case 'rest':
           return restChoices();
+        case 'message':
+          actions.printMessage({
+            message: 'This is the message',
+            boxTitle: 'This is the box title '
+          });
       }
     });
 

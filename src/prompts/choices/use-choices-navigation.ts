@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useKeyHandler } from '../_helpers';
-import { ARROW_DOWN, ARROW_UP } from '../_helpers/keys';
+import { useKeyHandler } from '../../_helpers';
+import { ARROW_DOWN, ARROW_UP } from '../../_helpers/keys';
 import { ChoiceOption } from './components/item';
 
 export function useChoicesNavigation(items: ChoiceOption[]) {
