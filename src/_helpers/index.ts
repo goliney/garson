@@ -1,6 +1,7 @@
 // Components
 export { Question } from './components/question';
+export { Line } from './components/line';
 
-// Misc
+// Hooks
 export { useKeyHandler } from './use-key-handler';
 export { useEnterKeyHandler } from './use-enter-key-handler';
