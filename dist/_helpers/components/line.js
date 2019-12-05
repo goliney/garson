@@ -16,7 +16,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function Line({
   message = '',
   charFiller = '=',
-  color = 'yellow'
+  color = 'green'
 }) {
   const lineWidth = process.stdout.columns || 0;
   const fillerWidth = message ? lineWidth - message.length : lineWidth;

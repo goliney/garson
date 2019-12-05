@@ -7,7 +7,7 @@ interface LineProps {
   color?: string;
 }
 
-export function Line({ message = '', charFiller = '=', color = 'yellow' }: LineProps) {
+export function Line({ message = '', charFiller = '=', color = 'green' }: LineProps) {
   const lineWidth = process.stdout.columns || 0;
   const fillerWidth = message ? lineWidth - message.length : lineWidth;
   return (
