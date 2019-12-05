@@ -1,6 +1,7 @@
 # garson
 
 [![Build Status](https://travis-ci.org/goliney/garson.svg?branch=master)](https://travis-ci.org/goliney/garson)
+[![npm version](https://badge.fury.io/js/garson.svg)](https://badge.fury.io/js/garson)
 
 Interactive config-based command line tool
 

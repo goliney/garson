@@ -1,19 +1,14 @@
 {
   "name": "garson",
-  "version": "0.0.1-beta.1",
+  "version": "0.0.1-beta.2",
   "main": "dist/index.js",
   "bin": "dist/bin/index.js",
-  "description": "Interactive config-based command line tool",
   "files": [
     "dist"
   ],
-  "scripts": {
-    "garson": "node ./dist/bin",
-    "build": "babel src --out-dir dist --extensions .js,.jsx,.ts,.tsx",
-    "typecheck": "tsc",
-    "eslint": "eslint --ext .js,.jsx,.ts,.tsx ./",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "Interactive config-based command line tool",
+  "homepage": "https://github.com/goliney/garson",
+  "bugs": "https://github.com/goliney/garson/issues",
   "keywords": [
     "interactive",
     "config-based",
@@ -21,6 +16,17 @@
     "line",
     "tool"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/goliney/garson.git"
+  },
+  "scripts": {
+    "garson": "node ./dist/bin",
+    "build": "babel src --out-dir dist --extensions .js,.jsx,.ts,.tsx",
+    "typecheck": "tsc",
+    "eslint": "eslint --ext .js,.jsx,.ts,.tsx ./",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "author": "Sergey Goliney sergey@goliney.com",
   "license": "MIT",
   "devDependencies": {
