@@ -4,6 +4,8 @@
     "target": "esnext",
     // Search under node_modules for non-relative imports.
     "moduleResolution": "node",
+    // Allow importing json files
+    "resolveJsonModule": true,
     // Process & infer types from .js files.
     "allowJs": true,
     // Don't emit; allow Babel to transform files.

@@ -7,10 +7,12 @@ var _path = _interopRequireDefault(require("path"));
 
 var _commander = _interopRequireDefault(require("commander"));
 
+var _package = require("../../package.json");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const program = new _commander.default.Command();
-program.name('garson').option('-c, --config <path>', 'set config path', 'garson.config.js').version(process.env.npm_package_version || 'no version specified', '-v, --version', 'output the current version').parse(process.argv);
+program.name('garson').option('-c, --config <path>', 'set config path', 'garson.config.js').version(_package.version, '-v, --version', 'output the current version').parse(process.argv);
 
 if (program.config) {
   const cwd = process.cwd();
