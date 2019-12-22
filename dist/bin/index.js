@@ -5,19 +5,29 @@ var _fs = _interopRequireDefault(require("fs"));
 
 var _path = _interopRequireDefault(require("path"));
 
-var _runner = require("./runner");
+var _commander = _interopRequireDefault(require("commander"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const cwd = process.cwd();
+const program = new _commander.default.Command();
+program.name('garson').option('-c, --config <path>', 'set config path', 'garson.config.js').version(process.env.npm_package_version || 'no version specified', '-v, --version', 'output the current version').parse(process.argv);
 
-const CONFIG_FILEPATH = _path.default.join(cwd, 'garson.config.js');
+if (program.config) {
+  const cwd = process.cwd();
 
-if (_fs.default.existsSync(CONFIG_FILEPATH)) {
-  // eslint-disable-next-line @typescript-eslint/no-var-requires,global-require,import/no-dynamic-require
-  const garsonConfig = require(CONFIG_FILEPATH);
+  const CONFIG_FILEPATH = _path.default.join(cwd, program.config);
 
-  (0, _runner.runner)(garsonConfig);
-} else {
-  throw new Error(`Config file was not found: ${CONFIG_FILEPATH}`);
+  if (_fs.default.existsSync(CONFIG_FILEPATH)) {
+    /* eslint-disable @typescript-eslint/no-var-requires,global-require,import/no-dynamic-require */
+    const _require = require('./runner'),
+          runner = _require.runner;
+
+    const garsonConfig = require(CONFIG_FILEPATH);
+    /* eslint-enable @typescript-eslint/no-var-requires,global-require,import/no-dynamic-require */
+
+
+    runner(garsonConfig);
+  } else {
+    throw new Error(`Config file was not found: ${CONFIG_FILEPATH}`);
+  }
 }
