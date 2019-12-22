@@ -9,7 +9,7 @@ export function useEnterKeyHandler(onEnter: () => void) {
         onEnter();
       }
     },
-    [onEnter],
+    [onEnter]
   );
 
   useKeyHandler(handleKey);

@@ -8,7 +8,7 @@ interface PrintMessage {
   message: string;
 }
 
-function printMessage({ boxTitle, message }: PrintMessage) {
+export function printMessage({ boxTitle, message }: PrintMessage) {
   app.rerender(
     <Box flexDirection="column" paddingBottom={1}>
       <Line message={boxTitle} />
@@ -16,8 +16,6 @@ function printMessage({ boxTitle, message }: PrintMessage) {
         <Box paddingY={1}>{message}</Box>
       </Text>
       <Line />
-    </Box>,
+    </Box>
   );
 }
-
-export { printMessage };

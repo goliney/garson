@@ -23,7 +23,7 @@ export function InputComponent({ message, placeholder, onChange, onSubmit }: Inp
         onSubmit(submittedValue);
       }
     },
-    [onSubmit],
+    [onSubmit]
   );
 
   const handleChange = useCallback(
@@ -33,7 +33,7 @@ export function InputComponent({ message, placeholder, onChange, onSubmit }: Inp
         onChange(newValue);
       }
     },
-    [onChange],
+    [onChange]
   );
 
   return (

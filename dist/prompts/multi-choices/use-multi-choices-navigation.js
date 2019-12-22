@@ -2,14 +2,20 @@
 
 require("core-js/modules/es.symbol.description");
 
+require("core-js/modules/es.array.filter");
+
+require("core-js/modules/es.array.includes");
+
 require("core-js/modules/es.array.index-of");
 
 require("core-js/modules/es.array.iterator");
 
+require("core-js/modules/es.string.includes");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.useChoicesNavigation = useChoicesNavigation;
+exports.useMultiChoicesNavigation = useMultiChoicesNavigation;
 
 var _react = require("react");
 
@@ -25,16 +31,22 @@ function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = 
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function useChoicesNavigation(items) {
+function useMultiChoicesNavigation(items) {
   const _useState = (0, _react.useState)(items[0]),
         _useState2 = _slicedToArray(_useState, 2),
         highlightedItem = _useState2[0],
         setActiveItem = _useState2[1];
 
+  const _useState3 = (0, _react.useState)([]),
+        _useState4 = _slicedToArray(_useState3, 2),
+        selectedItems = _useState4[0],
+        setSelectedItems = _useState4[1]; // pre-select default items
+
+
   (0, _react.useEffect)(() => {
-    setActiveItem(items[0]);
+    setSelectedItems(items.filter(item => item.isSelected));
   }, [items]);
-  const selectPrevItem = (0, _react.useCallback)(() => {
+  const highlightPrevItem = (0, _react.useCallback)(() => {
     if (items.length === 0 || !highlightedItem) {
       return;
     }
@@ -43,7 +55,7 @@ function useChoicesNavigation(items) {
     const prevItemIndex = Math.max(indexOfActive - 1, 0);
     setActiveItem(items[prevItemIndex]);
   }, [highlightedItem, items]);
-  const selectNextItem = (0, _react.useCallback)(() => {
+  const highlightNextItem = (0, _react.useCallback)(() => {
     if (items.length === 0 || !highlightedItem) {
       return;
     }
@@ -52,20 +64,35 @@ function useChoicesNavigation(items) {
     const nextItemIndex = Math.min(indexOfActive + 1, items.length - 1);
     setActiveItem(items[nextItemIndex]);
   }, [highlightedItem, items]);
+  const toggleSelection = (0, _react.useCallback)(() => {
+    const newSelectedItems = items.filter(item => {
+      const isAlreadySelected = selectedItems.includes(item);
+      const isActive = item === highlightedItem;
+      return isAlreadySelected && !isActive || !isAlreadySelected && isActive;
+    });
+    setSelectedItems(newSelectedItems);
+  }, [highlightedItem, items]);
   const handleKey = (0, _react.useCallback)(key => {
     switch (key) {
       case _keys.ARROW_UP:
-        selectPrevItem();
+        highlightPrevItem();
         break;
 
       case _keys.ARROW_DOWN:
-        selectNextItem();
+        highlightNextItem();
+        break;
+
+      case _keys.SPACE:
+        toggleSelection();
         break;
 
       default:
         break;
     }
-  }, [selectPrevItem, selectNextItem]);
+  }, [highlightPrevItem, highlightNextItem]);
   (0, _helpers.useKeyHandler)(handleKey);
-  return highlightedItem;
+  return {
+    highlightedItem,
+    selectedItems
+  };
 }

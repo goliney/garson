@@ -4,29 +4,29 @@ import { ARROW_DOWN, ARROW_UP } from '../../_helpers/keys';
 import { ChoiceOption } from './components/item';
 
 export function useChoicesNavigation(items: ChoiceOption[]) {
-  const [activeItem, setActiveItem] = useState(items[0]);
+  const [highlightedItem, setActiveItem] = useState(items[0]);
 
   useEffect(() => {
     setActiveItem(items[0]);
   }, [items]);
 
   const selectPrevItem = useCallback(() => {
-    if (items.length === 0 || !activeItem) {
+    if (items.length === 0 || !highlightedItem) {
       return;
     }
-    const indexOfActive = items.indexOf(activeItem);
+    const indexOfActive = items.indexOf(highlightedItem);
     const prevItemIndex = Math.max(indexOfActive - 1, 0);
     setActiveItem(items[prevItemIndex]);
-  }, [activeItem, items]);
+  }, [highlightedItem, items]);
 
   const selectNextItem = useCallback(() => {
-    if (items.length === 0 || !activeItem) {
+    if (items.length === 0 || !highlightedItem) {
       return;
     }
-    const indexOfActive = items.indexOf(activeItem);
+    const indexOfActive = items.indexOf(highlightedItem);
     const nextItemIndex = Math.min(indexOfActive + 1, items.length - 1);
     setActiveItem(items[nextItemIndex]);
-  }, [activeItem, items]);
+  }, [highlightedItem, items]);
 
   const handleKey = useCallback(
     key => {
@@ -41,10 +41,10 @@ export function useChoicesNavigation(items: ChoiceOption[]) {
           break;
       }
     },
-    [selectPrevItem, selectNextItem],
+    [selectPrevItem, selectNextItem]
   );
 
   useKeyHandler(handleKey);
 
-  return activeItem;
+  return highlightedItem;
 }

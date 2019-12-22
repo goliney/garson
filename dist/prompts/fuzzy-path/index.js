@@ -24,7 +24,7 @@ var _ink = require("ink");
 
 var _input = require("../input");
 
-var _choicesList = require("../choices/components/choicesList");
+var _choicesList = require("../choices/components/choices-list");
 
 var _useChoicesNavigation = require("../choices/use-choices-navigation");
 
@@ -73,10 +73,10 @@ function FuzzyPathComponent({
         pattern = _useState6[0],
         setPattern = _useState6[1];
 
-  const activeItem = (0, _useChoicesNavigation.useChoicesNavigation)(matches);
+  const highlightedItem = (0, _useChoicesNavigation.useChoicesNavigation)(matches);
   const handleSubmit = (0, _react.useCallback)(() => {
-    onSubmit(activeItem.value);
-  }, [onSubmit, activeItem]);
+    onSubmit(highlightedItem.value);
+  }, [onSubmit, highlightedItem]);
   (0, _helpers.useEnterKeyHandler)(handleSubmit); // get the list of files based on the 'root' folder
 
   (0, _react.useEffect)(() => {
@@ -109,8 +109,8 @@ function FuzzyPathComponent({
     message: message,
     placeholder: placeholder,
     onChange: setPattern
-  }), matches && activeItem && _react.default.createElement(_choicesList.ChoicesList, {
-    activeItem: activeItem,
+  }), matches && highlightedItem && _react.default.createElement(_choicesList.ChoicesList, {
+    highlightedItem: highlightedItem,
     items: matches,
     itemComponent: _patternHighlightItem.PatternHighlightItem
   }));

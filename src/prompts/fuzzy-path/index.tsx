@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Box } from 'ink';
 import { OnSubmitCallback } from '../../types';
 import { InputComponent } from '../input';
-import { ChoicesList } from '../choices/components/choicesList';
+import { ChoicesList } from '../choices/components/choices-list';
 import { ChoiceOption } from '../choices/components/item';
 import { useChoicesNavigation } from '../choices/use-choices-navigation';
 import { useEnterKeyHandler } from '../../_helpers';
@@ -39,11 +39,11 @@ export function FuzzyPathComponent({
   const [matches, setMatches] = useState<ChoiceOptionsState>([]);
   const [pattern, setPattern] = useState<string>('');
 
-  const activeItem = useChoicesNavigation(matches);
+  const highlightedItem = useChoicesNavigation(matches);
 
   const handleSubmit = useCallback(() => {
-    onSubmit(activeItem.value);
-  }, [onSubmit, activeItem]);
+    onSubmit(highlightedItem.value);
+  }, [onSubmit, highlightedItem]);
 
   useEnterKeyHandler(handleSubmit);
 
@@ -67,8 +67,12 @@ export function FuzzyPathComponent({
   return (
     <Box flexDirection="column">
       <InputComponent message={message} placeholder={placeholder} onChange={setPattern} />
-      {matches && activeItem && (
-        <ChoicesList activeItem={activeItem} items={matches} itemComponent={PatternHighlightItem} />
+      {matches && highlightedItem && (
+        <ChoicesList
+          highlightedItem={highlightedItem}
+          items={matches}
+          itemComponent={PatternHighlightItem}
+        />
       )}
     </Box>
   );

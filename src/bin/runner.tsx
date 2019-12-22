@@ -24,6 +24,6 @@ export function runner({ results, prompts, action }: GarsonConfig) {
         // there is another prompt
         runner({ results: newResults, prompts: rest, action });
       }
-    }),
+    })
   );
 }

@@ -5,22 +5,22 @@ import { Item, ItemProps, ChoiceOption } from './item';
 
 interface ChoicesListControlledProps {
   items: ChoiceOption[];
-  activeItem: ChoiceOption;
+  highlightedItem: ChoiceOption;
   itemComponent?: React.ComponentType<ItemProps>;
 }
 
 /*
-Controlled list of choices. Indicates the active item
+Controlled list of choices. Indicates the highlighted item
  */
 export function ChoicesList({
   items,
-  activeItem,
+  highlightedItem,
   itemComponent = Item,
 }: ChoicesListControlledProps) {
   return (
     <Box flexDirection="column">
       {items.map(item => {
-        const isSelected = item === activeItem;
+        const isSelected = item === highlightedItem;
         return (
           <Box key={item.key || item.value}>
             <Indicator isSelected={isSelected} />

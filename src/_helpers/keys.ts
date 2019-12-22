@@ -6,3 +6,4 @@ export const ENTER = '\r';
 export const CTRL_C = '\x03';
 export const BACKSPACE = '\x08';
 export const DELETE = '\x7F';
+export const SPACE = ' ';
