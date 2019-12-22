@@ -121,6 +121,7 @@ function fuzzySearchNodes(nodes, pattern) {
     keys: 'relativePath',
     token_field_min_length: 1,
     // start searching with a query this long
+    highlight_bridge_gap: 0,
     highlight_before: HIGHLIGHT_SYMBOL_START,
     highlight_after: HIGHLIGHT_SYMBOL_END
   });

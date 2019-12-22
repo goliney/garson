@@ -37,7 +37,7 @@ export function useMultiChoicesNavigation(items: MultiChoiceOption[]) {
       return (isAlreadySelected && !isHighlighted) || (!isAlreadySelected && isHighlighted);
     });
     setSelectedItems(newSelectedItems);
-  }, [highlightedItem, items]);
+  }, [highlightedItem, selectedItems, items]);
 
   const handleKey = useCallback(
     key => {
@@ -55,7 +55,7 @@ export function useMultiChoicesNavigation(items: MultiChoiceOption[]) {
           break;
       }
     },
-    [highlightPrevItem, highlightNextItem]
+    [highlightPrevItem, highlightNextItem, toggleSelection]
   );
 
   useKeyHandler(handleKey);

@@ -5,8 +5,6 @@
 
 Interactive config-based command line tool
 
-# TODO: COOL EXAMPLE GIF :sunglasses:
-
 ## Install
 
 ```shell script
@@ -25,6 +23,9 @@ Run:
 garson
 ```
 This command will look for `garson.config.js` file in the current directory.
+You can change the default path with `--config` options.
+
+See `garson --help` for a full list of options.
 
 ## Examples
 
@@ -64,11 +65,10 @@ module.exports = garson()
 ```
 
 #### Fuzzy path search
-
 ```js
 // garson.config.js
 const path = require('path');
-const { garson, prompts, actions } = require('./dist');
+const { garson, prompts, actions } = require('garson');
 
 module.exports = garson()
   .prompt(
@@ -82,5 +82,52 @@ module.exports = garson()
   .action(results => {
     const { file } = results;
     actions.spawn(`wc ${file.path}`);
+  });
+```
+
+#### Choices
+```js
+// garson.config.js
+const { garson, prompts, actions } = require('garson');
+
+module.exports = garson()
+  .prompt(
+    'command',
+    prompts.choices({
+      message: "What git command you want to run?",
+      items: [
+        { label: 'See current branch', value: 'git branch' },
+        { label: 'Checkout to master', value: 'git checkout master' },
+        { label: 'See status', value: 'git status' },
+      ]
+    }),
+  )
+  .action(results => {
+    const { command } = results;
+    actions.spawn(command, { showCommand: true });
+  });
+```
+
+#### Multi choices
+```js
+// garson.config.js
+const { garson, prompts, actions } = require('garson');
+
+module.exports = garson()
+  .prompt(
+    'wcOptions',
+    prompts.multiChoices({
+      message: "What do you want to count in garson.config.js file?",
+      items: [
+        { label: 'Lines', value: 'l', isSelected: true },
+        { label: 'Words', value: 'w', isSelected: true },
+        { label: 'Characters', value: 'm' },
+      ]
+    }),
+  )
+  .action(results => {
+    const { wcOptions } = results;
+    const options = wcOptions.length ? `-${wcOptions.join('')}` : '';
+    actions.spawn(`wc ${options} garson.config.js`);
   });
 ```

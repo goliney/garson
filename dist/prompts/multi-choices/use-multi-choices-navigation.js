@@ -71,7 +71,7 @@ function useMultiChoicesNavigation(items) {
       return isAlreadySelected && !isHighlighted || !isAlreadySelected && isHighlighted;
     });
     setSelectedItems(newSelectedItems);
-  }, [highlightedItem, items]);
+  }, [highlightedItem, selectedItems, items]);
   const handleKey = (0, _react.useCallback)(key => {
     switch (key) {
       case _keys.ARROW_UP:
@@ -89,7 +89,7 @@ function useMultiChoicesNavigation(items) {
       default:
         break;
     }
-  }, [highlightPrevItem, highlightNextItem]);
+  }, [highlightPrevItem, highlightNextItem, toggleSelection]);
   (0, _helpers.useKeyHandler)(handleKey);
   return {
     highlightedItem,

@@ -1,4 +1,4 @@
-const { garson, prompts, actions } = require('./dist');
+const { garson, prompts, actions } = require('garson');
 
 module.exports = garson()
   .prompt(
