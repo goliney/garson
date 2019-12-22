@@ -22,12 +22,12 @@ export function MultiChoicesList({
   return (
     <Box flexDirection="column">
       {items.map(item => {
-        const isActive = item === highlightedItem;
+        const isHighlighted = item === highlightedItem;
         const isSelected = selectedItems.includes(item);
         return (
           <Box key={item.key || item.value}>
-            <Indicator isSelected={isSelected} isActive={isActive} />
-            {React.createElement(itemComponent, { isActive, item })}
+            <Indicator isSelected={isSelected} isHighlighted={isHighlighted} />
+            {React.createElement(itemComponent, { isHighlighted, item })}
           </Box>
         );
       })}

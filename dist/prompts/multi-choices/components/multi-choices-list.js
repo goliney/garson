@@ -33,15 +33,15 @@ function MultiChoicesList({
   return _react.default.createElement(_ink.Box, {
     flexDirection: "column"
   }, items.map(item => {
-    const isActive = item === highlightedItem;
+    const isHighlighted = item === highlightedItem;
     const isSelected = selectedItems.includes(item);
     return _react.default.createElement(_ink.Box, {
       key: item.key || item.value
     }, _react.default.createElement(_indicator.Indicator, {
       isSelected: isSelected,
-      isActive: isActive
+      isHighlighted: isHighlighted
     }), _react.default.createElement(itemComponent, {
-      isActive,
+      isHighlighted,
       item
     }));
   }));

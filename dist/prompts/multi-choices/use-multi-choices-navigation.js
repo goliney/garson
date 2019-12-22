@@ -35,7 +35,7 @@ function useMultiChoicesNavigation(items) {
   const _useState = (0, _react.useState)(items[0]),
         _useState2 = _slicedToArray(_useState, 2),
         highlightedItem = _useState2[0],
-        setActiveItem = _useState2[1];
+        setHighlightedItem = _useState2[1];
 
   const _useState3 = (0, _react.useState)([]),
         _useState4 = _slicedToArray(_useState3, 2),
@@ -51,24 +51,24 @@ function useMultiChoicesNavigation(items) {
       return;
     }
 
-    const indexOfActive = items.indexOf(highlightedItem);
-    const prevItemIndex = Math.max(indexOfActive - 1, 0);
-    setActiveItem(items[prevItemIndex]);
+    const indexOfHighlighted = items.indexOf(highlightedItem);
+    const prevItemIndex = Math.max(indexOfHighlighted - 1, 0);
+    setHighlightedItem(items[prevItemIndex]);
   }, [highlightedItem, items]);
   const highlightNextItem = (0, _react.useCallback)(() => {
     if (items.length === 0 || !highlightedItem) {
       return;
     }
 
-    const indexOfActive = items.indexOf(highlightedItem);
-    const nextItemIndex = Math.min(indexOfActive + 1, items.length - 1);
-    setActiveItem(items[nextItemIndex]);
+    const indexOfHighlighted = items.indexOf(highlightedItem);
+    const nextItemIndex = Math.min(indexOfHighlighted + 1, items.length - 1);
+    setHighlightedItem(items[nextItemIndex]);
   }, [highlightedItem, items]);
   const toggleSelection = (0, _react.useCallback)(() => {
     const newSelectedItems = items.filter(item => {
       const isAlreadySelected = selectedItems.includes(item);
-      const isActive = item === highlightedItem;
-      return isAlreadySelected && !isActive || !isAlreadySelected && isActive;
+      const isHighlighted = item === highlightedItem;
+      return isAlreadySelected && !isHighlighted || !isAlreadySelected && isHighlighted;
     });
     setSelectedItems(newSelectedItems);
   }, [highlightedItem, items]);

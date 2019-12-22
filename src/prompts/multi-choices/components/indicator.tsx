@@ -3,15 +3,15 @@ import { Box, Color } from 'ink';
 import figures from 'figures';
 
 interface IndicatorProps {
-  isActive?: boolean;
+  isHighlighted?: boolean;
   isSelected?: boolean;
 }
 
-export function Indicator({ isActive, isSelected }: IndicatorProps) {
+export function Indicator({ isHighlighted, isSelected }: IndicatorProps) {
   return (
     <Box marginRight={1} flexShrink={0}>
-      {isActive ? <Color blue>{figures.square} </Color> : '  '}
-      <Color blue={isActive}>{isSelected ? figures.circleFilled : figures.circle}</Color>
+      {isHighlighted ? <Color blue>{figures.square} </Color> : '  '}
+      <Color blue={isHighlighted}>{isSelected ? figures.circleFilled : figures.circle}</Color>
     </Box>
   );
 }

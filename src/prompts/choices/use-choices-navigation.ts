@@ -4,28 +4,28 @@ import { ARROW_DOWN, ARROW_UP } from '../../_helpers/keys';
 import { ChoiceOption } from './components/item';
 
 export function useChoicesNavigation(items: ChoiceOption[]) {
-  const [highlightedItem, setActiveItem] = useState(items[0]);
+  const [highlightedItem, setHighlightedItem] = useState(items[0]);
 
   useEffect(() => {
-    setActiveItem(items[0]);
+    setHighlightedItem(items[0]);
   }, [items]);
 
   const selectPrevItem = useCallback(() => {
     if (items.length === 0 || !highlightedItem) {
       return;
     }
-    const indexOfActive = items.indexOf(highlightedItem);
-    const prevItemIndex = Math.max(indexOfActive - 1, 0);
-    setActiveItem(items[prevItemIndex]);
+    const indexOfHighlighted = items.indexOf(highlightedItem);
+    const prevItemIndex = Math.max(indexOfHighlighted - 1, 0);
+    setHighlightedItem(items[prevItemIndex]);
   }, [highlightedItem, items]);
 
   const selectNextItem = useCallback(() => {
     if (items.length === 0 || !highlightedItem) {
       return;
     }
-    const indexOfActive = items.indexOf(highlightedItem);
-    const nextItemIndex = Math.min(indexOfActive + 1, items.length - 1);
-    setActiveItem(items[nextItemIndex]);
+    const indexOfHighlighted = items.indexOf(highlightedItem);
+    const nextItemIndex = Math.min(indexOfHighlighted + 1, items.length - 1);
+    setHighlightedItem(items[nextItemIndex]);
   }, [highlightedItem, items]);
 
   const handleKey = useCallback(

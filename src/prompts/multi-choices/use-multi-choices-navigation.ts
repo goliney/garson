@@ -4,7 +4,7 @@ import { ARROW_DOWN, ARROW_UP, SPACE } from '../../_helpers/keys';
 import { MultiChoiceOption } from './components/item';
 
 export function useMultiChoicesNavigation(items: MultiChoiceOption[]) {
-  const [highlightedItem, setActiveItem] = useState(items[0]);
+  const [highlightedItem, setHighlightedItem] = useState(items[0]);
   const [selectedItems, setSelectedItems] = useState<MultiChoiceOption[]>([]);
 
   // pre-select default items
@@ -16,25 +16,25 @@ export function useMultiChoicesNavigation(items: MultiChoiceOption[]) {
     if (items.length === 0 || !highlightedItem) {
       return;
     }
-    const indexOfActive = items.indexOf(highlightedItem);
-    const prevItemIndex = Math.max(indexOfActive - 1, 0);
-    setActiveItem(items[prevItemIndex]);
+    const indexOfHighlighted = items.indexOf(highlightedItem);
+    const prevItemIndex = Math.max(indexOfHighlighted - 1, 0);
+    setHighlightedItem(items[prevItemIndex]);
   }, [highlightedItem, items]);
 
   const highlightNextItem = useCallback(() => {
     if (items.length === 0 || !highlightedItem) {
       return;
     }
-    const indexOfActive = items.indexOf(highlightedItem);
-    const nextItemIndex = Math.min(indexOfActive + 1, items.length - 1);
-    setActiveItem(items[nextItemIndex]);
+    const indexOfHighlighted = items.indexOf(highlightedItem);
+    const nextItemIndex = Math.min(indexOfHighlighted + 1, items.length - 1);
+    setHighlightedItem(items[nextItemIndex]);
   }, [highlightedItem, items]);
 
   const toggleSelection = useCallback(() => {
     const newSelectedItems = items.filter(item => {
       const isAlreadySelected = selectedItems.includes(item);
-      const isActive = item === highlightedItem;
-      return (isAlreadySelected && !isActive) || (!isAlreadySelected && isActive);
+      const isHighlighted = item === highlightedItem;
+      return (isAlreadySelected && !isHighlighted) || (!isAlreadySelected && isHighlighted);
     });
     setSelectedItems(newSelectedItems);
   }, [highlightedItem, items]);

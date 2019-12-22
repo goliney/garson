@@ -11,10 +11,10 @@ export interface MultiChoiceOption {
 }
 
 export interface ItemProps {
-  isActive: boolean;
+  isHighlighted: boolean;
   item: MultiChoiceOption;
 }
 
-export function Item({ isActive, item }: ItemProps) {
-  return <Color blue={isActive}>{item.label}</Color>;
+export function Item({ isHighlighted, item }: ItemProps) {
+  return <Color blue={isHighlighted}>{item.label}</Color>;
 }

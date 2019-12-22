@@ -29,28 +29,28 @@ function useChoicesNavigation(items) {
   const _useState = (0, _react.useState)(items[0]),
         _useState2 = _slicedToArray(_useState, 2),
         highlightedItem = _useState2[0],
-        setActiveItem = _useState2[1];
+        setHighlightedItem = _useState2[1];
 
   (0, _react.useEffect)(() => {
-    setActiveItem(items[0]);
+    setHighlightedItem(items[0]);
   }, [items]);
   const selectPrevItem = (0, _react.useCallback)(() => {
     if (items.length === 0 || !highlightedItem) {
       return;
     }
 
-    const indexOfActive = items.indexOf(highlightedItem);
-    const prevItemIndex = Math.max(indexOfActive - 1, 0);
-    setActiveItem(items[prevItemIndex]);
+    const indexOfHighlighted = items.indexOf(highlightedItem);
+    const prevItemIndex = Math.max(indexOfHighlighted - 1, 0);
+    setHighlightedItem(items[prevItemIndex]);
   }, [highlightedItem, items]);
   const selectNextItem = (0, _react.useCallback)(() => {
     if (items.length === 0 || !highlightedItem) {
       return;
     }
 
-    const indexOfActive = items.indexOf(highlightedItem);
-    const nextItemIndex = Math.min(indexOfActive + 1, items.length - 1);
-    setActiveItem(items[nextItemIndex]);
+    const indexOfHighlighted = items.indexOf(highlightedItem);
+    const nextItemIndex = Math.min(indexOfHighlighted + 1, items.length - 1);
+    setHighlightedItem(items[nextItemIndex]);
   }, [highlightedItem, items]);
   const handleKey = (0, _react.useCallback)(key => {
     switch (key) {
