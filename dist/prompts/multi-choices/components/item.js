@@ -12,10 +12,10 @@ var _ink = require("ink");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Item({
-  isActive,
+  isHighlighted,
   item
 }) {
   return _react.default.createElement(_ink.Color, {
-    blue: isActive
+    blue: isHighlighted
   }, item.label);
 }
