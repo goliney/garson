@@ -43,7 +43,7 @@ export async function listNodes(nodePath: string, root?: string): Promise<PathNo
       return currentNode;
     }
     const nodesWithPath = nodes.map(nodeName =>
-      listNodes(path.join(nodePath, nodeName), relativeRoot),
+      listNodes(path.join(nodePath, nodeName), relativeRoot)
     );
     const subNodes = await Promise.all(nodesWithPath);
     return subNodes.reduce((acc, val) => acc.concat(val), currentNode);

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.DELETE = exports.BACKSPACE = exports.CTRL_C = exports.ENTER = exports.ARROW_RIGHT = exports.ARROW_LEFT = exports.ARROW_DOWN = exports.ARROW_UP = void 0;
+exports.SPACE = exports.DELETE = exports.BACKSPACE = exports.CTRL_C = exports.ENTER = exports.ARROW_RIGHT = exports.ARROW_LEFT = exports.ARROW_DOWN = exports.ARROW_UP = void 0;
 const ARROW_UP = '\u001B[A';
 exports.ARROW_UP = ARROW_UP;
 const ARROW_DOWN = '\u001B[B';
@@ -20,3 +20,5 @@ const BACKSPACE = '\x08';
 exports.BACKSPACE = BACKSPACE;
 const DELETE = '\x7F';
 exports.DELETE = DELETE;
+const SPACE = ' ';
+exports.SPACE = SPACE;

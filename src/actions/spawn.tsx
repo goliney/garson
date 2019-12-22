@@ -15,7 +15,7 @@ function garsonSpawn(command: string, { options, showCommand }: SpawnParameters 
     Object.assign({}, options, {
       stdio: 'inherit',
       shell: true,
-    }),
+    })
   );
 }
 

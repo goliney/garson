@@ -13,9 +13,9 @@ exports.useChoicesNavigation = useChoicesNavigation;
 
 var _react = require("react");
 
-var _helpers = require("../../_helpers");
+var _index = require("./index");
 
-var _keys = require("../../_helpers/keys");
+var _keys = require("./keys");
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
@@ -28,30 +28,30 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function useChoicesNavigation(items) {
   const _useState = (0, _react.useState)(items[0]),
         _useState2 = _slicedToArray(_useState, 2),
-        highlightedItem = _useState2[0],
+        activeItem = _useState2[0],
         setActiveItem = _useState2[1];
 
   (0, _react.useEffect)(() => {
     setActiveItem(items[0]);
   }, [items]);
   const selectPrevItem = (0, _react.useCallback)(() => {
-    if (items.length === 0 || !highlightedItem) {
+    if (items.length === 0 || !activeItem) {
       return;
     }
 
-    const indexOfActive = items.indexOf(highlightedItem);
+    const indexOfActive = items.indexOf(activeItem);
     const prevItemIndex = Math.max(indexOfActive - 1, 0);
     setActiveItem(items[prevItemIndex]);
-  }, [highlightedItem, items]);
+  }, [activeItem, items]);
   const selectNextItem = (0, _react.useCallback)(() => {
-    if (items.length === 0 || !highlightedItem) {
+    if (items.length === 0 || !activeItem) {
       return;
     }
 
-    const indexOfActive = items.indexOf(highlightedItem);
+    const indexOfActive = items.indexOf(activeItem);
     const nextItemIndex = Math.min(indexOfActive + 1, items.length - 1);
     setActiveItem(items[nextItemIndex]);
-  }, [highlightedItem, items]);
+  }, [activeItem, items]);
   const handleKey = (0, _react.useCallback)(key => {
     switch (key) {
       case _keys.ARROW_UP:
@@ -66,6 +66,6 @@ function useChoicesNavigation(items) {
         break;
     }
   }, [selectPrevItem, selectNextItem]);
-  (0, _helpers.useKeyHandler)(handleKey);
-  return highlightedItem;
+  (0, _index.useKeyHandler)(handleKey);
+  return activeItem;
 }
