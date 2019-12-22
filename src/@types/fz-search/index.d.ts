@@ -17,5 +17,6 @@ declare module 'fz-search' {
     token_field_min_length: number;
     highlight_before: string;
     highlight_after: string;
+    highlight_bridge_gap?: number;
   }
 }
