@@ -30,6 +30,7 @@ See `garson --help` for a full list of options.
 ## Examples
 
 #### Basic
+![basic prompt example](examples/basic/example.gif)
 ```js
 // garson.config.js
 const { garson, prompts, actions } = require('garson');
@@ -41,43 +42,38 @@ module.exports = garson()
     prompts.input({
       message: "What's your name?",
       placeholder: 'E.g. Barney',
-    }),
+    })
   )
   // second prompt
   .prompt(
     'isAwesome',
     prompts.choices({
-      message: 'Are you awesome?',
-      items: [
-        { label: 'Yes', value: true },
-        { label: 'No', value: false },
-      ],
-    }),
+      message: 'Are you wearing a suit?',
+      items: [{ label: 'Yes', value: true }, { label: 'No', value: false }],
+    })
   )
   // final action
   .action(results => {
     const { name, isAwesome } = results;
-    const message = isAwesome
-      ? `Keep it up, ${name}!`
-      : `${name}, be awesome instead.`;
+    const message = isAwesome ? `High five, ${name}!` : `${name}, suit up!`;
     actions.printMessage({ message });
   });
 ```
 
 #### Fuzzy path search
+![fuzzy path search prompt example](examples/fuzzy-path-search/example.gif)
 ```js
 // garson.config.js
-const path = require('path');
 const { garson, prompts, actions } = require('garson');
 
 module.exports = garson()
   .prompt(
     'file',
     prompts.fuzzyPath({
-      message: "Enter file:",
-      root: path.join(__dirname, 'src'),
+      message: 'Enter file:',
+      root: '/Users/goliney/Workspace/garson/src',
       filter: node => !node.isDir,
-    }),
+    })
   )
   .action(results => {
     const { file } = results;
@@ -86,6 +82,7 @@ module.exports = garson()
 ```
 
 #### Choices
+![choices prompt example](examples/choices/example.gif)
 ```js
 // garson.config.js
 const { garson, prompts, actions } = require('garson');
@@ -94,13 +91,13 @@ module.exports = garson()
   .prompt(
     'command',
     prompts.choices({
-      message: "What git command you want to run?",
+      message: 'What git command you want to run?',
       items: [
         { label: 'See current branch', value: 'git branch' },
         { label: 'Checkout to master', value: 'git checkout master' },
         { label: 'See status', value: 'git status' },
-      ]
-    }),
+      ],
+    })
   )
   .action(results => {
     const { command } = results;
@@ -109,6 +106,7 @@ module.exports = garson()
 ```
 
 #### Multi choices
+![multi choices prompt example](examples/multi-choices/example.gif)
 ```js
 // garson.config.js
 const { garson, prompts, actions } = require('garson');
@@ -117,13 +115,13 @@ module.exports = garson()
   .prompt(
     'wcOptions',
     prompts.multiChoices({
-      message: "What do you want to count in garson.config.js file?",
+      message: 'What do you want to count in garson.config.js file?',
       items: [
         { label: 'Lines', value: 'l', isSelected: true },
         { label: 'Words', value: 'w', isSelected: true },
         { label: 'Characters', value: 'm' },
-      ]
-    }),
+      ],
+    })
   )
   .action(results => {
     const { wcOptions } = results;

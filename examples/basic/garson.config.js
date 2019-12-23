@@ -7,28 +7,19 @@ module.exports = garson()
     prompts.input({
       message: "What's your name?",
       placeholder: 'E.g. Barney',
-    }),
+    })
   )
   // second prompt
   .prompt(
     'isAwesome',
     prompts.choices({
-      message: 'Are you awesome?',
-      items: [
-        { label: 'Yes', value: true },
-        { label: 'No', value: false },
-      ],
-    }),
+      message: 'Are you wearing a suit?',
+      items: [{ label: 'Yes', value: true }, { label: 'No', value: false }],
+    })
   )
   // final action
   .action(results => {
     const { name, isAwesome } = results;
-    const message = isAwesome
-      ? `Keep it up, ${name}!`
-      : `${name}, be awesome instead.`;
+    const message = isAwesome ? `High five, ${name}!` : `${name}, suit up!`;
     actions.printMessage({ message });
   });
-
-
-
-
