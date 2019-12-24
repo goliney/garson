@@ -38,7 +38,7 @@ const { garson, prompts, actions } = require('garson');
 module.exports = garson()
   // first prompt
   .prompt(
-    'name',
+    'firstName',
     prompts.input({
       message: "What's your first name?",
       placeholder: 'E.g. John',
@@ -46,17 +46,16 @@ module.exports = garson()
   )
   // second prompt
   .prompt(
-    'isAwesome',
-    prompts.choices({
-      message: 'Are you wearing a suit?',
-      items: [{ label: 'Yes', value: true }, { label: 'No', value: false }],
+    'lastName',
+    prompts.input({
+      message: "What's your last name?",
+      placeholder: 'E.g. Smith',
     })
   )
   // final action
   .action(results => {
-    const { name, isAwesome } = results;
-    const message = isAwesome ? `High five, ${name}!` : `${name}, suit up!`;
-    actions.printMessage({ message });
+    const { firstName, lastName } = results;
+    actions.printMessage({ message: `Hello, ${firstName} ${lastName}` });
   });
 ```
 
