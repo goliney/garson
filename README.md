@@ -29,8 +29,8 @@ See `garson --help` for a full list of options.
 
 ## Examples
 
-#### Basic
-![basic prompt example](examples/basic/example.gif)
+### Input
+![input prompt example](examples/input/example.gif)
 ```js
 // garson.config.js
 const { garson, prompts, actions } = require('garson');
@@ -40,8 +40,8 @@ module.exports = garson()
   .prompt(
     'name',
     prompts.input({
-      message: "What's your name?",
-      placeholder: 'E.g. Barney',
+      message: "What's your first name?",
+      placeholder: 'E.g. John',
     })
   )
   // second prompt
@@ -60,7 +60,7 @@ module.exports = garson()
   });
 ```
 
-#### Fuzzy path search
+### Fuzzy path search
 ![fuzzy path search prompt example](examples/fuzzy-path-search/example.gif)
 ```js
 // garson.config.js
@@ -81,7 +81,7 @@ module.exports = garson()
   });
 ```
 
-#### Choices
+### Choices
 ![choices prompt example](examples/choices/example.gif)
 ```js
 // garson.config.js
@@ -105,7 +105,7 @@ module.exports = garson()
   });
 ```
 
-#### Multi choices
+### Multi choices
 ![multi choices prompt example](examples/multi-choices/example.gif)
 ```js
 // garson.config.js

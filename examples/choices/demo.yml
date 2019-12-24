@@ -111,7 +111,7 @@ config:
 
 # Records, feel free to edit them
 records:
-  - delay: 913
+  - delay: 1
     content: "\e[?1034hchoices $ "
   - delay: 848
     content: g
