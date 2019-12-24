@@ -23,7 +23,7 @@ Run:
 garson
 ```
 This command will look for `garson.config.js` file in the current directory.
-You can change the default path with `--config` options.
+You can change the default path with `--config` option.
 
 See `garson --help` for a full list of options.
 
