@@ -55,7 +55,7 @@ function runner({
         rest = _prompts.slice(1);
 
   app.rerender(prompt(result => {
-    app.rerender(_react.default.createElement(_react.default.Fragment, null)); // clear the previous prompt from the screen
+    app.rerender(_react.default.createElement(_ink.Box, null, '\n')); // clear the previous prompt from the screen
 
     const newResults = _objectSpread({}, results, {
       [key]: result

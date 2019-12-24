@@ -1,0 +1,205 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: bash -l
+
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /Users/goliney/Workspace/garson/examples/fuzzy-path-search
+
+  # Export additional ENV variables
+  env:
+    recording: true
+
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 70
+
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 12
+
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+
+  # Quality
+  # 1 - 100
+  quality: 100
+
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: floating
+    title: null
+    style:
+      border: 0px black solid
+      # boxShadow: none
+      # margin: 0px
+
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+
+  # The size of the font
+  fontSize: 16
+
+  # The height of lines
+  lineHeight: 1
+
+  # The spacing between letters
+  letterSpacing: 0
+
+  # Theme
+  theme:
+    background: "#1c1c1c"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+
+# Records, feel free to edit them
+records:
+  - delay: 1
+    content: "\e[?1034hfuzzy-path-search $ "
+  - delay: 848
+    content: g
+  - delay: 133
+    content: a
+  - delay: 184
+    content: r
+  - delay: 191
+    content: s
+  - delay: 146
+    content: o
+  - delay: 256
+    content: 'n'
+  - delay: 827
+    content: "\r\n"
+  - delay: 337
+    content: "\e[?25lInitializing...\r\n\e[?25l"
+  - delay: 34
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m \e[2m(Use arrow keys or start typing)\e[22m\r\n"
+  - delay: 5
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m \e[2m(Use arrow keys or start typing)\e[22m\r\n"
+  - delay: 5
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m \e[2m(Use arrow keys or start typing)\e[22m\r\n\e[?25l\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m \e[2m(Use arrow keys or start typing)\e[22m\r\n"
+  - delay: 6
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m \e[2m(Use arrow keys or start typing)\e[22m\r\n\e[34m▇\e[39m \e[34m@types/fz-search/index.d.ts\e[39m\r\n  _helpers/components/line.tsx\r\n  _helpers/components/question.tsx\r\n  _helpers/index.ts\r\n  _helpers/keys.ts\r\n  _helpers/use-enter-key-handler.ts\r\n  _helpers/use-key-handler.ts\r\n"
+  - delay: 1474
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m \e[2m(Use arrow keys or start typing)\e[22m\r\n  @types/fz-search/index.d.ts\r\n\e[34m▇\e[39m \e[34m_helpers/components/line.tsx\e[39m\r\n  _helpers/components/question.tsx\r\n  _helpers/index.ts\r\n  _helpers/keys.ts\r\n  _helpers/use-enter-key-handler.ts\r\n  _helpers/use-key-handler.ts\r\n"
+  - delay: 132
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m \e[2m(Use arrow keys or start typing)\e[22m\r\n  @types/fz-search/index.d.ts\r\n  _helpers/components/line.tsx\r\n\e[34m▇\e[39m \e[34m_helpers/components/question.tsx\e[39m\r\n  _helpers/index.ts\r\n  _helpers/keys.ts\r\n  _helpers/use-enter-key-handler.ts\r\n  _helpers/use-key-handler.ts\r\n"
+  - delay: 361
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m \e[2m(Use arrow keys or start typing)\e[22m\r\n  @types/fz-search/index.d.ts\r\n\e[34m▇\e[39m \e[34m_helpers/components/line.tsx\e[39m\r\n  _helpers/components/question.tsx\r\n  _helpers/index.ts\r\n  _helpers/keys.ts\r\n  _helpers/use-enter-key-handler.ts\r\n  _helpers/use-key-handler.ts\r\n"
+  - delay: 152
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m \e[2m(Use arrow keys or start typing)\e[22m\r\n\e[34m▇\e[39m \e[34m@types/fz-search/index.d.ts\e[39m\r\n  _helpers/components/line.tsx\r\n  _helpers/components/question.tsx\r\n  _helpers/index.ts\r\n  _helpers/keys.ts\r\n  _helpers/use-enter-key-handler.ts\r\n  _helpers/use-key-handler.ts\r\n"
+  - delay: 627
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m \e[2m(Use arrow keys or start typing)\e[22m\r\n\e[34m▇\e[39m \e[34m@types/fz-search/index.d.ts\e[39m\r\n  _helpers/components/line.tsx\r\n  _helpers/components/question.tsx\r\n  _helpers/index.ts\r\n  _helpers/keys.ts\r\n  _helpers/use-enter-key-handler.ts\r\n  _helpers/use-key-handler.ts\r\n\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m p\e[7m \e[27m\r\n\e[34m▇\e[39m \e[34m@types/fz-search/index.d.ts\e[39m\r\n  _helpers/components/line.tsx\r\n  _helpers/components/question.tsx\r\n  _helpers/index.ts\r\n  _helpers/keys.ts\r\n  _helpers/use-enter-key-handler.ts\r\n  _helpers/use-key-handler.ts\r\n\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m p\e[7m \e[27m\r\n\e[34m▇\e[39m \e[34m@types/fz-search/index.d.ts\e[39m\r\n  _helpers/components/line.tsx\r\n  _helpers/components/question.tsx\r\n  _helpers/index.ts\r\n  _helpers/keys.ts\r\n  _helpers/use-enter-key-handler.ts\r\n  _helpers/use-key-handler.ts\r\n"
+  - delay: 6
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m p\e[7m \e[27m\r\n  prompts/fuzzy-\e[7mp\e[27math/index.tsx\r\n  prompts/fuzzy-\e[7mp\e[27math/utils.ts\r\n\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m p\e[7m \e[27m\r\n\e[34m▇\e[39m \e[34mprompts/fuzzy-\e[7mp\e[27math/index.tsx\e[39m\r\n  prompts/fuzzy-\e[7mp\e[27math/utils.ts\r\n"
+  - delay: 138
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m p\r\n\e[34m▇\e[39m \e[34mprompts/fuzzy-\e[7mp\e[27math/index.tsx\e[39m\r\n  prompts/fuzzy-\e[7mp\e[27math/utils.ts\r\n\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pr\e[7m \e[27m\r\n\e[34m▇\e[39m \e[34mprompts/fuzzy-\e[7mp\e[27math/index.tsx\e[39m\r\n  prompts/fuzzy-\e[7mp\e[27math/utils.ts\r\n\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pr\e[7m \e[27m\r\n\e[34m▇\e[39m \e[34mprompts/fuzzy-\e[7mp\e[27math/index.tsx\e[39m\r\n  prompts/fuzzy-\e[7mp\e[27math/utils.ts\r\n"
+  - delay: 7
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pr\e[7m \e[27m\r\n  \e[7mpr\e[27mompts/choices/use-choices-navigation.ts\r\n  \e[7mpr\e[27mompts/fuzzy-path/components/pattern-highlight-item.tsx\r\n  \e[7mpr\e[27mompts/fuzzy-path/index.tsx\r\n  \e[7mpr\e[27mompts/fuzzy-path/utils.ts\r\n  \e[7mpr\e[27mompts/index.ts\r\n  \e[7mpr\e[27mompts/input/index.tsx\r\n  \e[7mpr\e[27mompts/multi-choices/components/indicator.tsx\r\n"
+  - delay: 5
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pr\e[7m \e[27m\r\n\e[34m▇\e[39m \e[34m\e[7mpr\e[27mompts/choices/use-choices-navigation.ts\e[39m\r\n  \e[7mpr\e[27mompts/fuzzy-path/components/pattern-highlight-item.tsx\r\n  \e[7mpr\e[27mompts/fuzzy-path/index.tsx\r\n  \e[7mpr\e[27mompts/fuzzy-path/utils.ts\r\n  \e[7mpr\e[27mompts/index.ts\r\n  \e[7mpr\e[27mompts/input/index.tsx\r\n  \e[7mpr\e[27mompts/multi-choices/components/indicator.tsx\r\n"
+  - delay: 109
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pr\r\n\e[34m▇\e[39m \e[34m\e[7mpr\e[27mompts/choices/use-choices-navigation.ts\e[39m\r\n  \e[7mpr\e[27mompts/fuzzy-path/components/pattern-highlight-item.tsx\r\n  \e[7mpr\e[27mompts/fuzzy-path/index.tsx\r\n  \e[7mpr\e[27mompts/fuzzy-path/utils.ts\r\n  \e[7mpr\e[27mompts/index.ts\r\n  \e[7mpr\e[27mompts/input/index.tsx\r\n  \e[7mpr\e[27mompts/multi-choices/components/indicator.tsx\r\n\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pro\e[7m \e[27m\r\n\e[34m▇\e[39m \e[34m\e[7mpr\e[27mompts/choices/use-choices-navigation.ts\e[39m\r\n  \e[7mpr\e[27mompts/fuzzy-path/components/pattern-highlight-item.tsx\r\n  \e[7mpr\e[27mompts/fuzzy-path/index.tsx\r\n  \e[7mpr\e[27mompts/fuzzy-path/utils.ts\r\n  \e[7mpr\e[27mompts/index.ts\r\n  \e[7mpr\e[27mompts/input/index.tsx\r\n  \e[7mpr\e[27mompts/multi-choices/components/indicator.tsx\r\n"
+  - delay: 6
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pro\e[7m \e[27m\r\n\e[34m▇\e[39m \e[34m\e[7mpr\e[27mompts/choices/use-choices-navigation.ts\e[39m\r\n  \e[7mpr\e[27mompts/fuzzy-path/components/pattern-highlight-item.tsx\r\n  \e[7mpr\e[27mompts/fuzzy-path/index.tsx\r\n  \e[7mpr\e[27mompts/fuzzy-path/utils.ts\r\n  \e[7mpr\e[27mompts/index.ts\r\n  \e[7mpr\e[27mompts/input/index.tsx\r\n  \e[7mpr\e[27mompts/multi-choices/components/indicator.tsx\r\n"
+  - delay: 6
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pro\e[7m \e[27m\r\n  \e[7mpro\e[27mmpts/fuzzy-path/components/pattern-highlight-item.tsx\r\n  \e[7mpro\e[27mmpts/fuzzy-path/index.tsx\r\n  \e[7mpro\e[27mmpts/fuzzy-path/utils.ts\r\n  \e[7mpro\e[27mmpts/index.ts\r\n  \e[7mpro\e[27mmpts/multi-choices/components/indicator.tsx\r\n  \e[7mpro\e[27mmpts/multi-choices/components/item.tsx\r\n  \e[7mpro\e[27mmpts/multi-choices/components/multi-choices-list.tsx\r\n\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pro\e[7m \e[27m\r\n\e[34m▇\e[39m \e[34m\e[7mpro\e[27mmpts/fuzzy-path/components/pattern-highlight-item.tsx\e[39m\r\n  \e[7mpro\e[27mmpts/fuzzy-path/index.tsx\r\n  \e[7mpro\e[27mmpts/fuzzy-path/utils.ts\r\n  \e[7mpro\e[27mmpts/index.ts\r\n  \e[7mpro\e[27mmpts/multi-choices/components/indicator.tsx\r\n  \e[7mpro\e[27mmpts/multi-choices/components/item.tsx\r\n  \e[7mpro\e[27mmpts/multi-choices/components/multi-choices-list.tsx\r\n"
+  - delay: 459
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pro\r\n\e[34m▇\e[39m \e[34m\e[7mpro\e[27mmpts/fuzzy-path/components/pattern-highlight-item.tsx\e[39m\r\n  \e[7mpro\e[27mmpts/fuzzy-path/index.tsx\r\n  \e[7mpro\e[27mmpts/fuzzy-path/utils.ts\r\n  \e[7mpro\e[27mmpts/index.ts\r\n  \e[7mpro\e[27mmpts/multi-choices/components/indicator.tsx\r\n  \e[7mpro\e[27mmpts/multi-choices/components/item.tsx\r\n  \e[7mpro\e[27mmpts/multi-choices/components/multi-choices-list.tsx\r\n"
+  - delay: 5
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pro/\e[7m \e[27m\r\n\e[34m▇\e[39m \e[34m\e[7mpro\e[27mmpts/fuzzy-path/components/pattern-highlight-item.tsx\e[39m\r\n  \e[7mpro\e[27mmpts/fuzzy-path/index.tsx\r\n  \e[7mpro\e[27mmpts/fuzzy-path/utils.ts\r\n  \e[7mpro\e[27mmpts/index.ts\r\n  \e[7mpro\e[27mmpts/multi-choices/components/indicator.tsx\r\n  \e[7mpro\e[27mmpts/multi-choices/components/item.tsx\r\n  \e[7mpro\e[27mmpts/multi-choices/components/multi-choices-list.tsx\r\n"
+  - delay: 8
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pro/\e[7m \e[27m\r\n\e[34m▇\e[39m \e[34m\e[7mpro\e[27mmpts/fuzzy-path/components/pattern-highlight-item.tsx\e[39m\r\n  \e[7mpro\e[27mmpts/fuzzy-path/index.tsx\r\n  \e[7mpro\e[27mmpts/fuzzy-path/utils.ts\r\n  \e[7mpro\e[27mmpts/index.ts\r\n  \e[7mpro\e[27mmpts/multi-choices/components/indicator.tsx\r\n  \e[7mpro\e[27mmpts/multi-choices/components/item.tsx\r\n  \e[7mpro\e[27mmpts/multi-choices/components/multi-choices-list.tsx\r\n"
+  - delay: 6
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pro/\e[7m \e[27m\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mfuzzy-path/components/pattern-highlight-item.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mfuzzy-path/index.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mfuzzy-path/utils.ts\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mindex.ts\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmulti-choices/components/indicator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmulti-choices/components/item.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmulti-choices/components/multi-choices-list.tsx\r\n\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pro/\e[7m \e[27m\r\n\e[34m▇\e[39m \e[34m\e[7mpro\e[27mmpts\e[7m/\e[27mfuzzy-path/components/pattern-highlight-item.tsx\e[39m\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mfuzzy-path/index.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mfuzzy-path/utils.ts\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mindex.ts\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmulti-choices/components/indicator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmulti-choices/components/item.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmulti-choices/components/multi-choices-list.tsx\r\n"
+  - delay: 910
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pro/\r\n\e[34m▇\e[39m \e[34m\e[7mpro\e[27mmpts\e[7m/\e[27mfuzzy-path/components/pattern-highlight-item.tsx\e[39m\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mfuzzy-path/index.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mfuzzy-path/utils.ts\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mindex.ts\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmulti-choices/components/indicator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmulti-choices/components/item.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmulti-choices/components/multi-choices-list.tsx\r\n\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pro/i\e[7m \e[27m\r\n\e[34m▇\e[39m \e[34m\e[7mpro\e[27mmpts\e[7m/\e[27mfuzzy-path/components/pattern-highlight-item.tsx\e[39m\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mfuzzy-path/index.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mfuzzy-path/utils.ts\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mindex.ts\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmulti-choices/components/indicator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmulti-choices/components/item.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmulti-choices/components/multi-choices-list.tsx\r\n"
+  - delay: 5
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pro/i\e[7m \e[27m\r\n\e[34m▇\e[39m \e[34m\e[7mpro\e[27mmpts\e[7m/\e[27mfuzzy-path/components/pattern-highlight-item.tsx\e[39m\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mfuzzy-path/index.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mfuzzy-path/utils.ts\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mindex.ts\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmulti-choices/components/indicator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmulti-choices/components/item.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmulti-choices/components/multi-choices-list.tsx\r\n"
+  - delay: 6
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pro/i\e[7m \e[27m\r\n  \e[7mpro\e[27mmpts\e[7m/i\e[27mndex.ts\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/indicator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/item.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/multi-choices-list.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/index.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/use-multi-choices-navigation.ts\r\n  \e[7mpro\e[27mmpts\e[7m/i\e[27mnput/index.tsx\r\n"
+  - delay: 7
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pro/i\e[7m \e[27m\r\n\e[34m▇\e[39m \e[34m\e[7mpro\e[27mmpts\e[7m/i\e[27mndex.ts\e[39m\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/indicator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/item.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/multi-choices-list.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/index.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/use-multi-choices-navigation.ts\r\n  \e[7mpro\e[27mmpts\e[7m/i\e[27mnput/index.tsx\r\n"
+  - delay: 193
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pro/i\r\n\e[34m▇\e[39m \e[34m\e[7mpro\e[27mmpts\e[7m/i\e[27mndex.ts\e[39m\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/indicator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/item.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/multi-choices-list.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/index.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/use-multi-choices-navigation.ts\r\n  \e[7mpro\e[27mmpts\e[7m/i\e[27mnput/index.tsx\r\n\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pro/in\e[7m \e[27m\r\n\e[34m▇\e[39m \e[34m\e[7mpro\e[27mmpts\e[7m/i\e[27mndex.ts\e[39m\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/indicator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/item.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/multi-choices-list.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/index.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/use-multi-choices-navigation.ts\r\n  \e[7mpro\e[27mmpts\e[7m/i\e[27mnput/index.tsx\r\n\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pro/in\e[7m \e[27m\r\n\e[34m▇\e[39m \e[34m\e[7mpro\e[27mmpts\e[7m/i\e[27mndex.ts\e[39m\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/indicator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/item.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/multi-choices-list.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/index.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/use-multi-choices-navigation.ts\r\n  \e[7mpro\e[27mmpts\e[7m/i\e[27mnput/index.tsx\r\n"
+  - delay: 5
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pro/in\e[7m \e[27m\r\n  \e[7mpro\e[27mmpts\e[7m/in\e[27mdex.ts\r\n  \e[7mpro\e[27mmpts\e[7m/in\e[27mput/index.tsx\r\n  \e[7mpro\e[27mmpts/choices\e[7m/in\e[27mdex.tsx\r\n  \e[7mpro\e[27mmpts/choices/components\e[7m/in\e[27mdicator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/indicator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/item.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/multi-choices-list.tsx\r\n"
+  - delay: 5
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pro/in\e[7m \e[27m\r\n\e[34m▇\e[39m \e[34m\e[7mpro\e[27mmpts\e[7m/in\e[27mdex.ts\e[39m\r\n  \e[7mpro\e[27mmpts\e[7m/in\e[27mput/index.tsx\r\n  \e[7mpro\e[27mmpts/choices\e[7m/in\e[27mdex.tsx\r\n  \e[7mpro\e[27mmpts/choices/components\e[7m/in\e[27mdicator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/indicator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/item.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/multi-choices-list.tsx\r\n"
+  - delay: 176
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pro/in\r\n\e[34m▇\e[39m \e[34m\e[7mpro\e[27mmpts\e[7m/in\e[27mdex.ts\e[39m\r\n  \e[7mpro\e[27mmpts\e[7m/in\e[27mput/index.tsx\r\n  \e[7mpro\e[27mmpts/choices\e[7m/in\e[27mdex.tsx\r\n  \e[7mpro\e[27mmpts/choices/components\e[7m/in\e[27mdicator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/indicator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/item.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/multi-choices-list.tsx\r\n\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pro/ind\e[7m \e[27m\r\n\e[34m▇\e[39m \e[34m\e[7mpro\e[27mmpts\e[7m/in\e[27mdex.ts\e[39m\r\n  \e[7mpro\e[27mmpts\e[7m/in\e[27mput/index.tsx\r\n  \e[7mpro\e[27mmpts/choices\e[7m/in\e[27mdex.tsx\r\n  \e[7mpro\e[27mmpts/choices/components\e[7m/in\e[27mdicator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/indicator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/item.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/multi-choices-list.tsx\r\n\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pro/ind\e[7m \e[27m\r\n\e[34m▇\e[39m \e[34m\e[7mpro\e[27mmpts\e[7m/in\e[27mdex.ts\e[39m\r\n  \e[7mpro\e[27mmpts\e[7m/in\e[27mput/index.tsx\r\n  \e[7mpro\e[27mmpts/choices\e[7m/in\e[27mdex.tsx\r\n  \e[7mpro\e[27mmpts/choices/components\e[7m/in\e[27mdicator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/indicator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/item.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/multi-choices-list.tsx\r\n"
+  - delay: 6
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pro/ind\e[7m \e[27m\r\n  \e[7mpro\e[27mmpts\e[7m/ind\e[27mex.ts\r\n  \e[7mpro\e[27mmpts/input\e[7m/ind\e[27mex.tsx\r\n  \e[7mpro\e[27mmpts/choices\e[7m/ind\e[27mex.tsx\r\n  \e[7mpro\e[27mmpts/choices/components\e[7m/ind\e[27micator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/indicator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/item.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/multi-choices-list.tsx\r\n\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pro/ind\e[7m \e[27m\r\n\e[34m▇\e[39m \e[34m\e[7mpro\e[27mmpts\e[7m/ind\e[27mex.ts\e[39m\r\n  \e[7mpro\e[27mmpts/input\e[7m/ind\e[27mex.tsx\r\n  \e[7mpro\e[27mmpts/choices\e[7m/ind\e[27mex.tsx\r\n  \e[7mpro\e[27mmpts/choices/components\e[7m/ind\e[27micator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/indicator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/item.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/multi-choices-list.tsx\r\n"
+  - delay: 560
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pro/ind\e[7m \e[27m\r\n  \e[7mpro\e[27mmpts\e[7m/ind\e[27mex.ts\r\n\e[34m▇\e[39m \e[34m\e[7mpro\e[27mmpts/input\e[7m/ind\e[27mex.tsx\e[39m\r\n  \e[7mpro\e[27mmpts/choices\e[7m/ind\e[27mex.tsx\r\n  \e[7mpro\e[27mmpts/choices/components\e[7m/ind\e[27micator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/indicator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/item.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/multi-choices-list.tsx\r\n"
+  - delay: 180
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pro/ind\e[7m \e[27m\r\n  \e[7mpro\e[27mmpts\e[7m/ind\e[27mex.ts\r\n  \e[7mpro\e[27mmpts/input\e[7m/ind\e[27mex.tsx\r\n\e[34m▇\e[39m \e[34m\e[7mpro\e[27mmpts/choices\e[7m/ind\e[27mex.tsx\e[39m\r\n  \e[7mpro\e[27mmpts/choices/components\e[7m/ind\e[27micator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/indicator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/item.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/multi-choices-list.tsx\r\n"
+  - delay: 161
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mEnter file:\e[39m pro/ind\e[7m \e[27m\r\n  \e[7mpro\e[27mmpts\e[7m/ind\e[27mex.ts\r\n  \e[7mpro\e[27mmpts/input\e[7m/ind\e[27mex.tsx\r\n  \e[7mpro\e[27mmpts/choices\e[7m/ind\e[27mex.tsx\r\n\e[34m▇\e[39m \e[34m\e[7mpro\e[27mmpts/choices/components\e[7m/ind\e[27micator.tsx\e[39m\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/indicator.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/item.tsx\r\n  \e[7mpro\e[27mmpts\e[7m/\e[27mmult\e[7mi\e[27m-choices/components/multi-choices-list.tsx\r\n"
+  - delay: 968
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\r\n\r\n"
+  - delay: 5
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\r\n\r\n\e[?25h\e[?25h\e[?1049h\e[1;14r\e(B\e[m\e[4l\e[?7h\e[?12l\e[?25h\e[?1h\e=\e[?1h\e=\e[?1h\e=\e[39;49m\e[39;49m\e(B\e[m\e[H\e[2J\e(B\e[0;7m  GNU nano 2.0.6 File: .../choices/components/indicator.tsx           \e[3;1H\e(B\e[mimport React from 'react';\r\e[4dimport { Box, Color } from 'ink';\r\e[5dimport figures from 'figures';\r\e[7dinterface IndicatorProps {\e[8;3HisSelected?: boolean;\r\e[9d}\e[11d\bexport function Indicator({ isSelected }: IndicatorProps) {\e[12;27H\e(B\e[0;7m[ Read 15 lines ]\r\e[13d^G\e(B\e[m Get Help\e(B\e[0;7m^O\e(B\e[m WriteOut\e(B\e[0;7m^R\e(B\e[m Read Fil\e(B\e[0;7m^Y\e(B\e[m Prev Pag\e(B\e[0;7m^K\e(B\e[m Cut Text\e(B\e[0;7m^C\e(B\e[m Cur Pos\r\e[14d\e(B\e[0;7m^X\e(B\e[m Exit    \e(B\e[0;7m^J\e(B\e[m Justify \e(B\e[0;7m^W\e(B\e[m Where Is\e(B\e[0;7m^V\e(B\e[m Next Pag\e(B\e[0;7m^U\e(B\e[m UnCut Te\e(B\e[0;7m^T\e(B\e[m To Spell\r\e[3d"
+  - delay: 1918
+    content: "\e[13d\e[J\e[14;70H\e[14;1H\e[?1049l\r\e[?1l\e>\e[?25h\e[?25h"
+  - delay: 8
+    content: 'fuzzy-path-search $ '
+  - delay: 1000
+    content: ' '
