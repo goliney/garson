@@ -82,8 +82,13 @@ function FuzzyPathComponent({
   (0, _react.useEffect)(() => {
     (function () {
       var _getNodes = _asyncToGenerator(function* () {
-        const calculatedNodes = yield (0, _utils.listNodes)(root);
-        setNodes(calculatedNodes.filter(filter));
+        let calculatedNodes = yield (0, _utils.listNodes)(root);
+
+        if (filter) {
+          calculatedNodes = calculatedNodes.filter(filter);
+        }
+
+        setNodes(calculatedNodes);
       });
 
       function getNodes() {

@@ -13,7 +13,7 @@ interface FuzzyPath {
   message?: string;
   placeholder?: string;
   root: string;
-  filter: (node: PathNode) => boolean;
+  filter?: (node: PathNode) => boolean;
 }
 
 interface FuzzyPathProps extends FuzzyPath {
@@ -50,8 +50,11 @@ export function FuzzyPathComponent({
   // get the list of files based on the 'root' folder
   useEffect(() => {
     (async function getNodes() {
-      const calculatedNodes = await listNodes(root);
-      setNodes(calculatedNodes.filter(filter));
+      let calculatedNodes = await listNodes(root);
+      if (filter) {
+        calculatedNodes = calculatedNodes.filter(filter);
+      }
+      setNodes(calculatedNodes);
     })();
   }, [root, filter]);
 
