@@ -182,8 +182,8 @@ Provides a fuzzy search for a file or a folder in a specified directory.
      <td>
        A filter function that is applied to the found path nodes.
        It is useful for allowing the selection of files or directories only.
-       Path node object contains `isDir`, `path`, `relativePath` and
-       `highlightedRelativePath` properties.
+       Path node object contains <code>isDir</code>, <code>path</code>, <code>relativePath</code> and
+       <code>highlightedRelativePath</code> properties.
      </td>
    </tr>
  </tbody>
@@ -236,7 +236,7 @@ Allows to select a value from the list.
      <td>Array</td>
      <td>Yes</td>
      <td>
-       List of options. Each option should be an objects with `label` and `value` properties.
+       List of options. Each option should be an objects with <code>label</code> and <code>value</code> properties.
        Label is a string to display. Value could have any type, it gets passed into the action callback.
      </td>
    </tr>
@@ -293,9 +293,9 @@ Allows to select multiple values from the list.
      <td>Array</td>
      <td>Yes</td>
      <td>
-       List of options. Each option should be an objects with `label` and `value` properties.
+       List of options. Each option should be an objects with <code>label</code> and <code>value</code> properties.
        Label is a string to display. Value could have any type, it gets passed into the action callback.
-       Same as for the `choices` prompt.
+       Same as for the <code>choices</code> prompt.
      </td>
    </tr>
  </tbody>
@@ -333,7 +333,7 @@ module.exports = garson()
 The `action` takes a single argument - a callback which is invoked with the results of
 all the prompts that were already shown.
 
-It's up to you to decide what to do next with that data. Since it's JavaScript environment,
+It's up to you to decide what to do next with the result data. Since it's JavaScript environment,
 your further actions are limited only by Node.
 
 For your convenience `garson` is shipped with a couple of actions that might get handy.
