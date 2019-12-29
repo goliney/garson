@@ -399,12 +399,17 @@ Example:
 const { garson, prompts, actions } = require('garson');
 
 module.exports = garson()
-  .prompt('name', prompts.input({ message: 'Name:' }))
+  .prompt(
+    'command',
+    prompts.choices({
+      items: [
+        { label: 'See current path', value: 'pwd' },
+        { label: 'See current folder content', value: 'ls -al' }
+      ]
+    })
+  )
   .action(results => {
-    actions.printMessage({
-      boxTitle: 'Greetings',
-      message: `Hello, ${results.name}`
-    });
+    actions.spawn(results.command, { showCommand: true });
   });
 ```
 ![spawn action example](examples/spawn/example.gif)
