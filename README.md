@@ -27,10 +27,91 @@ You can change the default path with `--config` option.
 
 See `garson --help` for a full list of options.
 
-## Examples
+## Configuration
 
-### Input
-![input prompt example](examples/input/example.gif)
+A `garson.conf.js` file should export a garson object, which is represented by
+a chain of prompts that ends with an action:
+```js
+const { garson, prompts, actions } = require('garson');
+
+module.exports = garson()
+  .prompt(/* some prompt */)
+  .action(/* some action  */);
+```
+
+There could be many prompts, but they must end with a single action:
+```js
+const { garson, prompts, actions } = require('garson');
+
+module.exports = garson()
+  .prompt(/* some prompt */)
+  .prompt(/* another prompt */)
+  .prompt(/* one more prompt */)
+  .action(/* the only action  */); // you can't chain anything to .action()
+```
+
+It's possible to return another garson object from the action callback:
+```js
+const { garson, prompts, actions } = require('garson');
+
+const branchA = garson()
+  .prompt(/* branch A prompt */)
+  .action(/* branch A action */);
+
+const branchB = garson()
+  .prompt(/* branch B prompt */)
+  .action(/* branch B action */);
+
+module.exports = garson()
+  .prompt(/* prompt */)
+  .action(results => {
+    if (results.someKey) {
+      return branchA; // will show branch A prompt and then branch A action
+    } else {
+      return branchB; // will show branch B prompt and then branch B action
+    }
+  });
+```
+
+## Prompts
+
+Each `.prompt()` takes two arguments:
+ 1. prompt key
+ 2. prompt object
+
+Prompt key is needed to define a property in the result object which is passed
+into an action callback. Prompt objects defines a type of a prompt.
+
+### Input `prompts.input()`
+
+Provides a text input.
+
+<table>
+  <thead>
+   <tr>
+     <th>Property name</th>
+     <th>Type</th>
+     <th>Required</th>
+     <th>Description</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td>message</td>
+     <td>String</td>
+     <td>No</td>
+     <td>Text to display next to the input</td>
+   </tr>
+   <tr>
+     <td>placeholder</td>
+     <td>String</td>
+     <td>No</td>
+     <td>Text to display when the value is empty</td>
+   </tr>
+ </tbody>
+</table>
+
+Example:
 ```js
 // garson.config.js
 const { garson, prompts, actions } = require('garson');
@@ -54,13 +135,61 @@ module.exports = garson()
   )
   // final action
   .action(results => {
+    // note the keys of the result object
     const { firstName, lastName } = results;
     actions.printMessage({ message: `Hello, ${firstName} ${lastName}` });
   });
 ```
+![input prompt example](examples/input/example.gif)
 
-### Fuzzy path search
-![fuzzy path search prompt example](examples/fuzzy-path-search/example.gif)
+
+### Fuzzy path search `prompts.fuzzyPath()`
+
+Provides a fuzzy search for a file or a folder in a specified directory.
+
+<table>
+  <thead>
+   <tr>
+     <th>Property name</th>
+     <th>Type</th>
+     <th>Required</th>
+     <th>Description</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td>message</td>
+     <td>String</td>
+     <td>No</td>
+     <td>Text to display next to the input</td>
+   </tr>
+   <tr>
+     <td>placeholder</td>
+     <td>String</td>
+     <td>No</td>
+     <td>Text to display when the input value is empty</td>
+   </tr>
+   <tr>
+     <td>root</td>
+     <td>String</td>
+     <td>Yes</td>
+     <td>Path to a root directory where we are searching</td>
+   </tr>
+   <tr>
+     <td>filter</td>
+     <td>Function</td>
+     <td>No</td>
+     <td>
+       A filter function that is applied to the found path nodes.
+       It is useful for allowing the selection of files or directories only.
+       Path node object contains `isDir`, `path`, `relativePath` and
+       `highlightedRelativePath` properties.
+     </td>
+   </tr>
+ </tbody>
+</table>
+
+Example:
 ```js
 // garson.config.js
 const { garson, prompts, actions } = require('garson');
@@ -71,7 +200,7 @@ module.exports = garson()
     prompts.fuzzyPath({
       message: 'Enter file:',
       root: '/Users/goliney/Workspace/garson/src',
-      filter: node => !node.isDir,
+      filter: node => !node.isDir, // filter out directories
     })
   )
   .action(results => {
@@ -79,9 +208,42 @@ module.exports = garson()
     actions.spawn(`wc ${file.path}`);
   });
 ```
+![fuzzy path search prompt example](examples/fuzzy-path-search/example.gif)
 
-### Choices
-![choices prompt example](examples/choices/example.gif)
+
+### Choices `prompts.choices()`
+
+Allows to select a value from the list.
+
+<table>
+  <thead>
+   <tr>
+     <th>Property name</th>
+     <th>Type</th>
+     <th>Required</th>
+     <th>Description</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td>message</td>
+     <td>String</td>
+     <td>No</td>
+     <td>Text to display next to the options</td>
+   </tr>
+   <tr>
+     <td>items</td>
+     <td>Array</td>
+     <td>Yes</td>
+     <td>
+       List of options. Each option should be an objects with `label` and `value` properties.
+       Label is a string to display. Value could have any type, it gets passed into the action callback.
+     </td>
+   </tr>
+ </tbody>
+</table>
+
+Example:
 ```js
 // garson.config.js
 const { garson, prompts, actions } = require('garson');
@@ -103,9 +265,44 @@ module.exports = garson()
     actions.spawn(command, { showCommand: true });
   });
 ```
+![choices prompt example](examples/choices/example.gif)
 
-### Multi choices
-![multi choices prompt example](examples/multi-choices/example.gif)
+
+### Multi choices `prompts.multiChoices()`
+
+Allows to select multiple values from the list.
+
+<table>
+  <thead>
+   <tr>
+     <th>Property name</th>
+     <th>Type</th>
+     <th>Required</th>
+     <th>Description</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td>message</td>
+     <td>String</td>
+     <td>No</td>
+     <td>Text to display next to the options</td>
+   </tr>
+   <tr>
+     <td>items</td>
+     <td>Array</td>
+     <td>Yes</td>
+     <td>
+       List of options. Each option should be an objects with `label` and `value` properties.
+       Label is a string to display. Value could have any type, it gets passed into the action callback.
+       Same as for the `choices` prompt.
+     </td>
+   </tr>
+ </tbody>
+</table>
+
+Example:
+
 ```js
 // garson.config.js
 const { garson, prompts, actions } = require('garson');
@@ -123,8 +320,91 @@ module.exports = garson()
     })
   )
   .action(results => {
-    const { wcOptions } = results;
+    const { wcOptions } = results; // wcOptions is an array
     const options = wcOptions.length ? `-${wcOptions.join('')}` : '';
     actions.spawn(`wc ${options} garson.config.js`);
   });
 ```
+![multi choices prompt example](examples/multi-choices/example.gif)
+
+
+## Actions
+
+The `action` takes a single argument - a callback which is invoked with the results of
+all the prompts that were already shown.
+
+It's up to you to decide what to do next with that data. Since it's JavaScript environment,
+your further actions are limited only by Node.
+
+For your convenience `garson` is shipped with a couple of actions that might get handy.
+
+### Print message `actions.printMessage()`
+
+Shows a text message on the screen.
+
+<table>
+  <thead>
+   <tr>
+     <th>Property name</th>
+     <th>Type</th>
+     <th>Required</th>
+     <th>Description</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td>boxTitle</td>
+     <td>String</td>
+     <td>No</td>
+     <td>Text to display above the message</td>
+   </tr>
+   <tr>
+     <td>message</td>
+     <td>String</td>
+     <td>Yes</td>
+     <td>Message to show</td>
+   </tr>
+ </tbody>
+</table>
+
+Example:
+```js
+const { garson, prompts, actions } = require('garson');
+
+module.exports = garson()
+  .prompt('name', prompts.input({ message: 'Name:' }))
+  .action(results => {
+    actions.printMessage({
+      boxTitle: 'Greetings',
+      message: `Hello, ${results.name}`
+    });
+  });
+```
+![print message action example](examples/print-message/example.gif)
+
+
+### Spawn `actions.spawn()`
+
+A wrapper over Node's [`spawn`](https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options).
+It can get handy when you want to run a command in the terminal.
+
+`actions.spawn` accepts two arguments:
+1. A mandatory command string
+2. An optional spawn options objects. See [`spawn docs`](https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options)
+for a full list of parameters. Optionally, you can set `{ showCommand: true }` to see the
+command before executing it.
+
+Example:
+```js
+const { garson, prompts, actions } = require('garson');
+
+module.exports = garson()
+  .prompt('name', prompts.input({ message: 'Name:' }))
+  .action(results => {
+    actions.printMessage({
+      boxTitle: 'Greetings',
+      message: `Hello, ${results.name}`
+    });
+  });
+```
+![spawn action example](examples/spawn/example.gif)
