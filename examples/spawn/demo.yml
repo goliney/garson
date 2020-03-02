@@ -111,25 +111,25 @@ config:
 
 # Records, feel free to edit them
 records:
-  - delay: 1
+  - delay: 0
     content: "\e[?1034hspawn $ "
-  - delay: 848
+  - delay: 100
     content: g
-  - delay: 133
+  - delay: 100
     content: a
-  - delay: 184
+  - delay: 100
     content: r
-  - delay: 191
+  - delay: 100
     content: s
-  - delay: 146
+  - delay: 100
     content: o
-  - delay: 256
+  - delay: 100
     content: 'n'
-  - delay: 264
+  - delay: 100
     content: "\r\n"
-  - delay: 329
-    content: "\e[?25lInitializing...\r\n\e[?25l"
-  - delay: 35
+  - delay: 100
+    content: "\e[?25l\r\n\e[?25l"
+  - delay: 37
     content: "\e[?25l\e[2K\e[1A\e[2K\e[G\e[34m▇\e[39m \e[34mSee current path\e[39m\r\n  See current folder content\r\n"
   - delay: 810
     content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[G  See current path\r\n\e[34m▇\e[39m \e[34mSee current folder content\e[39m\r\n"
