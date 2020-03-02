@@ -111,25 +111,25 @@ config:
 
 # Records, feel free to edit them
 records:
-  - delay: 1
+  - delay: 0
     content: "\e[?1034hinput $ "
-  - delay: 848
+  - delay: 100
     content: g
-  - delay: 133
+  - delay: 100
     content: a
-  - delay: 184
+  - delay: 100
     content: r
-  - delay: 191
+  - delay: 100
     content: s
-  - delay: 146
+  - delay: 100
     content: o
-  - delay: 256
+  - delay: 100
     content: 'n'
-  - delay: 264
+  - delay: 100
     content: "\r\n"
-  - delay: 329
-    content: "\e[?25lInitializing...\r\n\e[?25l"
-  - delay: 33
+  - delay: 100
+    content: "\e[?25l\r\n\e[?25l"
+  - delay: 37
     content: "\e[?25l\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat's your first name?\e[39m \e[2mE.g. John\e[22m\r\n"
   - delay: 1014
     content: "\e[?25l\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat's your first name?\e[39m \e[2mE.g. John\e[22m\r\n\e[?25l\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat's your first name?\e[39m C\e[7m \e[27m\r\n"
