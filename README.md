@@ -1,9 +1,15 @@
-# garson
+<h1 align="center">
+	<br />
+	<br />
+	<img width="350" alt="garson" src="garson.png">
+	<br />
+	<br />
+</h1>
 
 [![Build Status](https://travis-ci.org/goliney/garson.svg?branch=master)](https://travis-ci.org/goliney/garson)
 [![npm version](https://badge.fury.io/js/garson.svg)](https://www.npmjs.com/package/garson)
 
-Interactive config-based command line tool
+> Interactive config-based command line tool
 
 ## Install
 
