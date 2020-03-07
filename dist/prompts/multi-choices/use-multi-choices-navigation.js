@@ -31,7 +31,7 @@ function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = 
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function useMultiChoicesNavigation(items) {
+function useMultiChoicesNavigation(items, onChangeMiddleware = () => {}) {
   const _useState = (0, _react.useState)(items[0]),
         _useState2 = _slicedToArray(_useState, 2),
         highlightedItem = _useState2[0],
@@ -65,12 +65,14 @@ function useMultiChoicesNavigation(items) {
     setHighlightedItem(items[nextItemIndex]);
   }, [highlightedItem, items]);
   const toggleSelection = (0, _react.useCallback)(() => {
+    const oldSelectedItems = items.filter(item => selectedItems.includes(item));
     const newSelectedItems = items.filter(item => {
       const isAlreadySelected = selectedItems.includes(item);
       const isHighlighted = item === highlightedItem;
       return isAlreadySelected && !isHighlighted || !isAlreadySelected && isHighlighted;
     });
-    setSelectedItems(newSelectedItems);
+    const onChangeMiddlewareResult = onChangeMiddleware(newSelectedItems, oldSelectedItems, items);
+    setSelectedItems(onChangeMiddlewareResult || newSelectedItems);
   }, [highlightedItem, selectedItems, items]);
   const handleKey = (0, _react.useCallback)(key => {
     switch (key) {

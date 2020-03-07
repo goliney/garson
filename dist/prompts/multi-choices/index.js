@@ -21,9 +21,10 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function MultiChoicesComponent({
   message,
   items,
+  onChangeMiddleware,
   onSubmit
 }) {
-  const _useMultiChoicesNavig = (0, _useMultiChoicesNavigation.useMultiChoicesNavigation)(items),
+  const _useMultiChoicesNavig = (0, _useMultiChoicesNavigation.useMultiChoicesNavigation)(items, onChangeMiddleware),
         highlightedItem = _useMultiChoicesNavig.highlightedItem,
         selectedItems = _useMultiChoicesNavig.selectedItems;
 
@@ -42,11 +43,13 @@ function MultiChoicesComponent({
 
 function multiChoices({
   message,
-  items
+  items,
+  onChangeMiddleware
 }) {
   return onSubmit => _react.default.createElement(MultiChoicesComponent, {
     message: message,
     items: items,
+    onChangeMiddleware: onChangeMiddleware,
     onSubmit: onSubmit
   });
 }

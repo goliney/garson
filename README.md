@@ -9,7 +9,23 @@
 [![Build Status](https://travis-ci.org/goliney/garson.svg?branch=master)](https://travis-ci.org/goliney/garson)
 [![npm version](https://badge.fury.io/js/garson.svg)](https://www.npmjs.com/package/garson)
 
-> Interactive config-based command line tool
+:tipping_hand_man: Interactive config-based command line tool
+
+
+## Table of Contents
+
+- [Install](#install)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [Prompts](#prompts)
+  * [Input `prompts.input()`](#input--promptsinput---)
+  * [Fuzzy path search `prompts.fuzzyPath()`](#fuzzy-path-search--promptsfuzzypath---)
+  * [Choices `prompts.choices()`](#choices--promptschoices---)
+  * [Multi choices `prompts.multiChoices()`](#multi-choices--promptsmultichoices---)
+- [Actions](#actions)
+  * [Print message `actions.printMessage()`](#print-message--actionsprintmessage---)
+  * [Spawn `actions.spawn()`](#spawn--actionsspawn---)
+
 
 ## Install
 
@@ -304,6 +320,24 @@ Allows to select multiple values from the list.
        Same as for the <code>choices</code> prompt.
      </td>
    </tr>
+   <tr>
+     <td>onChangeMiddleware</td>
+     <td>Function</td>
+     <td>No</td>
+     <td>
+       A callback that is fired each time user changes a selection. May be handy when you want to transform selection
+       before applying. The callback receives three arguments:
+
+       <ol>
+         <li><code>newItems</code> - an array of newly selected options</li>
+         <li><code>oldItems</code> - an array of previously selected options</li>
+         <li><code>allItems</code> - an original array of options</li>
+       </ol>
+
+       A list returned from this callback will be used as a new selection. Returning falsy value is equal to
+       returning <code>newItems</code>.
+     </td>
+   </tr>
  </tbody>
 </table>
 
@@ -322,14 +356,35 @@ module.exports = garson()
         { label: 'Lines', value: 'l', isSelected: true },
         { label: 'Words', value: 'w', isSelected: true },
         { label: 'Characters', value: 'm' },
+        { label: 'Everything', value: 'lwm', isSelected: false },
       ],
+      // optional handler
+      onChangeMiddleware(newItems, oldItems, allItems) {
+        const isEverything = item => item.value === 'lwm';
+        const newItemsHaveEverythingSelected = newItems.some(isEverything);
+        const oldItemsHaveEverythingSelected = oldItems.some(isEverything);
+
+        if (newItemsHaveEverythingSelected && !oldItemsHaveEverythingSelected) {
+          // if "Everything" just got selected, deselect everything else
+          return allItems.filter(isEverything);
+        }
+
+        if (oldItemsHaveEverythingSelected) {
+          // if "Everything" was selected, deselect it
+          return newItems.filter(item => !isEverything(item));
+        }
+
+        return newItems;
+      },
     })
   )
   .action(results => {
-    const { wcOptions } = results; // wcOptions is an array
+    const { wcOptions } = results;
     const options = wcOptions.length ? `-${wcOptions.join('')}` : '';
-    actions.spawn(`wc ${options} garson.config.js`);
+    actions.spawn(`wc ${options} ./examples/multi-choices/garson.config.js`);
   });
+
+
 ```
 ![multi choices prompt example](examples/multi-choices/example.gif)
 
@@ -375,6 +430,7 @@ Shows a text message on the screen.
 
 Example:
 ```js
+// garson.config.js
 const { garson, prompts, actions } = require('garson');
 
 module.exports = garson()
@@ -402,6 +458,7 @@ command before executing it.
 
 Example:
 ```js
+// garson.config.js
 const { garson, prompts, actions } = require('garson');
 
 module.exports = garson()
