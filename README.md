@@ -18,13 +18,13 @@ Build interactive config-based command line interfaces with JavaScript :wink:
 - [Usage](#usage)
 - [Configuration](#configuration)
 - [Prompts](#prompts)
-  * [Input `prompts.input()`](#input--promptsinput)
-  * [Fuzzy path search `prompts.fuzzyPath()`](#fuzzy-path-search--promptsfuzzypath)
-  * [Choices `prompts.choices()`](#choices--promptschoices)
-  * [Multi choices `prompts.multiChoices()`](#multi-choices--promptsmultichoices)
+  * [Input `prompts.input()`](#input-promptsinput)
+  * [Fuzzy path search `prompts.fuzzyPath()`](#fuzzy-path-search-promptsfuzzypath)
+  * [Choices `prompts.choices()`](#choices-promptschoices)
+  * [Multi choices `prompts.multiChoices()`](#multi-choices-promptsmultichoices)
 - [Actions](#actions)
-  * [Print message `actions.printMessage()`](#print-message--actionsprintmessage)
-  * [Spawn `actions.spawn()`](#spawn--actionsspawn)
+  * [Print message `actions.printMessage()`](#print-message-actionsprintmessage)
+  * [Spawn `actions.spawn()`](#spawn-actionsspawn)
 
 
 ## Install
