@@ -9,7 +9,7 @@
 [![Build Status](https://travis-ci.org/goliney/garson.svg?branch=master)](https://travis-ci.org/goliney/garson)
 [![npm version](https://badge.fury.io/js/garson.svg)](https://www.npmjs.com/package/garson)
 
-:tipping_hand_man: Interactive config-based command line tool
+Build interactive config-based command line interfaces with JavaScript :wink:
 
 
 ## Table of Contents
@@ -18,13 +18,13 @@
 - [Usage](#usage)
 - [Configuration](#configuration)
 - [Prompts](#prompts)
-  * [Input `prompts.input()`](#input--promptsinput---)
-  * [Fuzzy path search `prompts.fuzzyPath()`](#fuzzy-path-search--promptsfuzzypath---)
-  * [Choices `prompts.choices()`](#choices--promptschoices---)
-  * [Multi choices `prompts.multiChoices()`](#multi-choices--promptsmultichoices---)
+  * [Input `prompts.input()`](#input--promptsinput)
+  * [Fuzzy path search `prompts.fuzzyPath()`](#fuzzy-path-search--promptsfuzzypath)
+  * [Choices `prompts.choices()`](#choices--promptschoices)
+  * [Multi choices `prompts.multiChoices()`](#multi-choices--promptsmultichoices)
 - [Actions](#actions)
-  * [Print message `actions.printMessage()`](#print-message--actionsprintmessage---)
-  * [Spawn `actions.spawn()`](#spawn--actionsspawn---)
+  * [Print message `actions.printMessage()`](#print-message--actionsprintmessage)
+  * [Spawn `actions.spawn()`](#spawn--actionsspawn)
 
 
 ## Install
