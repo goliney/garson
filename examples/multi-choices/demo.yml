@@ -129,32 +129,42 @@ records:
     content: "\r\n"
   - delay: 100
     content: "\e[?25l\r\n\e[?25l"
-  - delay: 37
-    content: "\e[?25l\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat do you want to count in garson.config.js file?\e[39m\r\n\e[34m▇ \e[39m\e[34m◯\e[39m \e[34mLines\e[39m\r\n  ◯ Words\r\n  ◯ Characters\r\n"
-  - delay: 7
-    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat do you want to count in garson.config.js file?\e[39m\r\n\e[34m▇ \e[39m\e[34m◉\e[39m \e[34mLines\e[39m\r\n  ◉ Words\r\n  ◯ Characters\r\n"
-  - delay: 1292
-    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat do you want to count in garson.config.js file?\e[39m\r\n  ◉ Lines\r\n\e[34m▇ \e[39m\e[34m◉\e[39m \e[34mWords\e[39m\r\n  ◯ Characters\r\n"
-  - delay: 451
-    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat do you want to count in garson.config.js file?\e[39m\r\n  ◉ Lines\r\n\e[34m▇ \e[39m\e[34m◯\e[39m \e[34mWords\e[39m\r\n  ◯ Characters\r\n"
-  - delay: 447
-    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat do you want to count in garson.config.js file?\e[39m\r\n  ◉ Lines\r\n  ◯ Words\r\n\e[34m▇ \e[39m\e[34m◯\e[39m \e[34mCharacters\e[39m\r\n"
-  - delay: 441
-    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat do you want to count in garson.config.js file?\e[39m\r\n  ◉ Lines\r\n  ◯ Words\r\n\e[34m▇ \e[39m\e[34m◉\e[39m \e[34mCharacters\e[39m\r\n"
+  - delay: 55
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat do you want to count in garson.config.js file?\e[39m\r\n\e[34m▇ \e[39m\e[34m◯\e[39m \e[34mLines\e[39m\r\n  ◯ Words\r\n  ◯ Characters\r\n  ◯ Everything\r\n"
+  - delay: 8
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat do you want to count in garson.config.js file?\e[39m\r\n\e[34m▇ \e[39m\e[34m◉\e[39m \e[34mLines\e[39m\r\n  ◉ Words\r\n  ◯ Characters\r\n  ◯ Everything\r\n"
+  - delay: 684
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat do you want to count in garson.config.js file?\e[39m\r\n  ◉ Lines\r\n\e[34m▇ \e[39m\e[34m◉\e[39m \e[34mWords\e[39m\r\n  ◯ Characters\r\n  ◯ Everything\r\n"
+  - delay: 258
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat do you want to count in garson.config.js file?\e[39m\r\n  ◉ Lines\r\n  ◉ Words\r\n\e[34m▇ \e[39m\e[34m◯\e[39m \e[34mCharacters\e[39m\r\n  ◯ Everything\r\n"
+  - delay: 405
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat do you want to count in garson.config.js file?\e[39m\r\n  ◉ Lines\r\n  ◉ Words\r\n\e[34m▇ \e[39m\e[34m◉\e[39m \e[34mCharacters\e[39m\r\n  ◯ Everything\r\n"
   - delay: 425
-    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat do you want to count in garson.config.js file?\e[39m\r\n  ◉ Lines\r\n\e[34m▇ \e[39m\e[34m◯\e[39m \e[34mWords\e[39m\r\n  ◉ Characters\r\n"
-  - delay: 222
-    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat do you want to count in garson.config.js file?\e[39m\r\n\e[34m▇ \e[39m\e[34m◉\e[39m \e[34mLines\e[39m\r\n  ◯ Words\r\n  ◉ Characters\r\n"
-  - delay: 323
-    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat do you want to count in garson.config.js file?\e[39m\r\n\e[34m▇ \e[39m\e[34m◯\e[39m \e[34mLines\e[39m\r\n  ◯ Words\r\n  ◉ Characters\r\n"
-  - delay: 353
-    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat do you want to count in garson.config.js file?\e[39m\r\n  ◯ Lines\r\n\e[34m▇ \e[39m\e[34m◯\e[39m \e[34mWords\e[39m\r\n  ◉ Characters\r\n"
-  - delay: 201
-    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat do you want to count in garson.config.js file?\e[39m\r\n  ◯ Lines\r\n\e[34m▇ \e[39m\e[34m◉\e[39m \e[34mWords\e[39m\r\n  ◉ Characters\r\n"
-  - delay: 923
-    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\r\n\r\n"
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat do you want to count in garson.config.js file?\e[39m\r\n  ◉ Lines\r\n\e[34m▇ \e[39m\e[34m◉\e[39m \e[34mWords\e[39m\r\n  ◉ Characters\r\n  ◯ Everything\r\n"
+  - delay: 257
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat do you want to count in garson.config.js file?\e[39m\r\n\e[34m▇ \e[39m\e[34m◉\e[39m \e[34mLines\e[39m\r\n  ◉ Words\r\n  ◉ Characters\r\n  ◯ Everything\r\n"
+  - delay: 257
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat do you want to count in garson.config.js file?\e[39m\r\n\e[34m▇ \e[39m\e[34m◯\e[39m \e[34mLines\e[39m\r\n  ◉ Words\r\n  ◉ Characters\r\n  ◯ Everything\r\n"
+  - delay: 278
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat do you want to count in garson.config.js file?\e[39m\r\n  ◯ Lines\r\n\e[34m▇ \e[39m\e[34m◉\e[39m \e[34mWords\e[39m\r\n  ◉ Characters\r\n  ◯ Everything\r\n"
+  - delay: 170
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat do you want to count in garson.config.js file?\e[39m\r\n  ◯ Lines\r\n  ◉ Words\r\n\e[34m▇ \e[39m\e[34m◉\e[39m \e[34mCharacters\e[39m\r\n  ◯ Everything\r\n"
+  - delay: 177
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat do you want to count in garson.config.js file?\e[39m\r\n  ◯ Lines\r\n  ◉ Words\r\n  ◉ Characters\r\n\e[34m▇ \e[39m\e[34m◯\e[39m \e[34mEverything\e[39m\r\n"
+  - delay: 382
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat do you want to count in garson.config.js file?\e[39m\r\n  ◯ Lines\r\n  ◯ Words\r\n  ◯ Characters\r\n\e[34m▇ \e[39m\e[34m◉\e[39m \e[34mEverything\e[39m\r\n"
+  - delay: 450
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat do you want to count in garson.config.js file?\e[39m\r\n  ◯ Lines\r\n  ◯ Words\r\n\e[34m▇ \e[39m\e[34m◯\e[39m \e[34mCharacters\e[39m\r\n  ◉ Everything\r\n"
+  - delay: 373
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat do you want to count in garson.config.js file?\e[39m\r\n  ◯ Lines\r\n  ◯ Words\r\n\e[34m▇ \e[39m\e[34m◉\e[39m \e[34mCharacters\e[39m\r\n  ◯ Everything\r\n"
+  - delay: 470
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat do you want to count in garson.config.js file?\e[39m\r\n  ◯ Lines\r\n\e[34m▇ \e[39m\e[34m◯\e[39m \e[34mWords\e[39m\r\n  ◉ Characters\r\n  ◯ Everything\r\n"
+  - delay: 361
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[32mWhat do you want to count in garson.config.js file?\e[39m\r\n  ◯ Lines\r\n\e[34m▇ \e[39m\e[34m◉\e[39m \e[34mWords\e[39m\r\n  ◉ Characters\r\n  ◯ Everything\r\n"
+  - delay: 616
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\r\n\r\n"
   - delay: 5
-    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\r\n\r\n\e[?25h\e[?25h      72     591 garson.config.js\r\n\e[?25h\e[?25h"
+    content: "\e[?25l\e[?25h\e[?25h     138    1403 garson.config.js\r\n\e[?25h\e[?25h"
   - delay: 6
     content: 'multi-choices $ '
   - delay: 2000

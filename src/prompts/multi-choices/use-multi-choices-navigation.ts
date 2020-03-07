@@ -1,9 +1,13 @@
 import { useCallback, useState, useEffect } from 'react';
+import { onChoiceChangeMiddlewareCallback } from '../../types';
 import { useKeyHandler } from '../../_helpers';
 import { ARROW_DOWN, ARROW_UP, SPACE } from '../../_helpers/keys';
 import { MultiChoiceOption } from './components/item';
 
-export function useMultiChoicesNavigation(items: MultiChoiceOption[]) {
+export function useMultiChoicesNavigation(
+  items: MultiChoiceOption[],
+  onChangeMiddleware: onChoiceChangeMiddlewareCallback<MultiChoiceOption> = () => {}
+) {
   const [highlightedItem, setHighlightedItem] = useState(items[0]);
   const [selectedItems, setSelectedItems] = useState<MultiChoiceOption[]>([]);
 
@@ -31,12 +35,14 @@ export function useMultiChoicesNavigation(items: MultiChoiceOption[]) {
   }, [highlightedItem, items]);
 
   const toggleSelection = useCallback(() => {
+    const oldSelectedItems = items.filter(item => selectedItems.includes(item));
     const newSelectedItems = items.filter(item => {
       const isAlreadySelected = selectedItems.includes(item);
       const isHighlighted = item === highlightedItem;
       return (isAlreadySelected && !isHighlighted) || (!isAlreadySelected && isHighlighted);
     });
-    setSelectedItems(newSelectedItems);
+    const onChangeMiddlewareResult = onChangeMiddleware(newSelectedItems, oldSelectedItems, items);
+    setSelectedItems(onChangeMiddlewareResult || newSelectedItems);
   }, [highlightedItem, selectedItems, items]);
 
   const handleKey = useCallback(

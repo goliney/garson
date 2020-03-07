@@ -2,6 +2,12 @@ export type KeyType = string;
 
 export type OnSubmitCallback = (result: any) => void;
 
+export type onChoiceChangeMiddlewareCallback<T> = (
+  newItems: T[],
+  oldItems: T[],
+  allItems: T[]
+) => T[] | void;
+
 export type PromptCallback = (onSubmit: OnSubmitCallback) => JSX.Element;
 
 export type PromptKeyPairs = PromptKeyPair[];
