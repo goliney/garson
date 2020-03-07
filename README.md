@@ -327,13 +327,11 @@ Allows to select multiple values from the list.
      <td>
        A callback that is fired each time user changes a selection. May be handy when you want to transform selection
        before applying. The callback receives three arguments:
-
        <ol>
          <li><code>newItems</code> - an array of newly selected options</li>
          <li><code>oldItems</code> - an array of previously selected options</li>
          <li><code>allItems</code> - an original array of options</li>
        </ol>
-
        A list returned from this callback will be used as a new selection. Returning falsy value is equal to
        returning <code>newItems</code>.
      </td>
