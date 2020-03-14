@@ -43,7 +43,7 @@ export function useMultiChoicesNavigation(
     });
     const onChangeMiddlewareResult = onChangeMiddleware(newSelectedItems, oldSelectedItems, items);
     setSelectedItems(onChangeMiddlewareResult || newSelectedItems);
-  }, [highlightedItem, selectedItems, items]);
+  }, [highlightedItem, selectedItems, items, onChangeMiddleware]);
 
   const handleKey = useCallback(
     key => {

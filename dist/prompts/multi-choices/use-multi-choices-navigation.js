@@ -73,7 +73,7 @@ function useMultiChoicesNavigation(items, onChangeMiddleware = () => {}) {
     });
     const onChangeMiddlewareResult = onChangeMiddleware(newSelectedItems, oldSelectedItems, items);
     setSelectedItems(onChangeMiddlewareResult || newSelectedItems);
-  }, [highlightedItem, selectedItems, items]);
+  }, [highlightedItem, selectedItems, items, onChangeMiddleware]);
   const handleKey = (0, _react.useCallback)(key => {
     switch (key) {
       case _keys.ARROW_UP:

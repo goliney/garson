@@ -13,3 +13,6 @@ jobs:
     - stage: "Lints"
       name: "eslint"
       script: "yarn run eslint"
+    - stage: "Tests"
+      name: "jest"
+      script: "yarn run test"
