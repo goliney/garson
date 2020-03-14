@@ -22,10 +22,10 @@
   },
   "scripts": {
     "garson": "node ./dist/bin",
-    "build": "babel src --out-dir dist --extensions .js,.jsx,.ts,.tsx",
+    "build": "babel src --out-dir dist --extensions .js,.jsx,.ts,.tsx --ignore 'src/**/__mocks__/**/*'",
     "typecheck": "tsc",
     "eslint": "eslint --ext .js,.jsx,.ts,.tsx ./",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "Sergey Goliney sergey@goliney.com",
   "license": "MIT",
@@ -48,6 +48,8 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.2",
     "eslint-plugin-react-hooks": "^1.6.1",
+    "ink-testing-library": "^1.0.3",
+    "jest": "^25.1.0",
     "prettier": "^1.18.2",
     "typescript": "^3.5.3"
   },
@@ -57,7 +59,6 @@
     "figures": "^3.0.0",
     "fz-search": "^1.0.0",
     "ink": "^2.6.0",
-    "ink-select-input": "^3.1.1",
     "ink-text-input": "^3.2.0",
     "react": "^16.8.6"
   }

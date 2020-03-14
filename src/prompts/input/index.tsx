@@ -49,7 +49,7 @@ export function InputComponent({ message, placeholder, onChange, onSubmit }: Inp
   );
 }
 
-export function input({ message, placeholder }: Input) {
+export function input({ message, placeholder }: Input = {}) {
   return (onSubmit: OnSubmitCallback) => (
     <InputComponent message={message} placeholder={placeholder} onSubmit={onSubmit} />
   );

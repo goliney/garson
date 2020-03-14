@@ -16,11 +16,12 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.runner = runner;
-exports.app = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
 var _ink = require("ink");
+
+var _app = require("../app");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38,11 +39,6 @@ function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-const app = (0, _ink.render)(_react.default.createElement(_ink.Box, null, "Initializing..."), {
-  debug: false
-});
-exports.app = app;
-
 function runner({
   results,
   prompts,
@@ -54,8 +50,9 @@ function runner({
         key = _prompts$.key,
         rest = _prompts.slice(1);
 
-  app.rerender(prompt(result => {
-    app.rerender(_react.default.createElement(_ink.Box, null, '\n')); // clear the previous prompt from the screen
+  _app.app.rerender(prompt(result => {
+    _app.app.rerender(_react.default.createElement(_ink.Box, null, '\n')); // clear the previous prompt from the screen
+
 
     const newResults = _objectSpread({}, results, {
       [key]: result
@@ -68,7 +65,7 @@ function runner({
       if (actionResponse) {
         runner(actionResponse);
       } else {
-        app.unmount();
+        _app.app.unmount();
       }
     } else {
       // there is another prompt

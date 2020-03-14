@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Multi Choice Arrow controls 1`] = `
+"[32m?[39m [32mWhat do you want to count in garson.config.js file?[39m
+  ◉ Lines
+[34m▇ [39m[34m◉[39m [34mWords[39m
+  ◯ Characters
+  ◯ Everything"
+`;
+
+exports[`Multi Choice Arrow controls 2`] = `
+"[32m?[39m [32mWhat do you want to count in garson.config.js file?[39m
+  ◉ Lines
+  ◉ Words
+[34m▇ [39m[34m◯[39m [34mCharacters[39m
+  ◯ Everything"
+`;
+
+exports[`Multi Choice Arrow controls 3`] = `
+"[32m?[39m [32mWhat do you want to count in garson.config.js file?[39m
+  ◉ Lines
+  ◉ Words
+  ◯ Characters
+[34m▇ [39m[34m◯[39m [34mEverything[39m"
+`;
+
+exports[`Multi Choice Arrow controls 4`] = `
+"[32m?[39m [32mWhat do you want to count in garson.config.js file?[39m
+  ◉ Lines
+  ◉ Words
+  ◯ Characters
+[34m▇ [39m[34m◯[39m [34mEverything[39m"
+`;
+
+exports[`Multi Choice Arrow controls 5`] = `
+"[32m?[39m [32mWhat do you want to count in garson.config.js file?[39m
+  ◉ Lines
+  ◉ Words
+[34m▇ [39m[34m◯[39m [34mCharacters[39m
+  ◯ Everything"
+`;
+
+exports[`Multi Choice Arrow controls 6`] = `
+"[32m?[39m [32mWhat do you want to count in garson.config.js file?[39m
+  ◉ Lines
+[34m▇ [39m[34m◉[39m [34mWords[39m
+  ◯ Characters
+  ◯ Everything"
+`;
+
+exports[`Multi Choice Arrow controls 7`] = `
+"[32m?[39m [32mWhat do you want to count in garson.config.js file?[39m
+[34m▇ [39m[34m◉[39m [34mLines[39m
+  ◉ Words
+  ◯ Characters
+  ◯ Everything"
+`;
+
+exports[`Multi Choice Arrow controls 8`] = `
+"[32m?[39m [32mWhat do you want to count in garson.config.js file?[39m
+[34m▇ [39m[34m◉[39m [34mLines[39m
+  ◉ Words
+  ◯ Characters
+  ◯ Everything"
+`;
+
+exports[`Multi Choice Initial render 1`] = `
+"[32m?[39m [32mWhat do you want to count in garson.config.js file?[39m
+[34m▇ [39m[34m◉[39m [34mLines[39m
+  ◉ Words
+  ◯ Characters
+  ◯ Everything"
+`;
+
+exports[`Multi Choice Toggle selection 1`] = `
+"[32m?[39m [32mWhat do you want to count in garson.config.js file?[39m
+[34m▇ [39m[34m◯[39m [34mLines[39m
+  ◉ Words
+  ◯ Characters
+  ◯ Everything"
+`;
+
+exports[`Multi Choice Toggle selection 2`] = `
+"[32m?[39m [32mWhat do you want to count in garson.config.js file?[39m
+  ◯ Lines
+  ◉ Words
+[34m▇ [39m[34m◉[39m [34mCharacters[39m
+  ◯ Everything"
+`;
+
+exports[`Multi Choice onChangeMiddleware 1`] = `
+"[32m?[39m [32mWhat do you want to count in garson.config.js file?[39m
+  ◯ Lines
+  ◯ Words
+  ◯ Characters
+[34m▇ [39m[34m◉[39m [34mEverything[39m"
+`;
+
+exports[`Multi Choice onChangeMiddleware 2`] = `
+"[32m?[39m [32mWhat do you want to count in garson.config.js file?[39m
+  ◯ Lines
+  ◯ Words
+[34m▇ [39m[34m◉[39m [34mCharacters[39m
+  ◯ Everything"
+`;

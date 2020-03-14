@@ -9,7 +9,7 @@ var _react = _interopRequireDefault(require("react"));
 
 var _ink = require("ink");
 
-var _runner = require("../bin/runner");
+var _app = require("../app");
 
 var _helpers = require("../_helpers");
 
@@ -19,7 +19,7 @@ function printMessage({
   boxTitle,
   message
 }) {
-  _runner.app.rerender(_react.default.createElement(_ink.Box, {
+  _app.app.rerender(_react.default.createElement(_ink.Box, {
     flexDirection: "column",
     paddingBottom: 1
   }, _react.default.createElement(_helpers.Line, {

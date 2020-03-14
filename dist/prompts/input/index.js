@@ -66,7 +66,7 @@ function InputComponent({
 function input({
   message,
   placeholder
-}) {
+} = {}) {
   return onSubmit => _react.default.createElement(InputComponent, {
     message: message,
     placeholder: placeholder,

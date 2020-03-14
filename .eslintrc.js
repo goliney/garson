@@ -8,6 +8,7 @@ module.exports = {
   ],
   env: {
     node: true,
+    jest: true,
   },
   plugins: ['react-hooks'],
   rules: {
@@ -36,5 +37,7 @@ module.exports = {
     // https://github.com/typescript-eslint/typescript-eslint/issues/420
     'no-useless-constructor': 'off',
     '@typescript-eslint/no-useless-constructor': 'error',
+    // We use any and warnings are becoming distracting
+    '@typescript-eslint/no-explicit-any': 'off',
   },
 };
