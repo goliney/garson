@@ -14,8 +14,6 @@ require("core-js/modules/es.array.map");
 
 require("core-js/modules/es.object.get-own-property-descriptors");
 
-require("core-js/modules/es.promise");
-
 require("core-js/modules/es.string.includes");
 
 require("core-js/modules/es.string.search");
@@ -33,8 +31,6 @@ exports.HIGHLIGHT_SYMBOL_END = exports.HIGHLIGHT_SYMBOL_START = void 0;
 var _fs = _interopRequireDefault(require("fs"));
 
 var _path = _interopRequireDefault(require("path"));
-
-var _util = _interopRequireDefault(require("util"));
 
 var _fzSearch = _interopRequireDefault(require("fz-search"));
 
@@ -54,55 +50,43 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-const readdir = _util.default.promisify(_fs.default.readdir);
-
 const HIGHLIGHT_SYMBOL_START = '<HIGHLIGHT_SYMBOL_START>';
 exports.HIGHLIGHT_SYMBOL_START = HIGHLIGHT_SYMBOL_START;
 const HIGHLIGHT_SYMBOL_END = '<HIGHLIGHT_SYMBOL_END>';
 exports.HIGHLIGHT_SYMBOL_END = HIGHLIGHT_SYMBOL_END;
 
-function listNodes(_x, _x2) {
-  return _listNodes.apply(this, arguments);
-}
+function listNodes(nodePath, root) {
+  const relativeRoot = root || nodePath;
 
-function _listNodes() {
-  _listNodes = _asyncToGenerator(function* (nodePath, root) {
-    const relativeRoot = root || nodePath;
+  try {
+    const nodes = _fs.default.readdirSync(nodePath);
 
-    try {
-      const nodes = yield readdir(nodePath);
-      const currentNode = [{
-        isDir: true,
+    const currentNode = [{
+      isDir: true,
+      path: nodePath,
+      relativePath: _path.default.relative(relativeRoot, nodePath),
+      highlightedRelativePath: ''
+    }];
+
+    if (nodes.length === 0) {
+      return currentNode;
+    } // recursively get child nodes
+
+
+    const subNodes = nodes.map(nodeName => listNodes(_path.default.join(nodePath, nodeName), relativeRoot));
+    return subNodes.reduce((acc, val) => acc.concat(val), currentNode);
+  } catch (err) {
+    if (err.code === 'ENOTDIR') {
+      return [{
+        isDir: false,
         path: nodePath,
         relativePath: _path.default.relative(relativeRoot, nodePath),
         highlightedRelativePath: ''
       }];
-
-      if (nodes.length === 0) {
-        return currentNode;
-      }
-
-      const nodesWithPath = nodes.map(nodeName => listNodes(_path.default.join(nodePath, nodeName), relativeRoot));
-      const subNodes = yield Promise.all(nodesWithPath);
-      return subNodes.reduce((acc, val) => acc.concat(val), currentNode);
-    } catch (err) {
-      if (err.code === 'ENOTDIR') {
-        return [{
-          isDir: false,
-          path: nodePath,
-          relativePath: _path.default.relative(relativeRoot, nodePath),
-          highlightedRelativePath: ''
-        }];
-      }
-
-      return [];
     }
-  });
-  return _listNodes.apply(this, arguments);
+
+    return [];
+  }
 }
 
 function fuzzySearchNodes(nodes, pattern) {
@@ -111,9 +95,7 @@ function fuzzySearchNodes(nodes, pattern) {
   }
 
   if (!pattern) {
-    return nodes.map(node => _objectSpread({}, node, {
-      indices: []
-    }));
+    return nodes.map(node => _objectSpread({}, node));
   }
 
   const fuzzy = new _fzSearch.default({
