@@ -18,7 +18,7 @@ interface HighlightToken {
 export const HIGHLIGHT_SYMBOL_START = '<HIGHLIGHT_SYMBOL_START>';
 export const HIGHLIGHT_SYMBOL_END = '<HIGHLIGHT_SYMBOL_END>';
 
-export async function listNodes(nodePath: string, root?: string): Promise<PathNode[]> {
+export function listNodes(nodePath: string, root?: string): PathNode[] {
   const relativeRoot = root || nodePath;
   try {
     const nodes = fs.readdirSync(nodePath);
@@ -34,10 +34,7 @@ export async function listNodes(nodePath: string, root?: string): Promise<PathNo
       return currentNode;
     }
     // recursively get child nodes
-    const nodesWithPath = nodes.map(nodeName =>
-      listNodes(path.join(nodePath, nodeName), relativeRoot)
-    );
-    const subNodes = await Promise.all(nodesWithPath);
+    const subNodes = nodes.map(nodeName => listNodes(path.join(nodePath, nodeName), relativeRoot));
     return subNodes.reduce((acc, val) => acc.concat(val), currentNode);
   } catch (err) {
     if (err.code === 'ENOTDIR') {

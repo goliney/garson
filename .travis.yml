@@ -1,6 +1,7 @@
 language: node_js
 node_js:
-  - "12"
+  - "10"
+  - "lts/*"
 cache:
   yarn: true
   directories:
@@ -15,4 +16,4 @@ jobs:
       script: "yarn run eslint"
     - stage: "Tests"
       name: "jest"
-      script: "yarn run test"
+      script: "yarn run test --coverage --coverageReporters=text-summary"

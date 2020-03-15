@@ -49,13 +49,11 @@ export function FuzzyPathComponent({
 
   // get the list of files based on the 'root' folder
   useEffect(() => {
-    (async function getNodes() {
-      let calculatedNodes = await listNodes(root);
-      if (filter) {
-        calculatedNodes = calculatedNodes.filter(filter);
-      }
-      setNodes(calculatedNodes);
-    })();
+    let calculatedNodes = listNodes(root);
+    if (filter) {
+      calculatedNodes = calculatedNodes.filter(filter);
+    }
+    setNodes(calculatedNodes);
   }, [root, filter]);
 
   // search files by pattern
