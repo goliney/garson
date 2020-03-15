@@ -14,6 +14,6 @@ jobs:
     - stage: "Lints"
       name: "eslint"
       script: "yarn run eslint"
-    - stage: "Tests"
+    - stage: "Test"
       name: "jest"
       script: "yarn run test --coverage --coverageReporters=text-summary"
