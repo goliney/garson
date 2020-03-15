@@ -34,8 +34,6 @@ var _fs = _interopRequireDefault(require("fs"));
 
 var _path = _interopRequireDefault(require("path"));
 
-var _util = _interopRequireDefault(require("util"));
-
 var _fzSearch = _interopRequireDefault(require("fz-search"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -58,8 +56,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-const readdir = _util.default.promisify(_fs.default.readdir);
-
 const HIGHLIGHT_SYMBOL_START = '<HIGHLIGHT_SYMBOL_START>';
 exports.HIGHLIGHT_SYMBOL_START = HIGHLIGHT_SYMBOL_START;
 const HIGHLIGHT_SYMBOL_END = '<HIGHLIGHT_SYMBOL_END>';
@@ -74,7 +70,8 @@ function _listNodes() {
     const relativeRoot = root || nodePath;
 
     try {
-      const nodes = yield readdir(nodePath);
+      const nodes = _fs.default.readdirSync(nodePath);
+
       const currentNode = [{
         isDir: true,
         path: nodePath,
@@ -84,7 +81,8 @@ function _listNodes() {
 
       if (nodes.length === 0) {
         return currentNode;
-      }
+      } // recursively get child nodes
+
 
       const nodesWithPath = nodes.map(nodeName => listNodes(_path.default.join(nodePath, nodeName), relativeRoot));
       const subNodes = yield Promise.all(nodesWithPath);
@@ -111,9 +109,7 @@ function fuzzySearchNodes(nodes, pattern) {
   }
 
   if (!pattern) {
-    return nodes.map(node => _objectSpread({}, node, {
-      indices: []
-    }));
+    return nodes.map(node => _objectSpread({}, node));
   }
 
   const fuzzy = new _fzSearch.default({

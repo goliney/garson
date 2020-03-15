@@ -39,5 +39,7 @@ module.exports = {
     '@typescript-eslint/no-useless-constructor': 'error',
     // We use any and warnings are becoming distracting
     '@typescript-eslint/no-explicit-any': 'off',
+    // We use underscore dangle, especially in tests
+    'no-underscore-dangle': 'off',
   },
 };

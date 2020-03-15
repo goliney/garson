@@ -1,9 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import util from 'util';
 import FuzzySearch from 'fz-search';
-
-export type Indices = [number, number][];
 
 export interface PathNode {
   isDir: boolean;
@@ -12,17 +9,11 @@ export interface PathNode {
   highlightedRelativePath: string;
 }
 
-export interface PathNodeMatched extends PathNode {
-  indices: Indices;
-}
-
 interface HighlightToken {
   value: string;
   highlighted: boolean;
   key: number; // token key used by React map
 }
-
-const readdir = util.promisify(fs.readdir);
 
 export const HIGHLIGHT_SYMBOL_START = '<HIGHLIGHT_SYMBOL_START>';
 export const HIGHLIGHT_SYMBOL_END = '<HIGHLIGHT_SYMBOL_END>';
@@ -30,7 +21,7 @@ export const HIGHLIGHT_SYMBOL_END = '<HIGHLIGHT_SYMBOL_END>';
 export async function listNodes(nodePath: string, root?: string): Promise<PathNode[]> {
   const relativeRoot = root || nodePath;
   try {
-    const nodes = await readdir(nodePath);
+    const nodes = fs.readdirSync(nodePath);
     const currentNode = [
       {
         isDir: true,
@@ -42,6 +33,7 @@ export async function listNodes(nodePath: string, root?: string): Promise<PathNo
     if (nodes.length === 0) {
       return currentNode;
     }
+    // recursively get child nodes
     const nodesWithPath = nodes.map(nodeName =>
       listNodes(path.join(nodePath, nodeName), relativeRoot)
     );
@@ -68,7 +60,7 @@ export function fuzzySearchNodes(nodes: PathNode[] | null, pattern: string): Pat
   }
 
   if (!pattern) {
-    return nodes.map(node => ({ ...node, indices: [] }));
+    return nodes.map(node => ({ ...node }));
   }
 
   const fuzzy = new FuzzySearch<PathNode>({
