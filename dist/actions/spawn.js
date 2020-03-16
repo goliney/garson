@@ -20,8 +20,8 @@ function garsonSpawn(command, {
     });
   }
 
-  (0, _child_process.spawn)(command, Object.assign({}, options, {
+  (0, _child_process.spawn)(command, Object.assign({
     stdio: 'inherit',
     shell: true
-  }));
+  }, options));
 }

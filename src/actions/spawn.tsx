@@ -12,10 +12,13 @@ function garsonSpawn(command: string, { options, showCommand }: SpawnParameters 
   }
   spawn(
     command,
-    Object.assign({}, options, {
-      stdio: 'inherit',
-      shell: true,
-    })
+    Object.assign(
+      {
+        stdio: 'inherit',
+        shell: true,
+      },
+      options
+    )
   );
 }
 
