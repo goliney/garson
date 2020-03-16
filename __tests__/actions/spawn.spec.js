@@ -6,6 +6,10 @@ jest.mock('../../src/app');
 jest.mock('child_process');
 
 describe('Spawn', () => {
+  beforeEach(async () => {
+    process.stdout.columns = 80; // needed for line output to be consistent
+  });
+
   afterEach(() => {
     childProcess.spawn.mockReset();
     app.unmount();
@@ -22,7 +26,7 @@ describe('Spawn', () => {
     expect(app.lastFrame()).not.toContain('pwd');
   });
 
-  test('Show command', async () => {
+  test('Show command', () => {
     actions.spawn('ls -al', { showCommand: true });
     expect(childProcess.spawn).toHaveBeenCalledWith('ls -al', { shell: true, stdio: 'inherit' });
     expect(app.lastFrame()).toContain('ls -al');
