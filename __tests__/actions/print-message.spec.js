@@ -1,5 +1,6 @@
 import { actions } from '../../src';
 import { app } from '../../src/app';
+import { stripColorsFromLastFrame } from '../helpers';
 
 jest.mock('../../src/app');
 
@@ -13,11 +14,11 @@ describe('Print Message', () => {
 
   test('With box title', async () => {
     actions.printMessage({ message: `Hello`, boxTitle: 'Simon says' });
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
   });
 
   test('Without box title', async () => {
     actions.printMessage({ message: `Simon says hi` });
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
   });
 });

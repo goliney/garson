@@ -1,6 +1,7 @@
 import childProcess from 'child_process';
 import { actions } from '../../src';
 import { app } from '../../src/app';
+import { stripColorsFromLastFrame } from '../helpers';
 
 jest.mock('../../src/app');
 jest.mock('child_process');
@@ -30,6 +31,6 @@ describe('Spawn', () => {
     actions.spawn('ls -al', { showCommand: true });
     expect(childProcess.spawn).toHaveBeenCalledWith('ls -al', { shell: true, stdio: 'inherit' });
     expect(app.lastFrame()).toContain('ls -al');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
   });
 });
