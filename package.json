@@ -54,12 +54,12 @@
     "typescript": "^3.5.3"
   },
   "dependencies": {
-    "commander": "^4.0.1",
-    "core-js": "3",
-    "figures": "^3.0.0",
+    "commander": "^5.0.0",
+    "core-js": "^3.6.4",
+    "figures": "^3.2.0",
     "fz-search": "^1.0.0",
-    "ink": "^2.6.0",
-    "ink-text-input": "^3.2.0",
-    "react": "^16.8.6"
+    "ink": "^2.7.1",
+    "ink-text-input": "^3.2.2",
+    "react": "^16.13.1"
   }
 }
