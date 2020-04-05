@@ -32,6 +32,10 @@ const configNoLabels = garson()
   .action(actionSpy);
 
 describe('Input', () => {
+  beforeEach(() => {
+    actionSpy.mockClear();
+  });
+
   afterEach(() => {
     app.unmount();
   });

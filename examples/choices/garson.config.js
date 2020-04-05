@@ -1,4 +1,4 @@
-const { garson, prompts, actions } = require('garson');
+const { garson, prompts, actions } = require('../../dist');
 
 module.exports = garson()
   .prompt(
@@ -10,6 +10,7 @@ module.exports = garson()
         { label: 'Checkout to master', value: 'git checkout master' },
         { label: 'See status', value: 'git status' },
       ],
+      isNumericInputEnabled: true,
     })
   )
   .action(results => {

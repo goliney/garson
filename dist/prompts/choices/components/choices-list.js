@@ -23,17 +23,20 @@ Controlled list of choices. Indicates the highlighted item
 function ChoicesList({
   items,
   highlightedItem,
+  isNumericInputEnabled,
   itemComponent = _item.Item
 }) {
   return _react.default.createElement(_ink.Box, {
     flexDirection: "column"
-  }, items.map(item => {
+  }, items.map((item, index) => {
     const isSelected = item === highlightedItem;
     return _react.default.createElement(_ink.Box, {
       key: item.key || item.value
     }, _react.default.createElement(_indicator.Indicator, {
       isSelected: isSelected
-    }), _react.default.createElement(itemComponent, {
+    }), isNumericInputEnabled && _react.default.createElement(_ink.Color, {
+      blue: isSelected
+    }, index + 1, ". "), _react.default.createElement(itemComponent, {
       isSelected,
       item
     }));
