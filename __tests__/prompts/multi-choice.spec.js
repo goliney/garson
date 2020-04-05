@@ -43,6 +43,7 @@ const config = garson()
 
 describe('Multi Choice', () => {
   beforeEach(async () => {
+    actionSpy.mockClear();
     runner(config);
     await new Promise(resolve => setTimeout(resolve));
   });

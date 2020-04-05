@@ -43,6 +43,7 @@ describe('Fuzzy Path Search', () => {
     // eslint-disable-next-line no-underscore-dangle
     fs.__setMockFiles(MOCK_FILE_INFO);
 
+    actionSpy.mockClear();
     runner(config);
     await new Promise(resolve => setTimeout(resolve));
   });

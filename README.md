@@ -262,6 +262,17 @@ Allows to select a value from the list.
        Label is a string to display. Value could have any type, it gets passed into the action callback.
      </td>
    </tr>
+   <tr>
+     <td>isNumericInputEnabled</td>
+     <td>Boolean</td>
+     <td>No</td>
+     <td>
+       Default to false. If true, each item will have an index next to it.
+       Pressing the key that matches the index will select the corresponding item.
+       Note, more than 9 items is not supported
+       if the <code>isNumericInputEnabled</code> mode is on.
+     </td>
+   </tr>
  </tbody>
 </table>
 

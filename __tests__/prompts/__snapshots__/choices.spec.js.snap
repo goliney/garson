@@ -48,3 +48,10 @@ exports[`Choices Initial render 1`] = `
   Checkout to master
   See status"
 `;
+
+exports[`Choices With numeric input enabled Selects correct item 1`] = `
+"[32m?[39m [32mWhat git command you want to run?[39m
+[34m▇[39m [34m1. [39m[34mSee current branch[39m
+  2. Checkout to master
+  3. See status"
+`;
