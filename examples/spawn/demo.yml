@@ -113,17 +113,25 @@ config:
 records:
   - delay: 0
     content: "\e[?1034hspawn $ "
-  - delay: 100
+  - delay: 77
+    content: 'n'
+  - delay: 77
+    content: p
+  - delay: 77
+    content: x
+  - delay: 77
+    content: ' '
+  - delay: 77
     content: g
-  - delay: 100
+  - delay: 77
     content: a
-  - delay: 100
+  - delay: 77
     content: r
-  - delay: 100
+  - delay: 77
     content: s
-  - delay: 100
+  - delay: 77
     content: o
-  - delay: 100
+  - delay: 77
     content: 'n'
   - delay: 100
     content: "\r\n"
