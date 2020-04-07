@@ -9,7 +9,7 @@
 [![Build Status](https://travis-ci.com/goliney/garson.svg?branch=master)](https://travis-ci.com/goliney/garson)
 [![npm version](https://badge.fury.io/js/garson.svg)](https://www.npmjs.com/package/garson)
 
-Build interactive config-based command line interfaces with JavaScript :wink:
+Build interactive config-based command-line interfaces with JavaScript :wink:
 
 
 ## Table of Contents
@@ -30,24 +30,18 @@ Build interactive config-based command line interfaces with JavaScript :wink:
 ## Install
 
 ```shell script
-npm install -g garson # needed for binary
-npm install garson # needed for config file
-```
-Alternatively, if you don't want to install the package locally, you can add global modules path to
-NODE_PATH ([link](https://stackoverflow.com/a/43504699/1065780)):
-```shell script
-export NODE_PATH=$(npm root --quiet -g)
+npm install garson
 ```
 
 ## Usage
 Run:
 ```shell script
-garson
+npx garson
 ```
 This command will look for `garson.config.js` file in the current directory.
 You can change the default path with `--config` option.
 
-See `garson --help` for a full list of options.
+See `npx garson --help` for a full list of options.
 
 ## Configuration
 
