@@ -2032,6 +2032,11 @@ core-js@^3.6.4:
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.6.4.tgz#440a83536b458114b9cb2ac1580ba377dc470647"
   integrity sha512-4paDGScNgZP2IXXilaffL9X7968RuvwlkK3xWtZRVqgd8SYNiVKRJvkFd1aqqEuPfN7E68ZHEp9hDj6lHj4Hyw==
 
+core-js@^3.6.5:
+  version "3.6.5"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.6.5.tgz#7395dc273af37fb2e50e9bd3d9fe841285231d1a"
+  integrity sha512-vZVEEwZoIsI+vPEuoF9Iqf5H7/M3eeQqWlQnYa8FSKKePuYTf5MWnxb5SDAzCa60b3JBRS5g9b+Dq7b1y/RCrA==
+
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
@@ -2836,11 +2841,6 @@ functional-red-black-tree@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
-
-fz-search@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/fz-search/-/fz-search-1.0.0.tgz#469d8a1439637c6f5d1cf17b6fce63fa1e2dc6d8"
-  integrity sha1-Rp2KFDljfG9dHPF7b85j+h4txtg=
 
 gauge@~2.7.3:
   version "2.7.4"
@@ -5902,6 +5902,13 @@ verror@1.10.0:
     assert-plus "^1.0.0"
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
+
+vscode-fuzzy-scorer@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/vscode-fuzzy-scorer/-/vscode-fuzzy-scorer-0.0.4.tgz#259f06a29f78c41d8a353cfe9a2c32ea254f7c11"
+  integrity sha512-nXMU/ys6pGQ4+b8uwWmq+emv7ASQGmpMJA6Yntqw/510fBqBOe42OC3j7p0gqVFpu75yexYIIPnb/LhcejOFZw==
+  dependencies:
+    core-js "^3.6.5"
 
 w3c-hr-time@^1.0.1:
   version "1.0.2"

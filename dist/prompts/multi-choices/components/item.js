@@ -16,6 +16,6 @@ function Item({
   item
 }) {
   return _react.default.createElement(_ink.Color, {
-    blue: isHighlighted
+    hex: isHighlighted ? '#0057ff' : ''
   }, item.label);
 }

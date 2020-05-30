@@ -24,13 +24,13 @@ describe('Spawn', () => {
   test('Options', () => {
     actions.spawn('pwd', { options: { shell: false } });
     expect(childProcess.spawn).toHaveBeenCalledWith('pwd', { shell: false, stdio: 'inherit' });
-    expect(app.lastFrame()).not.toContain('pwd');
+    expect(stripColorsFromLastFrame()).not.toContain('pwd');
   });
 
   test('Show command', () => {
     actions.spawn('ls -al', { showCommand: true });
     expect(childProcess.spawn).toHaveBeenCalledWith('ls -al', { shell: true, stdio: 'inherit' });
-    expect(app.lastFrame()).toContain('ls -al');
+    expect(stripColorsFromLastFrame()).toContain('ls -al');
     expect(stripColorsFromLastFrame()).toMatchSnapshot();
   });
 });

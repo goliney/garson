@@ -16,5 +16,5 @@ export interface ItemProps {
 }
 
 export function Item({ isHighlighted, item }: ItemProps) {
-  return <Color blue={isHighlighted}>{item.label}</Color>;
+  return <Color hex={isHighlighted ? '#0057ff' : ''}>{item.label}</Color>;
 }

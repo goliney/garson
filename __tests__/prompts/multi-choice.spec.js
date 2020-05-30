@@ -54,52 +54,52 @@ describe('Multi Choice', () => {
 
   test('Initial render', () => {
     expect(stripColorsFromLastFrame()).toContain('▇ ◉ Lines');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
   });
 
   test('Arrow controls', async () => {
     await write(ARROW_DOWN);
     expect(stripColorsFromLastFrame()).toContain('▇ ◉ Words');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_DOWN);
     expect(stripColorsFromLastFrame()).toContain('▇ ◯ Characters');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_DOWN);
     expect(stripColorsFromLastFrame()).toContain('▇ ◯ Everything');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_DOWN);
     expect(stripColorsFromLastFrame()).toContain('▇ ◯ Everything');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_UP);
     expect(stripColorsFromLastFrame()).toContain('▇ ◯ Characters');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_UP);
     expect(stripColorsFromLastFrame()).toContain('▇ ◉ Words');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_UP);
     expect(stripColorsFromLastFrame()).toContain('▇ ◉ Lines');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_UP);
     expect(stripColorsFromLastFrame()).toContain('▇ ◉ Lines');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
   });
 
   test('Toggle selection', async () => {
     await write(SPACE);
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_DOWN);
     await write(ARROW_DOWN);
     await write(SPACE);
 
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ENTER);
     expect(actionSpy).toHaveBeenCalledWith({ wcOptions: ['w', 'm'] });
@@ -115,7 +115,7 @@ describe('Multi Choice', () => {
     expect(stripColorsFromLastFrame()).toContain('◯ Words');
     expect(stripColorsFromLastFrame()).toContain('◯ Characters');
     expect(stripColorsFromLastFrame()).toContain('◉ Everything');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_UP);
     await write(SPACE); // toggle something besides of 'Everything'
@@ -123,6 +123,6 @@ describe('Multi Choice', () => {
     expect(stripColorsFromLastFrame()).toContain('◯ Words');
     expect(stripColorsFromLastFrame()).toContain('◉ Characters');
     expect(stripColorsFromLastFrame()).toContain('◯ Everything');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
   });
 });

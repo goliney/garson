@@ -10,8 +10,10 @@ interface IndicatorProps {
 export function Indicator({ isHighlighted, isSelected }: IndicatorProps) {
   return (
     <Box marginRight={1} flexShrink={0}>
-      {isHighlighted ? <Color blue>{figures.square} </Color> : '  '}
-      <Color blue={isHighlighted}>{isSelected ? figures.circleFilled : figures.circle}</Color>
+      {isHighlighted ? <Color hex="#0057ff">{figures.square} </Color> : '  '}
+      <Color hex={isHighlighted ? '#0057ff' : ''}>
+        {isSelected ? figures.circleFilled : figures.circle}
+      </Color>
     </Box>
   );
 }

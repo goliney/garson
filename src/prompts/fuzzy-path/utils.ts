@@ -1,40 +1,53 @@
 import fs from 'fs';
 import path from 'path';
-import FuzzySearch from 'fz-search';
+import util from 'util';
+import {
+  compareFilePathsByFuzzyScore,
+  scoreFilePathFuzzy,
+  prepareQuery,
+  IItemScore,
+} from 'vscode-fuzzy-scorer';
 
 export interface PathNode {
   isDir: boolean;
   path: string;
   relativePath: string;
-  highlightedRelativePath: string;
+  score: IItemScore | null;
 }
 
-interface HighlightToken {
+export interface HighlightToken {
   value: string;
   highlighted: boolean;
-  key: number; // token key used by React map
+  key: string; // token key used by React map
 }
 
-export const HIGHLIGHT_SYMBOL_START = '<HIGHLIGHT_SYMBOL_START>';
-export const HIGHLIGHT_SYMBOL_END = '<HIGHLIGHT_SYMBOL_END>';
+export interface ScoreMatch {
+  start: number;
+  end: number;
+}
 
-export function listNodes(nodePath: string, root?: string): PathNode[] {
+const readdir = util.promisify(fs.readdir);
+
+export async function listNodes(nodePath: string, root?: string): Promise<PathNode[]> {
   const relativeRoot = root || nodePath;
   try {
-    const nodes = fs.readdirSync(nodePath);
+    const nodes = await readdir(nodePath);
     const currentNode = [
       {
         isDir: true,
         path: nodePath,
         relativePath: path.relative(relativeRoot, nodePath),
-        highlightedRelativePath: '',
+        score: null,
       },
     ];
     if (nodes.length === 0) {
       return currentNode;
     }
     // recursively get child nodes
-    const subNodes = nodes.map(nodeName => listNodes(path.join(nodePath, nodeName), relativeRoot));
+    const nodesWithPath = nodes.map(nodeName =>
+      listNodes(path.join(nodePath, nodeName), relativeRoot)
+    );
+    const subNodes = await Promise.all(nodesWithPath);
     return subNodes.reduce((acc, val) => acc.concat(val), currentNode);
   } catch (err) {
     if (err.code === 'ENOTDIR') {
@@ -43,7 +56,7 @@ export function listNodes(nodePath: string, root?: string): PathNode[] {
           isDir: false,
           path: nodePath,
           relativePath: path.relative(relativeRoot, nodePath),
-          highlightedRelativePath: '',
+          score: null,
         },
       ];
     }
@@ -60,39 +73,41 @@ export function fuzzySearchNodes(nodes: PathNode[] | null, pattern: string): Pat
     return nodes.map(node => ({ ...node }));
   }
 
-  const fuzzy = new FuzzySearch<PathNode>({
-    source: nodes,
-    keys: 'relativePath',
-    token_field_min_length: 1, // start searching with a query this long
-    highlight_bridge_gap: 0,
-    highlight_before: HIGHLIGHT_SYMBOL_START,
-    highlight_after: HIGHLIGHT_SYMBOL_END,
-  });
+  const query = prepareQuery(pattern);
 
-  const results = fuzzy.search(pattern);
+  const cache = {};
+
+  const results = [...nodes].sort((r1, r2) =>
+    compareFilePathsByFuzzyScore({ pathA: r1.relativePath, pathB: r2.relativePath, query, cache })
+  );
 
   return results.map(item => ({
     ...item,
-    highlightedRelativePath: fuzzy.highlight(item.relativePath),
+    score: scoreFilePathFuzzy({ path: item.relativePath, query, cache }),
   }));
 }
 
-export function parseHighlightedString(stringWithHighlights: string) {
-  /* eslint-disable no-plusplus */
-  let key = 0;
-  return stringWithHighlights
-    .split(HIGHLIGHT_SYMBOL_START) // RegExps are hard
-    .filter(match => !!match)
-    .reduce<HighlightToken[]>((acc, match) => {
-      if (match.includes(HIGHLIGHT_SYMBOL_END)) {
-        const [highlightedValue, value] = match.split(HIGHLIGHT_SYMBOL_END);
-        // eslint-disable-next-line no-plusplus
-        acc.push({ value: highlightedValue, highlighted: true, key: key++ });
-        acc.push({ value, highlighted: false, key: key++ });
-      } else {
-        acc.push({ value: match, highlighted: false, key: key++ });
-      }
-      return acc;
-    }, []);
-  /* eslint-enable no-plusplus */
+export function highlightStringByScore(source: string, matches: ScoreMatch[]) {
+  const { start } = matches[0];
+  const tokens = start === 0 ? [] : [{ start: 0, end: start, highlighted: false }];
+
+  matches.forEach((match, index) => {
+    tokens.push({ start: match.start, end: match.end, highlighted: true });
+    if (match.end === source.length) {
+      return;
+    }
+    const isLast = index === matches.length - 1;
+
+    const nextStart = isLast ? source.length : matches[index + 1].start;
+    tokens.push({ start: match.end, end: nextStart, highlighted: false });
+  });
+
+  return tokens.map(token => {
+    const substring = source.slice(token.start, token.end);
+    return {
+      key: `${substring} ${token.start}`,
+      value: substring,
+      highlighted: token.highlighted,
+    };
+  });
 }

@@ -10,9 +10,9 @@ function __setMockFiles(newMockFiles) {
   mockFiles = newMockFiles;
 }
 
-// A custom version of `readdirSync` that reads from the special mocked out
+// A custom version of `readdir` that reads from the special mocked out
 // file list set via __setMockFiles
-function readdirSync(source) {
+function readdir(source) {
   if (path.extname(source)) {
     // eslint-disable-next-line no-throw-literal
     throw { code: 'ENOTDIR' };
@@ -26,6 +26,6 @@ function readdirSync(source) {
 }
 
 fs.__setMockFiles = __setMockFiles;
-fs.readdirSync = readdirSync;
+fs.readdir = readdir;
 
 module.exports = fs;
