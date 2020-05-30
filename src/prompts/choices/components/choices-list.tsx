@@ -26,7 +26,9 @@ export function ChoicesList({
         return (
           <Box key={item.key || item.value}>
             <Indicator isSelected={isSelected} />
-            {isNumericInputEnabled && <Color blue={isSelected}>{index + 1}. </Color>}
+            {isNumericInputEnabled && (
+              <Color hex={isSelected ? '#0057ff' : ''}>{index + 1}. </Color>
+            )}
             {React.createElement(itemComponent, { isSelected, item })}
           </Box>
         );

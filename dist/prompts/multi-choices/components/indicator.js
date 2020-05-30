@@ -21,8 +21,8 @@ function Indicator({
     marginRight: 1,
     flexShrink: 0
   }, isHighlighted ? _react.default.createElement(_ink.Color, {
-    blue: true
+    hex: "#0057ff"
   }, _figures.default.square, " ") : '  ', _react.default.createElement(_ink.Color, {
-    blue: isHighlighted
+    hex: isHighlighted ? '#0057ff' : ''
   }, isSelected ? _figures.default.circleFilled : _figures.default.circle));
 }

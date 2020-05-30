@@ -16,6 +16,6 @@ function Item({
   item
 }) {
   return _react.default.createElement(_ink.Color, {
-    blue: isSelected
+    hex: isSelected ? '#0057ff' : ''
   }, item.label);
 }

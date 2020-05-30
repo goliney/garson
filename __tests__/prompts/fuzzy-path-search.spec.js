@@ -8,6 +8,7 @@ import { stripColorsFromLastFrame, write } from '../helpers';
 jest.mock('../../src/app');
 
 jest.mock('fs');
+jest.mock('util');
 
 const actionSpy = jest.fn();
 
@@ -46,6 +47,7 @@ describe('Fuzzy Path Search', () => {
     actionSpy.mockClear();
     runner(config);
     await new Promise(resolve => setTimeout(resolve));
+    await new Promise(resolve => setTimeout(resolve));
   });
 
   afterEach(() => {
@@ -58,42 +60,42 @@ describe('Fuzzy Path Search', () => {
 
   test('Arrow controls', async () => {
     await write(ARROW_DOWN);
-    expect(stripColorsFromLastFrame()).toContain('▇ bar-lorem.js');
+    expect(stripColorsFromLastFrame()).toContain('▇ bar-lorem.js  .');
     expect(app.lastFrame()).toMatchSnapshot();
 
     await write(ARROW_DOWN);
-    expect(stripColorsFromLastFrame()).toContain('▇ lorem/elit-bar.txt');
+    expect(stripColorsFromLastFrame()).toContain('▇ elit-bar.txt  lorem');
     expect(app.lastFrame()).toMatchSnapshot();
 
     await write(ARROW_DOWN);
-    expect(stripColorsFromLastFrame()).toContain('▇ urna/ipsum-lorem.js');
+    expect(stripColorsFromLastFrame()).toContain('▇ ipsum-lorem.js  urna');
     expect(app.lastFrame()).toMatchSnapshot();
 
     await write(ARROW_DOWN);
-    expect(stripColorsFromLastFrame()).toContain('▇ urna/amet-bar.js');
+    expect(stripColorsFromLastFrame()).toContain('▇ amet-bar.js  urna');
     expect(app.lastFrame()).toMatchSnapshot();
     await write(ARROW_DOWN);
-    expect(stripColorsFromLastFrame()).toContain('▇ urna/amet-bar.js');
+    expect(stripColorsFromLastFrame()).toContain('▇ amet-bar.js  urna');
     expect(app.lastFrame()).toMatchSnapshot();
 
     await write(ARROW_UP);
-    expect(stripColorsFromLastFrame()).toContain('▇ urna/ipsum-lorem.js');
+    expect(stripColorsFromLastFrame()).toContain('▇ ipsum-lorem.js  urna');
     expect(app.lastFrame()).toMatchSnapshot();
 
     await write(ARROW_UP);
-    expect(stripColorsFromLastFrame()).toContain('▇ lorem/elit-bar.txt');
+    expect(stripColorsFromLastFrame()).toContain('▇ elit-bar.txt  lorem');
     expect(app.lastFrame()).toMatchSnapshot();
 
     await write(ARROW_UP);
-    expect(stripColorsFromLastFrame()).toContain('▇ bar-lorem.js');
+    expect(stripColorsFromLastFrame()).toContain('▇ bar-lorem.js  .');
     expect(app.lastFrame()).toMatchSnapshot();
 
     await write(ARROW_UP);
-    expect(stripColorsFromLastFrame()).toContain('▇ foo-bar.js');
+    expect(stripColorsFromLastFrame()).toContain('▇ foo-bar.js  .');
     expect(app.lastFrame()).toMatchSnapshot();
 
     await write(ARROW_UP);
-    expect(stripColorsFromLastFrame()).toContain('▇ foo-bar.js');
+    expect(stripColorsFromLastFrame()).toContain('▇ foo-bar.js  .');
     expect(app.lastFrame()).toMatchSnapshot();
   });
 
@@ -103,17 +105,17 @@ describe('Fuzzy Path Search', () => {
     await write(ENTER); // select third option
     expect(actionSpy).toHaveBeenCalledWith({
       file: {
-        highlightedRelativePath: '',
         isDir: false,
         path: 'path/lorem/elit-bar.txt',
         relativePath: 'lorem/elit-bar.txt',
+        score: null,
       },
     });
   });
 
   test('Search', async () => {
     await write('bar');
-    expect(stripColorsFromLastFrame()).toContain('▇ bar-lorem.js');
+    expect(stripColorsFromLastFrame()).toContain('▇ bar-lorem.js  .');
     expect(app.lastFrame()).toMatchSnapshot();
 
     // Test how highlighting changes
@@ -127,7 +129,7 @@ describe('Fuzzy Path Search', () => {
     expect(app.lastFrame()).toMatchSnapshot();
 
     await write('foo');
-    expect(stripColorsFromLastFrame()).toContain('▇ foo-bar.js');
+    expect(stripColorsFromLastFrame()).toContain('▇ foo-bar.js  .');
     expect(app.lastFrame()).toMatchSnapshot();
 
     // Test how highlighting changes
@@ -141,21 +143,28 @@ describe('Fuzzy Path Search', () => {
     expect(app.lastFrame()).toMatchSnapshot();
 
     await write('lorem');
-    expect(stripColorsFromLastFrame()).toContain('▇ bar-lorem.js');
+    expect(stripColorsFromLastFrame()).toContain('▇ bar-lorem.js  .');
     expect(app.lastFrame()).toMatchSnapshot();
 
     await write(ARROW_DOWN);
-    expect(stripColorsFromLastFrame()).toContain('▇ urna/ipsum-lorem.js');
+    expect(stripColorsFromLastFrame()).toContain('▇ ipsum-lorem.js  urna');
     expect(app.lastFrame()).toMatchSnapshot();
 
     await write(ENTER);
     expect(actionSpy).toHaveBeenCalledWith({
       file: {
-        highlightedRelativePath:
-          'urna/ipsum-<HIGHLIGHT_SYMBOL_START>lorem<HIGHLIGHT_SYMBOL_END>.js',
         isDir: false,
         path: 'path/urna/ipsum-lorem.js',
         relativePath: 'urna/ipsum-lorem.js',
+        score: {
+          labelMatch: [
+            {
+              end: 11,
+              start: 6,
+            },
+          ],
+          score: 32768,
+        },
       },
     });
   });

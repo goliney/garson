@@ -2,170 +2,189 @@
 
 exports[`Fuzzy Path Search Arrow controls 1`] = `
 "[32m?[39m [32mEnter file:[39m [2m(Use arrow keys or start typing)[22m
-  foo-bar.js
-[34m▇[39m [34mbar-lorem.js[39m
-  lorem/elit-bar.txt
-  urna/ipsum-lorem.js
-  urna/amet-bar.js"
+  [38;2;36;82;109mfoo-bar.js[39m  [38;2;139;162;165m.[39m
+[38;2;0;87;255m▇[39m [38;2;0;87;255mbar-lorem.js[39m  [38;2;0;87;255m.[39m
+  [38;2;36;82;109melit-bar.txt[39m  [38;2;139;162;165mlorem[39m
+  [38;2;36;82;109mipsum-lorem.js[39m  [38;2;139;162;165murna[39m
+  [38;2;36;82;109mamet-bar.js[39m  [38;2;139;162;165murna[39m"
 `;
 
 exports[`Fuzzy Path Search Arrow controls 2`] = `
 "[32m?[39m [32mEnter file:[39m [2m(Use arrow keys or start typing)[22m
-  foo-bar.js
-  bar-lorem.js
-[34m▇[39m [34mlorem/elit-bar.txt[39m
-  urna/ipsum-lorem.js
-  urna/amet-bar.js"
+  [38;2;36;82;109mfoo-bar.js[39m  [38;2;139;162;165m.[39m
+  [38;2;36;82;109mbar-lorem.js[39m  [38;2;139;162;165m.[39m
+[38;2;0;87;255m▇[39m [38;2;0;87;255melit-bar.txt[39m  [38;2;0;87;255mlorem[39m
+  [38;2;36;82;109mipsum-lorem.js[39m  [38;2;139;162;165murna[39m
+  [38;2;36;82;109mamet-bar.js[39m  [38;2;139;162;165murna[39m"
 `;
 
 exports[`Fuzzy Path Search Arrow controls 3`] = `
 "[32m?[39m [32mEnter file:[39m [2m(Use arrow keys or start typing)[22m
-  foo-bar.js
-  bar-lorem.js
-  lorem/elit-bar.txt
-[34m▇[39m [34murna/ipsum-lorem.js[39m
-  urna/amet-bar.js"
+  [38;2;36;82;109mfoo-bar.js[39m  [38;2;139;162;165m.[39m
+  [38;2;36;82;109mbar-lorem.js[39m  [38;2;139;162;165m.[39m
+  [38;2;36;82;109melit-bar.txt[39m  [38;2;139;162;165mlorem[39m
+[38;2;0;87;255m▇[39m [38;2;0;87;255mipsum-lorem.js[39m  [38;2;0;87;255murna[39m
+  [38;2;36;82;109mamet-bar.js[39m  [38;2;139;162;165murna[39m"
 `;
 
 exports[`Fuzzy Path Search Arrow controls 4`] = `
 "[32m?[39m [32mEnter file:[39m [2m(Use arrow keys or start typing)[22m
-  foo-bar.js
-  bar-lorem.js
-  lorem/elit-bar.txt
-  urna/ipsum-lorem.js
-[34m▇[39m [34murna/amet-bar.js[39m"
+  [38;2;36;82;109mfoo-bar.js[39m  [38;2;139;162;165m.[39m
+  [38;2;36;82;109mbar-lorem.js[39m  [38;2;139;162;165m.[39m
+  [38;2;36;82;109melit-bar.txt[39m  [38;2;139;162;165mlorem[39m
+  [38;2;36;82;109mipsum-lorem.js[39m  [38;2;139;162;165murna[39m
+[38;2;0;87;255m▇[39m [38;2;0;87;255mamet-bar.js[39m  [38;2;0;87;255murna[39m"
 `;
 
 exports[`Fuzzy Path Search Arrow controls 5`] = `
 "[32m?[39m [32mEnter file:[39m [2m(Use arrow keys or start typing)[22m
-  foo-bar.js
-  bar-lorem.js
-  lorem/elit-bar.txt
-  urna/ipsum-lorem.js
-[34m▇[39m [34murna/amet-bar.js[39m"
+  [38;2;36;82;109mfoo-bar.js[39m  [38;2;139;162;165m.[39m
+  [38;2;36;82;109mbar-lorem.js[39m  [38;2;139;162;165m.[39m
+  [38;2;36;82;109melit-bar.txt[39m  [38;2;139;162;165mlorem[39m
+  [38;2;36;82;109mipsum-lorem.js[39m  [38;2;139;162;165murna[39m
+[38;2;0;87;255m▇[39m [38;2;0;87;255mamet-bar.js[39m  [38;2;0;87;255murna[39m"
 `;
 
 exports[`Fuzzy Path Search Arrow controls 6`] = `
 "[32m?[39m [32mEnter file:[39m [2m(Use arrow keys or start typing)[22m
-  foo-bar.js
-  bar-lorem.js
-  lorem/elit-bar.txt
-[34m▇[39m [34murna/ipsum-lorem.js[39m
-  urna/amet-bar.js"
+  [38;2;36;82;109mfoo-bar.js[39m  [38;2;139;162;165m.[39m
+  [38;2;36;82;109mbar-lorem.js[39m  [38;2;139;162;165m.[39m
+  [38;2;36;82;109melit-bar.txt[39m  [38;2;139;162;165mlorem[39m
+[38;2;0;87;255m▇[39m [38;2;0;87;255mipsum-lorem.js[39m  [38;2;0;87;255murna[39m
+  [38;2;36;82;109mamet-bar.js[39m  [38;2;139;162;165murna[39m"
 `;
 
 exports[`Fuzzy Path Search Arrow controls 7`] = `
 "[32m?[39m [32mEnter file:[39m [2m(Use arrow keys or start typing)[22m
-  foo-bar.js
-  bar-lorem.js
-[34m▇[39m [34mlorem/elit-bar.txt[39m
-  urna/ipsum-lorem.js
-  urna/amet-bar.js"
+  [38;2;36;82;109mfoo-bar.js[39m  [38;2;139;162;165m.[39m
+  [38;2;36;82;109mbar-lorem.js[39m  [38;2;139;162;165m.[39m
+[38;2;0;87;255m▇[39m [38;2;0;87;255melit-bar.txt[39m  [38;2;0;87;255mlorem[39m
+  [38;2;36;82;109mipsum-lorem.js[39m  [38;2;139;162;165murna[39m
+  [38;2;36;82;109mamet-bar.js[39m  [38;2;139;162;165murna[39m"
 `;
 
 exports[`Fuzzy Path Search Arrow controls 8`] = `
 "[32m?[39m [32mEnter file:[39m [2m(Use arrow keys or start typing)[22m
-  foo-bar.js
-[34m▇[39m [34mbar-lorem.js[39m
-  lorem/elit-bar.txt
-  urna/ipsum-lorem.js
-  urna/amet-bar.js"
+  [38;2;36;82;109mfoo-bar.js[39m  [38;2;139;162;165m.[39m
+[38;2;0;87;255m▇[39m [38;2;0;87;255mbar-lorem.js[39m  [38;2;0;87;255m.[39m
+  [38;2;36;82;109melit-bar.txt[39m  [38;2;139;162;165mlorem[39m
+  [38;2;36;82;109mipsum-lorem.js[39m  [38;2;139;162;165murna[39m
+  [38;2;36;82;109mamet-bar.js[39m  [38;2;139;162;165murna[39m"
 `;
 
 exports[`Fuzzy Path Search Arrow controls 9`] = `
 "[32m?[39m [32mEnter file:[39m [2m(Use arrow keys or start typing)[22m
-[34m▇[39m [34mfoo-bar.js[39m
-  bar-lorem.js
-  lorem/elit-bar.txt
-  urna/ipsum-lorem.js
-  urna/amet-bar.js"
+[38;2;0;87;255m▇[39m [38;2;0;87;255mfoo-bar.js[39m  [38;2;0;87;255m.[39m
+  [38;2;36;82;109mbar-lorem.js[39m  [38;2;139;162;165m.[39m
+  [38;2;36;82;109melit-bar.txt[39m  [38;2;139;162;165mlorem[39m
+  [38;2;36;82;109mipsum-lorem.js[39m  [38;2;139;162;165murna[39m
+  [38;2;36;82;109mamet-bar.js[39m  [38;2;139;162;165murna[39m"
 `;
 
 exports[`Fuzzy Path Search Arrow controls 10`] = `
 "[32m?[39m [32mEnter file:[39m [2m(Use arrow keys or start typing)[22m
-[34m▇[39m [34mfoo-bar.js[39m
-  bar-lorem.js
-  lorem/elit-bar.txt
-  urna/ipsum-lorem.js
-  urna/amet-bar.js"
+[38;2;0;87;255m▇[39m [38;2;0;87;255mfoo-bar.js[39m  [38;2;0;87;255m.[39m
+  [38;2;36;82;109mbar-lorem.js[39m  [38;2;139;162;165m.[39m
+  [38;2;36;82;109melit-bar.txt[39m  [38;2;139;162;165mlorem[39m
+  [38;2;36;82;109mipsum-lorem.js[39m  [38;2;139;162;165murna[39m
+  [38;2;36;82;109mamet-bar.js[39m  [38;2;139;162;165murna[39m"
 `;
 
 exports[`Fuzzy Path Search Initial render 1`] = `
 "[32m?[39m [32mEnter file:[39m [2m(Use arrow keys or start typing)[22m
-[34m▇[39m [34mfoo-bar.js[39m
-  bar-lorem.js
-  lorem/elit-bar.txt
-  urna/ipsum-lorem.js
-  urna/amet-bar.js"
+[38;2;0;87;255m▇[39m [38;2;0;87;255mfoo-bar.js[39m  [38;2;0;87;255m.[39m
+  [38;2;36;82;109mbar-lorem.js[39m  [38;2;139;162;165m.[39m
+  [38;2;36;82;109melit-bar.txt[39m  [38;2;139;162;165mlorem[39m
+  [38;2;36;82;109mipsum-lorem.js[39m  [38;2;139;162;165murna[39m
+  [38;2;36;82;109mamet-bar.js[39m  [38;2;139;162;165murna[39m"
 `;
 
 exports[`Fuzzy Path Search Search 1`] = `
 "[32m?[39m [32mEnter file:[39m bar[7m [27m
-[34m▇[39m [34m[7mbar[27m-lorem.js[39m
-  foo-[7mbar[27m.js
-  lorem/elit-[7mbar[27m.txt
-  urna/amet-[7mbar[27m.js"
+[38;2;0;87;255m▇[39m [38;2;0;87;255m[7mbar[27m-lorem.js[39m  [38;2;0;87;255m.[39m
+  [38;2;36;82;109mfoo-[7mbar[27m.js[39m  [38;2;139;162;165m.[39m
+  [38;2;36;82;109mamet-[7mbar[27m.js[39m  [38;2;139;162;165murna[39m
+  [38;2;36;82;109melit-[7mbar[27m.txt[39m  [38;2;139;162;165mlorem[39m
+  [38;2;36;82;109mipsum-lorem.js[39m  [38;2;139;162;165murna[39m"
 `;
 
 exports[`Fuzzy Path Search Search 2`] = `
 "[32m?[39m [32mEnter file:[39m ba[7m [27m
-[34m▇[39m [34m[7mba[27mr-lorem.js[39m
-  foo-[7mba[27mr.js
-  lorem/elit-[7mba[27mr.txt
-  urna/amet-[7mba[27mr.js"
+[38;2;0;87;255m▇[39m [38;2;0;87;255m[7mba[27mr-lorem.js[39m  [38;2;0;87;255m.[39m
+  [38;2;36;82;109mfoo-[7mba[27mr.js[39m  [38;2;139;162;165m.[39m
+  [38;2;36;82;109mamet-[7mba[27mr.js[39m  [38;2;139;162;165murna[39m
+  [38;2;36;82;109melit-[7mba[27mr.txt[39m  [38;2;139;162;165mlorem[39m
+  [38;2;36;82;109mipsum-lorem.js[39m  [38;2;139;162;165murna[39m"
 `;
 
 exports[`Fuzzy Path Search Search 3`] = `
 "[32m?[39m [32mEnter file:[39m b[7m [27m
-[34m▇[39m [34m[7mb[27mar-lorem.js[39m
-  foo-[7mb[27mar.js
-  lorem/elit-[7mb[27mar.txt
-  urna/amet-[7mb[27mar.js"
+[38;2;0;87;255m▇[39m [38;2;0;87;255m[7mb[27mar-lorem.js[39m  [38;2;0;87;255m.[39m
+  [38;2;36;82;109mfoo-[7mb[27mar.js[39m  [38;2;139;162;165m.[39m
+  [38;2;36;82;109mamet-[7mb[27mar.js[39m  [38;2;139;162;165murna[39m
+  [38;2;36;82;109melit-[7mb[27mar.txt[39m  [38;2;139;162;165mlorem[39m
+  [38;2;36;82;109mipsum-lorem.js[39m  [38;2;139;162;165murna[39m"
 `;
 
 exports[`Fuzzy Path Search Search 4`] = `
 "[32m?[39m [32mEnter file:[39m [2m(Use arrow keys or start typing)[22m
-[34m▇[39m [34mfoo-bar.js[39m
-  bar-lorem.js
-  lorem/elit-bar.txt
-  urna/ipsum-lorem.js
-  urna/amet-bar.js"
+[38;2;0;87;255m▇[39m [38;2;0;87;255mfoo-bar.js[39m  [38;2;0;87;255m.[39m
+  [38;2;36;82;109mbar-lorem.js[39m  [38;2;139;162;165m.[39m
+  [38;2;36;82;109melit-bar.txt[39m  [38;2;139;162;165mlorem[39m
+  [38;2;36;82;109mipsum-lorem.js[39m  [38;2;139;162;165murna[39m
+  [38;2;36;82;109mamet-bar.js[39m  [38;2;139;162;165murna[39m"
 `;
 
 exports[`Fuzzy Path Search Search 5`] = `
 "[32m?[39m [32mEnter file:[39m foo[7m [27m
-[34m▇[39m [34m[7mfoo[27m-bar.js[39m"
+[38;2;0;87;255m▇[39m [38;2;0;87;255m[7mfoo[27m-bar.js[39m  [38;2;0;87;255m.[39m
+  [38;2;36;82;109mbar-lorem.js[39m  [38;2;139;162;165m.[39m
+  [38;2;36;82;109mamet-bar.js[39m  [38;2;139;162;165murna[39m
+  [38;2;36;82;109melit-bar.txt[39m  [38;2;139;162;165mlorem[39m
+  [38;2;36;82;109mipsum-lorem.js[39m  [38;2;139;162;165murna[39m"
 `;
 
 exports[`Fuzzy Path Search Search 6`] = `
 "[32m?[39m [32mEnter file:[39m fo[7m [27m
-[34m▇[39m [34m[7mfo[27mo-bar.js[39m"
+[38;2;0;87;255m▇[39m [38;2;0;87;255m[7mfo[27mo-bar.js[39m  [38;2;0;87;255m.[39m
+  [38;2;36;82;109mbar-lorem.js[39m  [38;2;139;162;165m.[39m
+  [38;2;36;82;109mamet-bar.js[39m  [38;2;139;162;165murna[39m
+  [38;2;36;82;109melit-bar.txt[39m  [38;2;139;162;165mlorem[39m
+  [38;2;36;82;109mipsum-lorem.js[39m  [38;2;139;162;165murna[39m"
 `;
 
 exports[`Fuzzy Path Search Search 7`] = `
 "[32m?[39m [32mEnter file:[39m f[7m [27m
-[34m▇[39m [34m[7mf[27moo-bar.js[39m"
+[38;2;0;87;255m▇[39m [38;2;0;87;255m[7mf[27moo-bar.js[39m  [38;2;0;87;255m.[39m
+  [38;2;36;82;109mbar-lorem.js[39m  [38;2;139;162;165m.[39m
+  [38;2;36;82;109mamet-bar.js[39m  [38;2;139;162;165murna[39m
+  [38;2;36;82;109melit-bar.txt[39m  [38;2;139;162;165mlorem[39m
+  [38;2;36;82;109mipsum-lorem.js[39m  [38;2;139;162;165murna[39m"
 `;
 
 exports[`Fuzzy Path Search Search 8`] = `
 "[32m?[39m [32mEnter file:[39m [2m(Use arrow keys or start typing)[22m
-[34m▇[39m [34mfoo-bar.js[39m
-  bar-lorem.js
-  lorem/elit-bar.txt
-  urna/ipsum-lorem.js
-  urna/amet-bar.js"
+[38;2;0;87;255m▇[39m [38;2;0;87;255mfoo-bar.js[39m  [38;2;0;87;255m.[39m
+  [38;2;36;82;109mbar-lorem.js[39m  [38;2;139;162;165m.[39m
+  [38;2;36;82;109melit-bar.txt[39m  [38;2;139;162;165mlorem[39m
+  [38;2;36;82;109mipsum-lorem.js[39m  [38;2;139;162;165murna[39m
+  [38;2;36;82;109mamet-bar.js[39m  [38;2;139;162;165murna[39m"
 `;
 
 exports[`Fuzzy Path Search Search 9`] = `
 "[32m?[39m [32mEnter file:[39m lorem[7m [27m
-[34m▇[39m [34mbar-[7mlorem[27m.js[39m
-  urna/ipsum-[7mlorem[27m.js
-  [7mlorem[27m/elit-bar.txt"
+[38;2;0;87;255m▇[39m [38;2;0;87;255mbar-[7mlorem[27m.js[39m  [38;2;0;87;255m.[39m
+  [38;2;36;82;109mipsum-[7mlorem[27m.js[39m  [38;2;139;162;165murna[39m
+  [38;2;36;82;109melit-bar.txt[39m  [38;2;139;162;165m[7mlorem[27m[39m
+  [38;2;36;82;109mfoo-bar.js[39m  [38;2;139;162;165m.[39m
+  [38;2;36;82;109mamet-bar.js[39m  [38;2;139;162;165murna[39m"
 `;
 
 exports[`Fuzzy Path Search Search 10`] = `
 "[32m?[39m [32mEnter file:[39m lorem[7m [27m
-  bar-[7mlorem[27m.js
-[34m▇[39m [34murna/ipsum-[7mlorem[27m.js[39m
-  [7mlorem[27m/elit-bar.txt"
+  [38;2;36;82;109mbar-[7mlorem[27m.js[39m  [38;2;139;162;165m.[39m
+[38;2;0;87;255m▇[39m [38;2;0;87;255mipsum-[7mlorem[27m.js[39m  [38;2;0;87;255murna[39m
+  [38;2;36;82;109melit-bar.txt[39m  [38;2;139;162;165m[7mlorem[27m[39m
+  [38;2;36;82;109mfoo-bar.js[39m  [38;2;139;162;165m.[39m
+  [38;2;36;82;109mamet-bar.js[39m  [38;2;139;162;165murna[39m"
 `;

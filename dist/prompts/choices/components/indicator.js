@@ -20,6 +20,6 @@ function Indicator({
     marginRight: 1,
     flexShrink: 0
   }, isSelected ? _react.default.createElement(_ink.Color, {
-    blue: true
+    hex: "#0057ff"
   }, _figures.default.square) : ' ');
 }

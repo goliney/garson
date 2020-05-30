@@ -56,9 +56,9 @@
     "commander": "^5.0.0",
     "core-js": "^3.6.4",
     "figures": "^3.2.0",
-    "fz-search": "^1.0.0",
     "ink": "^2.7.1",
     "ink-text-input": "^3.2.2",
-    "react": "^16.13.1"
+    "react": "^16.13.1",
+    "vscode-fuzzy-scorer": "^0.0.4"
   }
 }

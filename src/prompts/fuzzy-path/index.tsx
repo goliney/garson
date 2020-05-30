@@ -6,7 +6,7 @@ import { ChoicesList } from '../choices/components/choices-list';
 import { ChoiceOption } from '../choices/components/item';
 import { useChoicesNavigation } from '../choices/use-choices-navigation';
 import { useEnterKeyHandler } from '../../_helpers';
-import { PatternHighlightItem } from './components/pattern-highlight-item';
+import { HighlightFilePathItem } from './components/highlight-file-path-item';
 import { listNodes, fuzzySearchNodes, PathNode } from './utils';
 
 interface FuzzyPath {
@@ -49,11 +49,13 @@ export function FuzzyPathComponent({
 
   // get the list of files based on the 'root' folder
   useEffect(() => {
-    let calculatedNodes = listNodes(root);
-    if (filter) {
-      calculatedNodes = calculatedNodes.filter(filter);
-    }
-    setNodes(calculatedNodes);
+    (async function getNodes() {
+      let calculatedNodes = await listNodes(root);
+      if (filter) {
+        calculatedNodes = calculatedNodes.filter(filter);
+      }
+      setNodes(calculatedNodes);
+    })();
   }, [root, filter]);
 
   // search files by pattern
@@ -72,7 +74,7 @@ export function FuzzyPathComponent({
         <ChoicesList
           highlightedItem={highlightedItem}
           items={matches}
-          itemComponent={PatternHighlightItem}
+          itemComponent={HighlightFilePathItem}
         />
       )}
     </Box>

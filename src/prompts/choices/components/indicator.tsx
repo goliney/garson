@@ -9,7 +9,7 @@ interface IndicatorProps {
 export function Indicator({ isSelected }: IndicatorProps) {
   return (
     <Box marginRight={1} flexShrink={0}>
-      {isSelected ? <Color blue>{figures.square}</Color> : ' '}
+      {isSelected ? <Color hex="#0057ff">{figures.square}</Color> : ' '}
     </Box>
   );
 }

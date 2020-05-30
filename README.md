@@ -199,7 +199,7 @@ Provides a fuzzy search for a file or a folder in a specified directory.
        A filter function that is applied to the found path nodes.
        It is useful for allowing the selection of files or directories only.
        Path node object contains <code>isDir</code>, <code>path</code>, <code>relativePath</code> and
-       <code>highlightedRelativePath</code> properties.
+       <code>score</code> properties.
      </td>
    </tr>
  </tbody>
