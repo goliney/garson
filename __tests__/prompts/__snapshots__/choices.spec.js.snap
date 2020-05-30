@@ -1,57 +1,57 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Choices Arrow controls 1`] = `
-"[32m?[39m [32mWhat git command you want to run?[39m
+"? What git command you want to run?
   See current branch
-[38;2;0;87;255m▇[39m [38;2;0;87;255mCheckout to master[39m
+▇ Checkout to master
   See status"
 `;
 
 exports[`Choices Arrow controls 2`] = `
-"[32m?[39m [32mWhat git command you want to run?[39m
+"? What git command you want to run?
   See current branch
   Checkout to master
-[38;2;0;87;255m▇[39m [38;2;0;87;255mSee status[39m"
+▇ See status"
 `;
 
 exports[`Choices Arrow controls 3`] = `
-"[32m?[39m [32mWhat git command you want to run?[39m
+"? What git command you want to run?
   See current branch
   Checkout to master
-[38;2;0;87;255m▇[39m [38;2;0;87;255mSee status[39m"
+▇ See status"
 `;
 
 exports[`Choices Arrow controls 4`] = `
-"[32m?[39m [32mWhat git command you want to run?[39m
+"? What git command you want to run?
   See current branch
-[38;2;0;87;255m▇[39m [38;2;0;87;255mCheckout to master[39m
+▇ Checkout to master
   See status"
 `;
 
 exports[`Choices Arrow controls 5`] = `
-"[32m?[39m [32mWhat git command you want to run?[39m
-[38;2;0;87;255m▇[39m [38;2;0;87;255mSee current branch[39m
+"? What git command you want to run?
+▇ See current branch
   Checkout to master
   See status"
 `;
 
 exports[`Choices Arrow controls 6`] = `
-"[32m?[39m [32mWhat git command you want to run?[39m
-[38;2;0;87;255m▇[39m [38;2;0;87;255mSee current branch[39m
+"? What git command you want to run?
+▇ See current branch
   Checkout to master
   See status"
 `;
 
 exports[`Choices Initial render 1`] = `
-"[32m?[39m [32mWhat git command you want to run?[39m
-[38;2;0;87;255m▇[39m [38;2;0;87;255mSee current branch[39m
+"? What git command you want to run?
+▇ See current branch
   Checkout to master
   See status"
 `;
 
 exports[`Choices With numeric input enabled Selects correct item 1`] = `
-"[32m?[39m [32mWhat git command you want to run?[39m
-[38;2;0;87;255m▇[39m [38;2;0;87;255m1. [39m[38;2;0;87;255mSee current branch[39m
+"? What git command you want to run?
+▇ 1. See current branch
   2. Checkout to master
   3. See status"
 `;

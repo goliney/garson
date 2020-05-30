@@ -37,33 +37,33 @@ describe('Choices', () => {
   });
 
   test('Initial render', () => {
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
   });
 
   test('Arrow controls', async () => {
     await write(ARROW_DOWN);
     expect(stripColorsFromLastFrame()).toContain('▇ Checkout to master');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_DOWN);
     expect(stripColorsFromLastFrame()).toContain('▇ See status');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_DOWN);
     expect(stripColorsFromLastFrame()).toContain('▇ See status');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_UP);
     expect(stripColorsFromLastFrame()).toContain('▇ Checkout to master');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_UP);
     expect(stripColorsFromLastFrame()).toContain('▇ See current branch');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_UP);
     expect(stripColorsFromLastFrame()).toContain('▇ See current branch');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
   });
 
   test('Select', async () => {
@@ -82,7 +82,7 @@ describe('Choices', () => {
       runner(configWithNumericInput);
       await new Promise(resolve => setTimeout(resolve));
       expect(stripColorsFromLastFrame()).toContain('▇ 1. See current branch');
-      expect(app.lastFrame()).toMatchSnapshot();
+      expect(stripColorsFromLastFrame()).toMatchSnapshot();
       await write('4');
       expect(actionSpy).not.toHaveBeenCalled();
       await write('3');

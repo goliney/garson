@@ -55,48 +55,48 @@ describe('Fuzzy Path Search', () => {
   });
 
   test('Initial render', async () => {
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
   });
 
   test('Arrow controls', async () => {
     await write(ARROW_DOWN);
     expect(stripColorsFromLastFrame()).toContain('▇ bar-lorem.js  .');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_DOWN);
     expect(stripColorsFromLastFrame()).toContain('▇ elit-bar.txt  lorem');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_DOWN);
     expect(stripColorsFromLastFrame()).toContain('▇ ipsum-lorem.js  urna');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_DOWN);
     expect(stripColorsFromLastFrame()).toContain('▇ amet-bar.js  urna');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
     await write(ARROW_DOWN);
     expect(stripColorsFromLastFrame()).toContain('▇ amet-bar.js  urna');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_UP);
     expect(stripColorsFromLastFrame()).toContain('▇ ipsum-lorem.js  urna');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_UP);
     expect(stripColorsFromLastFrame()).toContain('▇ elit-bar.txt  lorem');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_UP);
     expect(stripColorsFromLastFrame()).toContain('▇ bar-lorem.js  .');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_UP);
     expect(stripColorsFromLastFrame()).toContain('▇ foo-bar.js  .');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_UP);
     expect(stripColorsFromLastFrame()).toContain('▇ foo-bar.js  .');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
   });
 
   test('Select', async () => {
@@ -116,39 +116,39 @@ describe('Fuzzy Path Search', () => {
   test('Search', async () => {
     await write('bar');
     expect(stripColorsFromLastFrame()).toContain('▇ bar-lorem.js  .');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     // Test how highlighting changes
     await write(BACKSPACE);
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(BACKSPACE);
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(BACKSPACE);
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write('foo');
     expect(stripColorsFromLastFrame()).toContain('▇ foo-bar.js  .');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     // Test how highlighting changes
     await write(BACKSPACE);
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(BACKSPACE);
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(BACKSPACE);
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write('lorem');
     expect(stripColorsFromLastFrame()).toContain('▇ bar-lorem.js  .');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_DOWN);
     expect(stripColorsFromLastFrame()).toContain('▇ ipsum-lorem.js  urna');
-    expect(app.lastFrame()).toMatchSnapshot();
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ENTER);
     expect(actionSpy).toHaveBeenCalledWith({
