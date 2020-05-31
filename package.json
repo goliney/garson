@@ -1,6 +1,6 @@
 {
   "name": "garson",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "main": "dist/index.js",
   "bin": "dist/bin/index.js",
   "files": [
@@ -58,8 +58,7 @@
     "figures": "^3.2.0",
     "ink": "^2.7.1",
     "ink-text-input": "^3.2.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^16.9.0",
     "vscode-fuzzy-scorer": "^0.0.4"
   }
 }
