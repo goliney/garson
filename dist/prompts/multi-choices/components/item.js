@@ -15,7 +15,7 @@ function Item({
   isHighlighted,
   item
 }) {
-  return _react.default.createElement(_ink.Color, {
-    hex: isHighlighted ? '#0057ff' : ''
+  return _react.default.createElement(_ink.Text, {
+    color: isHighlighted ? '#0057ff' : ''
   }, item.label);
 }

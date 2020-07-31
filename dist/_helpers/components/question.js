@@ -14,11 +14,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function Question({
   message
 }) {
-  return _react.default.createElement(_ink.Color, {
-    green: true
-  }, _react.default.createElement(_ink.Box, {
+  return _react.default.createElement(_ink.Box, null, _react.default.createElement(_ink.Box, {
     marginRight: 1
-  }, "?"), message && _react.default.createElement(_ink.Box, {
+  }, _react.default.createElement(_ink.Text, {
+    color: "green"
+  }, "?")), message && _react.default.createElement(_ink.Box, {
     marginRight: 1
-  }, message));
+  }, _react.default.createElement(_ink.Text, {
+    color: "green"
+  }, message)));
 }

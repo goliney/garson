@@ -20,9 +20,9 @@ function Indicator({
   return _react.default.createElement(_ink.Box, {
     marginRight: 1,
     flexShrink: 0
-  }, isHighlighted ? _react.default.createElement(_ink.Color, {
-    hex: "#0057ff"
-  }, _figures.default.square, " ") : '  ', _react.default.createElement(_ink.Color, {
-    hex: isHighlighted ? '#0057ff' : ''
+  }, isHighlighted ? _react.default.createElement(_ink.Text, {
+    color: "#0057ff"
+  }, _figures.default.square, " ") : _react.default.createElement(_ink.Text, null, '  '), _react.default.createElement(_ink.Text, {
+    color: isHighlighted ? '#0057ff' : ''
   }, isSelected ? _figures.default.circleFilled : _figures.default.circle));
 }

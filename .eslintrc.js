@@ -41,5 +41,7 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     // We use underscore dangle, especially in tests
     'no-underscore-dangle': 'off',
+    // let useEffect return either nothing or a callback
+    'consistent-return': 'off',
   },
 };

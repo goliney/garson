@@ -1,12 +1,15 @@
-import { useContext, useEffect } from 'react';
-import { StdinContext } from 'ink';
+import { useEffect } from 'react';
+import { useStdin } from 'ink';
 
 type KeyHandlerType = (data: string) => void;
 
 export function useKeyHandler(keyHandler: KeyHandlerType) {
-  const { stdin, setRawMode } = useContext(StdinContext);
+  const { stdin, setRawMode } = useStdin();
 
   useEffect(() => {
+    if (!stdin) {
+      return;
+    }
     if (setRawMode) {
       setRawMode(true);
     }
