@@ -3180,10 +3180,10 @@ ink-text-input@^4.0.0:
     chalk "^4.1.0"
     type-fest "^0.15.1"
 
-ink@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/ink/-/ink-3.0.2.tgz#92cf8b0e0e1dacba95d6baa577bb088dafc76a02"
-  integrity sha512-Tjz5uZkKtXZNUC3oq8y6n3b9QZBsUhIi4aCsJCBDXa0ovyUEN7U5Hl7uRkJVDGRk0Jnr5mbgnnVDczJg1fxEcA==
+ink@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/ink/-/ink-3.0.3.tgz#8540a6c7874bcadaebe8017164c35c5a2150bbe2"
+  integrity sha512-lddjjoxYMU6Ldy5fhwKwPJDuhm62F0TwvNnI3DDQ6czZxgW94kyTb4AUX3qSFU7cnoid4yg/uIktr00fI2VRvw==
   dependencies:
     ansi-escapes "^4.2.1"
     auto-bind "4.0.0"
