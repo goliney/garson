@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Color } from 'ink';
+import { Box, Text } from 'ink';
 import { Indicator } from './indicator';
 import { Item, ItemProps, ChoiceOption } from './item';
 
@@ -27,7 +27,7 @@ export function ChoicesList({
           <Box key={item.key || item.value}>
             <Indicator isSelected={isSelected} />
             {isNumericInputEnabled && (
-              <Color hex={isSelected ? '#0057ff' : ''}>{index + 1}. </Color>
+              <Text color={isSelected ? '#0057ff' : ''}>{index + 1}. </Text>
             )}
             {React.createElement(itemComponent, { isSelected, item })}
           </Box>

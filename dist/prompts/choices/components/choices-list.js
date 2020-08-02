@@ -34,8 +34,8 @@ function ChoicesList({
       key: item.key || item.value
     }, _react.default.createElement(_indicator.Indicator, {
       isSelected: isSelected
-    }), isNumericInputEnabled && _react.default.createElement(_ink.Color, {
-      hex: isSelected ? '#0057ff' : ''
+    }), isNumericInputEnabled && _react.default.createElement(_ink.Text, {
+      color: isSelected ? '#0057ff' : ''
     }, index + 1, ". "), _react.default.createElement(itemComponent, {
       isSelected,
       item

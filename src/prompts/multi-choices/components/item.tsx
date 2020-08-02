@@ -1,5 +1,5 @@
 import React from 'react';
-import { Color } from 'ink';
+import { Text } from 'ink';
 
 type ChoiceValue = any;
 
@@ -16,5 +16,5 @@ export interface ItemProps {
 }
 
 export function Item({ isHighlighted, item }: ItemProps) {
-  return <Color hex={isHighlighted ? '#0057ff' : ''}>{item.label}</Color>;
+  return <Text color={isHighlighted ? '#0057ff' : ''}>{item.label}</Text>;
 }

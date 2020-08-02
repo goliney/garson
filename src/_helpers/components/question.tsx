@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Color } from 'ink';
+import { Box, Text } from 'ink';
 
 interface QuestionProps {
   message?: string;
@@ -7,9 +7,15 @@ interface QuestionProps {
 
 export function Question({ message }: QuestionProps) {
   return (
-    <Color green>
-      <Box marginRight={1}>?</Box>
-      {message && <Box marginRight={1}>{message}</Box>}
-    </Color>
+    <Box>
+      <Box marginRight={1}>
+        <Text color="green">?</Text>
+      </Box>
+      {message && (
+        <Box marginRight={1}>
+          <Text color="green">{message}</Text>
+        </Box>
+      )}
+    </Box>
   );
 }

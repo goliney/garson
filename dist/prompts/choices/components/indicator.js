@@ -19,7 +19,7 @@ function Indicator({
   return _react.default.createElement(_ink.Box, {
     marginRight: 1,
     flexShrink: 0
-  }, isSelected ? _react.default.createElement(_ink.Color, {
-    hex: "#0057ff"
-  }, _figures.default.square) : ' ');
+  }, isSelected ? _react.default.createElement(_ink.Text, {
+    color: "#0057ff"
+  }, _figures.default.square) : _react.default.createElement(_ink.Text, null, " "));
 }

@@ -12,9 +12,9 @@ export function printMessage({ boxTitle, message }: PrintMessage) {
   app.rerender(
     <Box flexDirection="column" paddingBottom={1}>
       <Line message={boxTitle} />
-      <Text italic>
-        <Box paddingY={1}>{message}</Box>
-      </Text>
+      <Box paddingY={1}>
+        <Text italic>{message}</Text>
+      </Box>
       <Line />
     </Box>
   );

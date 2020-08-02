@@ -49,12 +49,12 @@ function HighlightFilePathItem({
 
   return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_ink.Box, {
     paddingRight: 2
-  }, _react.default.createElement(_ink.Color, {
-    hex: isSelected ? '#0057ff' : '#24526d'
+  }, _react.default.createElement(_ink.Text, {
+    color: isSelected ? '#0057ff' : '#24526d'
   }, _react.default.createElement(HighlightedString, {
     tokens: basenameHighlighted
-  }))), _react.default.createElement(_ink.Box, null, _react.default.createElement(_ink.Color, {
-    hex: isSelected ? '#0057ff' : '#8ba2a5'
+  }))), _react.default.createElement(_ink.Box, null, _react.default.createElement(_ink.Text, {
+    color: isSelected ? '#0057ff' : '#8ba2a5'
   }, _react.default.createElement(HighlightedString, {
     tokens: dirnameHighlighted
   }))));
@@ -63,7 +63,7 @@ function HighlightFilePathItem({
 function HighlightedString({
   tokens
 }) {
-  return _react.default.createElement(_react.default.Fragment, null, tokens.map(token => _react.default.createElement(_ink.Color, {
+  return _react.default.createElement(_react.default.Fragment, null, tokens.map(token => _react.default.createElement(_ink.Text, {
     key: token.key,
     inverse: token.highlighted
   }, token.value)));

@@ -24,9 +24,9 @@ function printMessage({
     paddingBottom: 1
   }, _react.default.createElement(_helpers.Line, {
     message: boxTitle
-  }), _react.default.createElement(_ink.Text, {
-    italic: true
-  }, _react.default.createElement(_ink.Box, {
+  }), _react.default.createElement(_ink.Box, {
     paddingY: 1
+  }, _react.default.createElement(_ink.Text, {
+    italic: true
   }, message)), _react.default.createElement(_helpers.Line, null)));
 }

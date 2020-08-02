@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Color } from 'ink';
+import { Box, Text } from 'ink';
 import * as scorer from 'vscode-fuzzy-scorer';
 import { ItemProps } from '../../choices/components/item';
 import { highlightStringByScore, HighlightToken } from '../utils';
@@ -31,14 +31,14 @@ export function HighlightFilePathItem({ isSelected, item }: ItemProps) {
   return (
     <>
       <Box paddingRight={2}>
-        <Color hex={isSelected ? '#0057ff' : '#24526d'}>
+        <Text color={isSelected ? '#0057ff' : '#24526d'}>
           <HighlightedString tokens={basenameHighlighted} />
-        </Color>
+        </Text>
       </Box>
       <Box>
-        <Color hex={isSelected ? '#0057ff' : '#8ba2a5'}>
+        <Text color={isSelected ? '#0057ff' : '#8ba2a5'}>
           <HighlightedString tokens={dirnameHighlighted} />
-        </Color>
+        </Text>
       </Box>
     </>
   );
@@ -48,9 +48,9 @@ function HighlightedString({ tokens }: { tokens: HighlightToken[] }) {
   return (
     <>
       {tokens.map(token => (
-        <Color key={token.key} inverse={token.highlighted}>
+        <Text key={token.key} inverse={token.highlighted}>
           {token.value}
-        </Color>
+        </Text>
       ))}
     </>
   );

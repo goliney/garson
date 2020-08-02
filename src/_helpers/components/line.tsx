@@ -1,5 +1,5 @@
 import React from 'react';
-import { Color } from 'ink';
+import { Text } from 'ink';
 
 interface LineProps {
   message?: string;
@@ -11,9 +11,9 @@ export function Line({ message = '', charFiller = '=', color = 'green' }: LinePr
   const lineWidth = process.stdout.columns || 0;
   const fillerWidth = message ? lineWidth - message.length : lineWidth;
   return (
-    <Color keyword={color}>
+    <Text color={color}>
       {message}
       {[...Array(fillerWidth)].join(charFiller)}
-    </Color>
+    </Text>
   );
 }

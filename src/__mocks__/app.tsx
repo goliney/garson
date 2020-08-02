@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from 'ink-testing-library';
-import { Box } from 'ink';
+import { Text } from 'ink';
 
-const initialView = <Box>Initializing tests...</Box>;
+const initialView = <Text>Initializing tests...</Text>;
 
 export const app = render(initialView);
 

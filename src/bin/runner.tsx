@@ -7,7 +7,7 @@ export function runner({ results, prompts, action }: GarsonConfig) {
   const [{ prompt, key }, ...rest] = prompts;
   app.rerender(
     prompt(result => {
-      app.rerender(<Box>{'\n'}</Box>); // clear the previous prompt from the screen
+      app.rerender(<Box />); // clear the previous prompt from the screen
       const newResults = { ...results, [key]: result };
       if (rest.length === 0) {
         // it was the last prompt in a chain
