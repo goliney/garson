@@ -36,6 +36,19 @@ Object.keys(_actions).forEach(function (key) {
   });
 });
 
+var _runner = require("./bin/runner");
+
+Object.keys(_runner).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _runner[key];
+    }
+  });
+});
+
 function garson(results) {
   return garsonHandler({
     results
