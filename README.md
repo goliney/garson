@@ -25,6 +25,7 @@ Build interactive config-based command-line interfaces with JavaScript :wink:
 - [Actions](#actions)
   * [Print message `actions.printMessage()`](#print-message-actionsprintmessage)
   * [Spawn `actions.spawn()`](#spawn-actionsspawn)
+- [Build your own binary](#build-your-own-binary)
 
 
 ## Install
@@ -479,3 +480,18 @@ module.exports = garson()
   });
 ```
 ![spawn action example](examples/spawn/example.gif)
+
+## Build your own binary
+
+If you want to build your own binary on top of `garson`, you can use `runner`:
+
+```js
+#!/usr/bin/env node
+const { runner, garson, prompts, actions } = require('garson');
+
+const config = garson()
+  .prompt(/* config prompts */)
+  .action(/* config actions */);
+
+runner(config);
+```

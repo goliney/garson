@@ -2,6 +2,7 @@ import { KeyType, PromptCallback, Results, ActionCallback, GarsonHandlerParams }
 
 export * from './prompts';
 export * from './actions';
+export * from './bin/runner';
 
 export function garson(results?: Results) {
   return garsonHandler({ results });

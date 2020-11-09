@@ -13,7 +13,8 @@
     "interactive",
     "config-based",
     "command-line",
-    "tool"
+    "tool",
+    "garson"
   ],
   "repository": {
     "type": "git",
