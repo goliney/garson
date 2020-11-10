@@ -7,6 +7,7 @@ import { Question } from '../../_helpers';
 interface Input {
   message?: string;
   placeholder?: string;
+  defaultValue?: string;
 }
 
 interface InputProps extends Input {
@@ -14,8 +15,14 @@ interface InputProps extends Input {
   onSubmit?: OnSubmitCallback;
 }
 
-export function InputComponent({ message, placeholder, onChange, onSubmit }: InputProps) {
-  const [value, setValue] = useState('');
+export function InputComponent({
+  message,
+  placeholder = '',
+  defaultValue = '',
+  onChange,
+  onSubmit,
+}: InputProps) {
+  const [value, setValue] = useState(defaultValue);
 
   const handleSubmit = useCallback(
     submittedValue => {
@@ -49,8 +56,13 @@ export function InputComponent({ message, placeholder, onChange, onSubmit }: Inp
   );
 }
 
-export function input({ message, placeholder }: Input = {}) {
+export function input({ message, placeholder, defaultValue }: Input = {}) {
   return (onSubmit: OnSubmitCallback) => (
-    <InputComponent message={message} placeholder={placeholder} onSubmit={onSubmit} />
+    <InputComponent
+      message={message}
+      placeholder={placeholder}
+      defaultValue={defaultValue}
+      onSubmit={onSubmit}
+    />
   );
 }

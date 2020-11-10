@@ -125,6 +125,12 @@ Provides a text input.
      <td>No</td>
      <td>Text to display when the value is empty</td>
    </tr>
+   <tr>
+     <td>defaultValue</td>
+     <td>String</td>
+     <td>No</td>
+     <td>Initial value of the input</td>
+   </tr>
  </tbody>
 </table>
 

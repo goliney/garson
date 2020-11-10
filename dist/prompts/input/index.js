@@ -42,11 +42,12 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function InputComponent({
   message,
-  placeholder,
+  placeholder = '',
+  defaultValue = '',
   onChange,
   onSubmit
 }) {
-  const _useState = (0, _react.useState)(''),
+  const _useState = (0, _react.useState)(defaultValue),
         _useState2 = _slicedToArray(_useState, 2),
         value = _useState2[0],
         setValue = _useState2[1];
@@ -75,11 +76,13 @@ function InputComponent({
 
 function input({
   message,
-  placeholder
+  placeholder,
+  defaultValue
 } = {}) {
   return onSubmit => _react.default.createElement(InputComponent, {
     message: message,
     placeholder: placeholder,
+    defaultValue: defaultValue,
     onSubmit: onSubmit
   });
 }
