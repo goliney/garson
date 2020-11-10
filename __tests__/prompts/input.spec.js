@@ -23,6 +23,7 @@ const config = garson()
     prompts.input({
       message: "What's your last name?",
       placeholder: 'E.g. Smith',
+      defaultValue: 'Bing',
     })
   )
   // final action
@@ -50,9 +51,6 @@ describe('Input', () => {
     expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ENTER);
-    expect(stripColorsFromLastFrame()).toMatchSnapshot();
-
-    await write('Bing');
     expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ENTER);

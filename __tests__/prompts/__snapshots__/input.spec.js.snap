@@ -8,6 +8,4 @@ exports[`Input Normal flow 1`] = `"? What's your first name? E.g. John"`;
 
 exports[`Input Normal flow 2`] = `"? What's your first name? Chandler "`;
 
-exports[`Input Normal flow 3`] = `"? What's your last name? E.g. Smith"`;
-
-exports[`Input Normal flow 4`] = `"? What's your last name? Bing "`;
+exports[`Input Normal flow 3`] = `"? What's your last name? Bing "`;
