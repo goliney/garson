@@ -1,11 +1,15 @@
 "use strict";
 
-require("core-js/modules/es.array.map");
+require("core-js/modules/es.array.iterator.js");
+
+require("core-js/modules/es.weak-map.js");
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.HighlightFilePathItem = HighlightFilePathItem;
+
+require("core-js/modules/es.array.map.js");
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -47,15 +51,15 @@ function HighlightFilePathItem({
     dirnameHighlighted = (0, _utils.highlightStringByScore)(dirname, item.value.score.descriptionMatch);
   }
 
-  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_ink.Box, {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_ink.Box, {
     paddingRight: 2
-  }, _react.default.createElement(_ink.Text, {
+  }, /*#__PURE__*/_react.default.createElement(_ink.Text, {
     color: isSelected ? '#0057ff' : '#24526d'
-  }, _react.default.createElement(HighlightedString, {
+  }, /*#__PURE__*/_react.default.createElement(HighlightedString, {
     tokens: basenameHighlighted
-  }))), _react.default.createElement(_ink.Box, null, _react.default.createElement(_ink.Text, {
+  }))), /*#__PURE__*/_react.default.createElement(_ink.Box, null, /*#__PURE__*/_react.default.createElement(_ink.Text, {
     color: isSelected ? '#0057ff' : '#8ba2a5'
-  }, _react.default.createElement(HighlightedString, {
+  }, /*#__PURE__*/_react.default.createElement(HighlightedString, {
     tokens: dirnameHighlighted
   }))));
 }
@@ -63,7 +67,7 @@ function HighlightFilePathItem({
 function HighlightedString({
   tokens
 }) {
-  return _react.default.createElement(_react.default.Fragment, null, tokens.map(token => _react.default.createElement(_ink.Text, {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, tokens.map(token => /*#__PURE__*/_react.default.createElement(_ink.Text, {
     key: token.key,
     inverse: token.highlighted
   }, token.value)));

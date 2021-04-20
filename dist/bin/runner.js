@@ -1,21 +1,21 @@
 "use strict";
 
-require("core-js/modules/es.symbol.description");
+require("core-js/modules/es.symbol.description.js");
 
-require("core-js/modules/es.array.filter");
+require("core-js/modules/es.array.iterator.js");
 
-require("core-js/modules/es.array.from");
+require("core-js/modules/es.array.from.js");
 
-require("core-js/modules/es.array.iterator");
+require("core-js/modules/es.array.filter.js");
 
-require("core-js/modules/es.array.slice");
-
-require("core-js/modules/es.object.get-own-property-descriptors");
+require("core-js/modules/es.object.get-own-property-descriptors.js");
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.runner = runner;
+
+require("core-js/modules/es.array.slice.js");
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -35,11 +35,11 @@ function _toArray(arr) { return _arrayWithHoles(arr) || _iterableToArray(arr) ||
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
@@ -55,10 +55,10 @@ function runner({
         rest = _prompts.slice(1);
 
   _app.app.rerender(prompt(result => {
-    _app.app.rerender(_react.default.createElement(_ink.Box, null)); // clear the previous prompt from the screen
+    _app.app.rerender( /*#__PURE__*/_react.default.createElement(_ink.Box, null)); // clear the previous prompt from the screen
 
 
-    const newResults = _objectSpread({}, results, {
+    const newResults = _objectSpread(_objectSpread({}, results), {}, {
       [key]: result
     });
 

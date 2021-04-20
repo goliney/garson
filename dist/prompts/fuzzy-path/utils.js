@@ -1,21 +1,21 @@
 "use strict";
 
-require("core-js/modules/es.array.iterator");
-
-require("core-js/modules/es.array.map");
-
-require("core-js/modules/es.array.slice");
-
-require("core-js/modules/es.array.sort");
-
-require("core-js/modules/es.promise");
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.listNodes = listNodes;
 exports.fuzzySearchNodes = fuzzySearchNodes;
 exports.highlightStringByScore = highlightStringByScore;
+
+require("core-js/modules/es.array.map.js");
+
+require("core-js/modules/es.array.sort.js");
+
+require("core-js/modules/es.array.iterator.js");
+
+require("core-js/modules/es.array.slice.js");
+
+require("core-js/modules/es.promise.js");
 
 var _glob = _interopRequireDefault(require("glob"));
 

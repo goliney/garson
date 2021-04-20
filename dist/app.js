@@ -11,7 +11,7 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const app = (0, _ink.render)(_react.default.createElement(_ink.Text, null, "Initializing..."), {
+const app = (0, _ink.render)( /*#__PURE__*/_react.default.createElement(_ink.Text, null, "Initializing..."), {
   debug: false
 });
 exports.app = app;

@@ -1,12 +1,16 @@
 "use strict";
 
-require("core-js/modules/es.array.map");
+require("core-js/modules/es.array.iterator.js");
+
+require("core-js/modules/es.weak-map.js");
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.MultiChoicesComponent = MultiChoicesComponent;
 exports.multiChoices = multiChoices;
+
+require("core-js/modules/es.array.map.js");
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -34,9 +38,9 @@ function MultiChoicesComponent({
     onSubmit(selectedItems.map(item => item.value));
   }, [selectedItems, onSubmit]);
   (0, _helpers.useEnterKeyHandler)(submitResult);
-  return _react.default.createElement(_react.default.Fragment, null, message && _react.default.createElement(_helpers.Question, {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, message && /*#__PURE__*/_react.default.createElement(_helpers.Question, {
     message: message
-  }), _react.default.createElement(_multiChoicesList.MultiChoicesList, {
+  }), /*#__PURE__*/_react.default.createElement(_multiChoicesList.MultiChoicesList, {
     items: items,
     highlightedItem: highlightedItem,
     selectedItems: selectedItems
@@ -48,7 +52,7 @@ function multiChoices({
   items,
   onChangeMiddleware
 }) {
-  return onSubmit => _react.default.createElement(MultiChoicesComponent, {
+  return onSubmit => /*#__PURE__*/_react.default.createElement(MultiChoicesComponent, {
     message: message,
     items: items,
     onChangeMiddleware: onChangeMiddleware,

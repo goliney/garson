@@ -1,11 +1,11 @@
 "use strict";
 
-require("core-js/modules/es.array.iterator");
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.Line = Line;
+
+require("core-js/modules/es.array.iterator.js");
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -20,7 +20,7 @@ function Line({
 }) {
   const lineWidth = process.stdout.columns || 0;
   const fillerWidth = message ? lineWidth - message.length : lineWidth;
-  return _react.default.createElement(_ink.Text, {
+  return /*#__PURE__*/_react.default.createElement(_ink.Text, {
     color: color
   }, message, [...Array(fillerWidth)].join(charFiller));
 }

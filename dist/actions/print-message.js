@@ -19,17 +19,17 @@ function printMessage({
   boxTitle,
   message
 }) {
-  _app.app.rerender(_react.default.createElement(_ink.Box, {
+  _app.app.rerender( /*#__PURE__*/_react.default.createElement(_ink.Box, {
     flexDirection: "column",
     paddingBottom: 1
-  }, _react.default.createElement(_helpers.Line, {
+  }, /*#__PURE__*/_react.default.createElement(_helpers.Line, {
     message: boxTitle,
     charFiller: "\u2500"
-  }), _react.default.createElement(_ink.Box, {
+  }), /*#__PURE__*/_react.default.createElement(_ink.Box, {
     paddingY: 1
-  }, _react.default.createElement(_ink.Text, {
+  }, /*#__PURE__*/_react.default.createElement(_ink.Text, {
     italic: true
-  }, message)), _react.default.createElement(_helpers.Line, {
+  }, message)), /*#__PURE__*/_react.default.createElement(_helpers.Line, {
     charFiller: "\u2500"
   })));
 }
