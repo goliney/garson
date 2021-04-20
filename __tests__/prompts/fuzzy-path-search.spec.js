@@ -1,53 +1,31 @@
-import fs from 'fs';
 import { garson, prompts } from '../../src';
 import { runner } from '../../src/bin/runner';
 import { app } from '../../src/app';
 import { ARROW_DOWN, ARROW_UP, BACKSPACE, ENTER } from '../../src/_helpers/keys';
-import { stripColorsFromLastFrame, write } from '../helpers';
+import { stripColorsFromLastFrame, write, waitFor } from '../helpers';
 
 jest.mock('../../src/app');
 
-jest.mock('fs');
-jest.mock('util');
-
 const actionSpy = jest.fn();
-
-const MOCK_FILE_INFO = {
-  path: {
-    'foo-bar.js': '',
-    'bar-lorem.js': '',
-    bar: {},
-    lorem: {
-      'elit-bar.txt': '',
-    },
-    urna: {
-      'ipsum-lorem.js': '',
-      'amet-bar.js': '',
-    },
-  },
-};
 
 const config = garson()
   .prompt(
     'file',
     prompts.fuzzyPath({
       message: 'Enter file:',
-      root: 'path',
-      filter: node => !node.isDir,
+      pattern: '**',
+      options: { nodir: true, cwd: '__tests__/_fixture-path/' },
     })
   )
   .action(actionSpy);
 
 describe('Fuzzy Path Search', () => {
   beforeEach(async () => {
-    // Set up some mocked out file info before each test
-    // eslint-disable-next-line no-underscore-dangle
-    fs.__setMockFiles(MOCK_FILE_INFO);
-
     actionSpy.mockClear();
     runner(config);
-    await new Promise(resolve => setTimeout(resolve));
-    await new Promise(resolve => setTimeout(resolve));
+    await waitFor(() => {
+      expect(stripColorsFromLastFrame().length).toBeGreaterThan(1);
+    });
   });
 
   afterEach(() => {
@@ -60,7 +38,7 @@ describe('Fuzzy Path Search', () => {
 
   test('Arrow controls', async () => {
     await write(ARROW_DOWN);
-    expect(stripColorsFromLastFrame()).toContain('▇ bar-lorem.js  .');
+    expect(stripColorsFromLastFrame()).toContain('▇ foo-bar.js  .');
     expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_DOWN);
@@ -68,18 +46,18 @@ describe('Fuzzy Path Search', () => {
     expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_DOWN);
-    expect(stripColorsFromLastFrame()).toContain('▇ ipsum-lorem.js  urna');
+    expect(stripColorsFromLastFrame()).toContain('▇ amet-bar.js  urna');
     expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_DOWN);
-    expect(stripColorsFromLastFrame()).toContain('▇ amet-bar.js  urna');
+    expect(stripColorsFromLastFrame()).toContain('▇ ipsum-lorem.js  urna');
     expect(stripColorsFromLastFrame()).toMatchSnapshot();
     await write(ARROW_DOWN);
-    expect(stripColorsFromLastFrame()).toContain('▇ amet-bar.js  urna');
+    expect(stripColorsFromLastFrame()).toContain('▇ ipsum-lorem.js  urna');
     expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_UP);
-    expect(stripColorsFromLastFrame()).toContain('▇ ipsum-lorem.js  urna');
+    expect(stripColorsFromLastFrame()).toContain('▇ amet-bar.js  urna');
     expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_UP);
@@ -87,15 +65,15 @@ describe('Fuzzy Path Search', () => {
     expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_UP);
+    expect(stripColorsFromLastFrame()).toContain('▇ foo-bar.js  .');
+    expect(stripColorsFromLastFrame()).toMatchSnapshot();
+
+    await write(ARROW_UP);
     expect(stripColorsFromLastFrame()).toContain('▇ bar-lorem.js  .');
     expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write(ARROW_UP);
-    expect(stripColorsFromLastFrame()).toContain('▇ foo-bar.js  .');
-    expect(stripColorsFromLastFrame()).toMatchSnapshot();
-
-    await write(ARROW_UP);
-    expect(stripColorsFromLastFrame()).toContain('▇ foo-bar.js  .');
+    expect(stripColorsFromLastFrame()).toContain('▇ bar-lorem.js  .');
     expect(stripColorsFromLastFrame()).toMatchSnapshot();
   });
 
@@ -105,9 +83,7 @@ describe('Fuzzy Path Search', () => {
     await write(ENTER); // select third option
     expect(actionSpy).toHaveBeenCalledWith({
       file: {
-        isDir: false,
-        path: 'path/lorem/elit-bar.txt',
-        relativePath: 'lorem/elit-bar.txt',
+        path: 'lorem/elit-bar.txt',
         score: null,
       },
     });
@@ -153,9 +129,7 @@ describe('Fuzzy Path Search', () => {
     await write(ENTER);
     expect(actionSpy).toHaveBeenCalledWith({
       file: {
-        isDir: false,
-        path: 'path/urna/ipsum-lorem.js',
-        relativePath: 'urna/ipsum-lorem.js',
+        path: 'urna/ipsum-lorem.js',
         score: {
           labelMatch: [
             {

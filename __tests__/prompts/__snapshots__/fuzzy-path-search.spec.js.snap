@@ -2,101 +2,101 @@
 
 exports[`Fuzzy Path Search Arrow controls 1`] = `
 "? Enter file: (Use arrow keys or start typing)
-  foo-bar.js  .
-▇ bar-lorem.js  .
+  bar-lorem.js  .
+▇ foo-bar.js  .
   elit-bar.txt  lorem
-  ipsum-lorem.js  urna
-  amet-bar.js  urna"
+  amet-bar.js  urna
+  ipsum-lorem.js  urna"
 `;
 
 exports[`Fuzzy Path Search Arrow controls 2`] = `
 "? Enter file: (Use arrow keys or start typing)
-  foo-bar.js  .
   bar-lorem.js  .
+  foo-bar.js  .
 ▇ elit-bar.txt  lorem
-  ipsum-lorem.js  urna
-  amet-bar.js  urna"
+  amet-bar.js  urna
+  ipsum-lorem.js  urna"
 `;
 
 exports[`Fuzzy Path Search Arrow controls 3`] = `
 "? Enter file: (Use arrow keys or start typing)
-  foo-bar.js  .
   bar-lorem.js  .
+  foo-bar.js  .
   elit-bar.txt  lorem
-▇ ipsum-lorem.js  urna
-  amet-bar.js  urna"
+▇ amet-bar.js  urna
+  ipsum-lorem.js  urna"
 `;
 
 exports[`Fuzzy Path Search Arrow controls 4`] = `
 "? Enter file: (Use arrow keys or start typing)
-  foo-bar.js  .
   bar-lorem.js  .
+  foo-bar.js  .
   elit-bar.txt  lorem
-  ipsum-lorem.js  urna
-▇ amet-bar.js  urna"
+  amet-bar.js  urna
+▇ ipsum-lorem.js  urna"
 `;
 
 exports[`Fuzzy Path Search Arrow controls 5`] = `
 "? Enter file: (Use arrow keys or start typing)
-  foo-bar.js  .
   bar-lorem.js  .
+  foo-bar.js  .
   elit-bar.txt  lorem
-  ipsum-lorem.js  urna
-▇ amet-bar.js  urna"
+  amet-bar.js  urna
+▇ ipsum-lorem.js  urna"
 `;
 
 exports[`Fuzzy Path Search Arrow controls 6`] = `
 "? Enter file: (Use arrow keys or start typing)
-  foo-bar.js  .
   bar-lorem.js  .
+  foo-bar.js  .
   elit-bar.txt  lorem
-▇ ipsum-lorem.js  urna
-  amet-bar.js  urna"
+▇ amet-bar.js  urna
+  ipsum-lorem.js  urna"
 `;
 
 exports[`Fuzzy Path Search Arrow controls 7`] = `
 "? Enter file: (Use arrow keys or start typing)
-  foo-bar.js  .
   bar-lorem.js  .
+  foo-bar.js  .
 ▇ elit-bar.txt  lorem
-  ipsum-lorem.js  urna
-  amet-bar.js  urna"
+  amet-bar.js  urna
+  ipsum-lorem.js  urna"
 `;
 
 exports[`Fuzzy Path Search Arrow controls 8`] = `
 "? Enter file: (Use arrow keys or start typing)
-  foo-bar.js  .
-▇ bar-lorem.js  .
+  bar-lorem.js  .
+▇ foo-bar.js  .
   elit-bar.txt  lorem
-  ipsum-lorem.js  urna
-  amet-bar.js  urna"
+  amet-bar.js  urna
+  ipsum-lorem.js  urna"
 `;
 
 exports[`Fuzzy Path Search Arrow controls 9`] = `
 "? Enter file: (Use arrow keys or start typing)
-▇ foo-bar.js  .
-  bar-lorem.js  .
+▇ bar-lorem.js  .
+  foo-bar.js  .
   elit-bar.txt  lorem
-  ipsum-lorem.js  urna
-  amet-bar.js  urna"
+  amet-bar.js  urna
+  ipsum-lorem.js  urna"
 `;
 
 exports[`Fuzzy Path Search Arrow controls 10`] = `
 "? Enter file: (Use arrow keys or start typing)
-▇ foo-bar.js  .
-  bar-lorem.js  .
+▇ bar-lorem.js  .
+  foo-bar.js  .
   elit-bar.txt  lorem
-  ipsum-lorem.js  urna
-  amet-bar.js  urna"
+  amet-bar.js  urna
+  ipsum-lorem.js  urna"
 `;
 
 exports[`Fuzzy Path Search Initial render 1`] = `
 "? Enter file: (Use arrow keys or start typing)
-▇ foo-bar.js  .
-  bar-lorem.js  .
+▇ bar-lorem.js  .
+  foo-bar.js  .
   elit-bar.txt  lorem
-  ipsum-lorem.js  urna
-  amet-bar.js  urna"
+  amet-bar.js  urna
+  ipsum-lorem.js  urna"
 `;
 
 exports[`Fuzzy Path Search Search 1`] = `
@@ -128,11 +128,11 @@ exports[`Fuzzy Path Search Search 3`] = `
 
 exports[`Fuzzy Path Search Search 4`] = `
 "? Enter file: (Use arrow keys or start typing)
-▇ foo-bar.js  .
-  bar-lorem.js  .
+▇ bar-lorem.js  .
+  foo-bar.js  .
   elit-bar.txt  lorem
-  ipsum-lorem.js  urna
-  amet-bar.js  urna"
+  amet-bar.js  urna
+  ipsum-lorem.js  urna"
 `;
 
 exports[`Fuzzy Path Search Search 5`] = `
@@ -164,11 +164,11 @@ exports[`Fuzzy Path Search Search 7`] = `
 
 exports[`Fuzzy Path Search Search 8`] = `
 "? Enter file: (Use arrow keys or start typing)
-▇ foo-bar.js  .
-  bar-lorem.js  .
+▇ bar-lorem.js  .
+  foo-bar.js  .
   elit-bar.txt  lorem
-  ipsum-lorem.js  urna
-  amet-bar.js  urna"
+  amet-bar.js  urna
+  ipsum-lorem.js  urna"
 `;
 
 exports[`Fuzzy Path Search Search 9`] = `

@@ -193,20 +193,18 @@ Provides a fuzzy search for a file or a folder in a specified directory.
      <td>Text to display when the input value is empty</td>
    </tr>
    <tr>
-     <td>root</td>
+     <td>pattern</td>
      <td>String</td>
-     <td>Yes</td>
-     <td>Path to a root directory where we are searching</td>
+     <td>No</td>
+     <td>Glob pattern. Defaults to <code>'*'</code></td>
    </tr>
    <tr>
-     <td>filter</td>
-     <td>Function</td>
+     <td>options</td>
+     <td>Object</td>
      <td>No</td>
      <td>
-       A filter function that is applied to the found path nodes.
-       It is useful for allowing the selection of files or directories only.
-       Path node object contains <code>isDir</code>, <code>path</code>, <code>relativePath</code> and
-       <code>score</code> properties.
+       Options object that is passed to <code>glob</code>.
+       See the full list of options <a href="https://github.com/isaacs/node-glob#options">here</a>
      </td>
    </tr>
  </tbody>
@@ -217,18 +215,22 @@ Example:
 // garson.config.js
 const { garson, prompts, actions } = require('garson');
 
+const cwd = '/Users/goliney/Workspace/garson/src';
 module.exports = garson()
   .prompt(
     'file',
     prompts.fuzzyPath({
       message: 'Enter file:',
-      root: '/Users/goliney/Workspace/garson/src',
-      filter: node => !node.isDir, // filter out directories
+      pattern: '**',
+      options: {
+        nodir: true,
+        cwd,
+      },
     })
   )
   .action(results => {
     const { file } = results;
-    actions.spawn(`wc ${file.path}`);
+    actions.spawn(`nano ${cwd}/${file.path}`);
   });
 ```
 ![fuzzy path search prompt example](examples/fuzzy-path-search/example.gif)

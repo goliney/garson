@@ -11,11 +11,11 @@ interface PrintMessage {
 export function printMessage({ boxTitle, message }: PrintMessage) {
   app.rerender(
     <Box flexDirection="column" paddingBottom={1}>
-      <Line message={boxTitle} />
+      <Line message={boxTitle} charFiller="─" />
       <Box paddingY={1}>
         <Text italic>{message}</Text>
       </Box>
-      <Line />
+      <Line charFiller="─" />
     </Box>
   );
 }

@@ -150,9 +150,9 @@ records:
   - delay: 1069
     content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\r\n\r\n"
   - delay: 10
-    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[38;2;0;128;0mRun command =========================================================\e[39m\r\n\r\n\e[3mgit branch\e[23m\r\n\r\n\e[38;2;0;128;0m=====================================================================\e[39m\r\n\r\n\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[38;2;0;128;0mRun command =========================================================\e[39m\r\n\r\n\e[3mgit branch\e[23m\r\n\r\n\e[38;2;0;128;0m=====================================================================\e[39m\r\n\r\n\e[?25h\e[?25h"
+    content: "\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[38;2;0;128;0mRun command ─────────────────────────────────────────────────────────\e[39m\r\n\r\n\e[3mgit branch\e[23m\r\n\r\n\e[38;2;0;128;0m─────────────────────────────────────────────────────────────────────\e[39m\r\n\r\n\e[?25l\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[1A\e[2K\e[G\e[38;2;0;128;0mRun command ─────────────────────────────────────────────────────────\e[39m\r\n\r\n\e[3mgit branch\e[23m\r\n\r\n\e[38;2;0;128;0m─────────────────────────────────────────────────────────────────────\e[39m\r\n\r\n\e[?25h\e[?25h"
   - delay: 13
-    content: "\e[?1h\e=\r  master\e[m\e[m\r\n* \e[32mreadme/examples\e[m\e[m\r\n\r\e[K\e[?1l\e>\e[?25h\e[?25h"
+    content: "\e[?1h\e─\r  master\e[m\e[m\r\n* \e[32mreadme/examples\e[m\e[m\r\n\r\e[K\e[?1l\e>\e[?25h\e[?25h"
   - delay: 5
     content: 'choices $ '
   - delay: 2000

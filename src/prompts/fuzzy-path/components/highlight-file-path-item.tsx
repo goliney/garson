@@ -1,12 +1,20 @@
 import React from 'react';
 import { Box, Text } from 'ink';
 import * as scorer from 'vscode-fuzzy-scorer';
-import { ItemProps } from '../../choices/components/item';
-import { highlightStringByScore, HighlightToken } from '../utils';
+import { FuzzySearchItem, highlightStringByScore, HighlightToken } from '../utils';
 
-export function HighlightFilePathItem({ isSelected, item }: ItemProps) {
-  const basename = scorer.basename(item.value.relativePath);
-  const dirname = scorer.dirname(item.value.relativePath);
+interface HighlightFilePathItemProps {
+  isSelected: boolean;
+  item: {
+    key?: string;
+    label: string;
+    value: FuzzySearchItem;
+  };
+}
+
+export function HighlightFilePathItem({ isSelected, item }: HighlightFilePathItemProps) {
+  const basename = scorer.basename(item.value.path);
+  const dirname = scorer.dirname(item.value.path);
 
   let basenameHighlighted = [{ key: basename, value: basename, highlighted: false }];
   if (

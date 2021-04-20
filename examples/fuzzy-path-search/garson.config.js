@@ -1,15 +1,19 @@
 const { garson, prompts, actions } = require('../../dist');
 
+const cwd = '/Users/goliney/Workspace/garson/src';
 module.exports = garson()
   .prompt(
     'file',
     prompts.fuzzyPath({
       message: 'Enter file:',
-      root: '/Users/goliney/Workspace/garson/src',
-      filter: node => !node.isDir,
+      pattern: '**',
+      options: {
+        nodir: true,
+        cwd,
+      },
     })
   )
   .action(results => {
     const { file } = results;
-    actions.spawn(`nano ${file.path}`);
+    actions.spawn(`nano ${cwd}/${file.path}`);
   });
