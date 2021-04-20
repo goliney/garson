@@ -16,10 +16,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function Indicator({
   isSelected
 }) {
-  return _react.default.createElement(_ink.Box, {
+  return /*#__PURE__*/_react.default.createElement(_ink.Box, {
     marginRight: 1,
     flexShrink: 0
-  }, isSelected ? _react.default.createElement(_ink.Text, {
+  }, isSelected ? /*#__PURE__*/_react.default.createElement(_ink.Text, {
     color: "#0057ff"
-  }, _figures.default.square) : _react.default.createElement(_ink.Text, null, " "));
+  }, _figures.default.square) : /*#__PURE__*/_react.default.createElement(_ink.Text, null, " "));
 }

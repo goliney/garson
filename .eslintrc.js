@@ -43,5 +43,7 @@ module.exports = {
     'no-underscore-dangle': 'off',
     // let useEffect return either nothing or a callback
     'consistent-return': 'off',
+    // we use typescript, so no default props
+    'react/require-default-props': 'off',
   },
 };

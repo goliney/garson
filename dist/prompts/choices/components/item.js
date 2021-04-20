@@ -15,7 +15,7 @@ function Item({
   isSelected,
   item
 }) {
-  return _react.default.createElement(_ink.Text, {
+  return /*#__PURE__*/_react.default.createElement(_ink.Text, {
     color: isSelected ? '#0057ff' : ''
   }, item.label);
 }

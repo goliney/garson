@@ -1,5 +1,9 @@
 "use strict";
 
+require("core-js/modules/es.array.iterator.js");
+
+require("core-js/modules/es.weak-map.js");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -42,9 +46,9 @@ function ChoicesComponent({
     items,
     onNumericInput: handleNumericInput
   });
-  return _react.default.createElement(_react.default.Fragment, null, message && _react.default.createElement(_helpers.Question, {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, message && /*#__PURE__*/_react.default.createElement(_helpers.Question, {
     message: message
-  }), _react.default.createElement(_choicesList.ChoicesList, {
+  }), /*#__PURE__*/_react.default.createElement(_choicesList.ChoicesList, {
     items: items,
     highlightedItem: highlightedItem,
     isNumericInputEnabled: isNumericInputEnabled
@@ -60,7 +64,7 @@ function choices({
     throw new Error('If isNumericInputEnabled is true, the length of choices must be less than 10');
   }
 
-  return onSubmit => _react.default.createElement(ChoicesComponent, {
+  return onSubmit => /*#__PURE__*/_react.default.createElement(ChoicesComponent, {
     message: message,
     isNumericInputEnabled: isNumericInputEnabled,
     items: items,
