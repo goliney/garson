@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Box } from 'ink';
+import { IOptions } from 'glob';
 import { OnSubmitCallback } from '../../types';
 import { InputComponent } from '../input';
 import { ChoicesList } from '../choices/components/choices-list';
@@ -7,20 +8,20 @@ import { ChoiceOption } from '../choices/components/item';
 import { useChoicesNavigation } from '../choices/use-choices-navigation';
 import { useEnterKeyHandler } from '../../_helpers';
 import { HighlightFilePathItem } from './components/highlight-file-path-item';
-import { listNodes, fuzzySearchNodes, PathNode } from './utils';
+import { listNodes, fuzzySearchNodes } from './utils';
 
 interface FuzzyPath {
   message?: string;
   placeholder?: string;
-  root: string;
-  filter?: (node: PathNode) => boolean;
+  pattern: string;
+  options?: IOptions;
 }
 
 interface FuzzyPathProps extends FuzzyPath {
   onSubmit: OnSubmitCallback;
 }
 
-type PathNodesState = PathNode[] | null;
+type PathNodesState = string[] | null;
 
 type ChoiceOptionsState = ChoiceOption[];
 
@@ -31,13 +32,13 @@ const DEFAULT_PLACEHOLDER = '(Use arrow keys or start typing)';
 export function FuzzyPathComponent({
   message,
   placeholder = DEFAULT_PLACEHOLDER,
-  root,
-  filter,
+  pattern,
+  options,
   onSubmit,
 }: FuzzyPathProps) {
   const [nodes, setNodes] = useState<PathNodesState>(null);
   const [matches, setMatches] = useState<ChoiceOptionsState>([]);
-  const [pattern, setPattern] = useState<string>('');
+  const [fuzzyPattern, setFuzzyPattern] = useState<string>('');
 
   const highlightedItem = useChoicesNavigation(matches);
 
@@ -47,29 +48,26 @@ export function FuzzyPathComponent({
 
   useEnterKeyHandler(handleSubmit);
 
-  // get the list of files based on the 'root' folder
+  // get the list of files
   useEffect(() => {
     (async function getNodes() {
-      let calculatedNodes = await listNodes(root);
-      if (filter) {
-        calculatedNodes = calculatedNodes.filter(filter);
-      }
+      const calculatedNodes = await listNodes(pattern, options);
       setNodes(calculatedNodes);
     })();
-  }, [root, filter]);
+  }, [pattern, options]);
 
-  // search files by pattern
+  // search files by fuzzyPattern
   useEffect(() => {
-    const searchResults = fuzzySearchNodes(nodes, pattern);
+    const searchResults = fuzzySearchNodes(nodes, fuzzyPattern);
     const searchResultsSliced = searchResults
       .slice(0, MATCHES_LIMIT)
-      .map(match => ({ key: match.path, label: match.relativePath, value: match }));
+      .map(match => ({ key: match.path, label: match.path, value: match }));
     setMatches(searchResultsSliced);
-  }, [nodes, pattern]);
+  }, [nodes, fuzzyPattern]);
 
   return (
     <Box flexDirection="column">
-      <InputComponent message={message} placeholder={placeholder} onChange={setPattern} />
+      <InputComponent message={message} placeholder={placeholder} onChange={setFuzzyPattern} />
       {matches && highlightedItem && (
         <ChoicesList
           highlightedItem={highlightedItem}
@@ -81,13 +79,13 @@ export function FuzzyPathComponent({
   );
 }
 
-export function fuzzyPath({ message, placeholder, root, filter }: FuzzyPath) {
+export function fuzzyPath({ message, placeholder, pattern, options }: FuzzyPath) {
   return (onSubmit: OnSubmitCallback) => (
     <FuzzyPathComponent
       message={message}
       placeholder={placeholder}
-      root={root}
-      filter={filter}
+      pattern={pattern}
+      options={options}
       onSubmit={onSubmit}
     />
   );

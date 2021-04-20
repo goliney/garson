@@ -25,8 +25,8 @@ function HighlightFilePathItem({
   isSelected,
   item
 }) {
-  const basename = scorer.basename(item.value.relativePath);
-  const dirname = scorer.dirname(item.value.relativePath);
+  const basename = scorer.basename(item.value.path);
+  const dirname = scorer.dirname(item.value.path);
   let basenameHighlighted = [{
     key: basename,
     value: basename,

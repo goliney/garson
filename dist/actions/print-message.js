@@ -23,10 +23,13 @@ function printMessage({
     flexDirection: "column",
     paddingBottom: 1
   }, _react.default.createElement(_helpers.Line, {
-    message: boxTitle
+    message: boxTitle,
+    charFiller: "\u2500"
   }), _react.default.createElement(_ink.Box, {
     paddingY: 1
   }, _react.default.createElement(_ink.Text, {
     italic: true
-  }, message)), _react.default.createElement(_helpers.Line, null)));
+  }, message)), _react.default.createElement(_helpers.Line, {
+    charFiller: "\u2500"
+  })));
 }

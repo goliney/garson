@@ -2,8 +2,6 @@
 
 require("core-js/modules/es.symbol.description");
 
-require("core-js/modules/es.array.filter");
-
 require("core-js/modules/es.array.from");
 
 require("core-js/modules/es.array.iterator");
@@ -62,8 +60,8 @@ const DEFAULT_PLACEHOLDER = '(Use arrow keys or start typing)';
 function FuzzyPathComponent({
   message,
   placeholder = DEFAULT_PLACEHOLDER,
-  root,
-  filter,
+  pattern,
+  options,
   onSubmit
 }) {
   const _useState = (0, _react.useState)(null),
@@ -78,24 +76,19 @@ function FuzzyPathComponent({
 
   const _useState5 = (0, _react.useState)(''),
         _useState6 = _slicedToArray(_useState5, 2),
-        pattern = _useState6[0],
-        setPattern = _useState6[1];
+        fuzzyPattern = _useState6[0],
+        setFuzzyPattern = _useState6[1];
 
   const highlightedItem = (0, _useChoicesNavigation.useChoicesNavigation)(matches);
   const handleSubmit = (0, _react.useCallback)(() => {
     onSubmit(highlightedItem.value);
   }, [onSubmit, highlightedItem]);
-  (0, _helpers.useEnterKeyHandler)(handleSubmit); // get the list of files based on the 'root' folder
+  (0, _helpers.useEnterKeyHandler)(handleSubmit); // get the list of files
 
   (0, _react.useEffect)(() => {
     (function () {
       var _getNodes = _asyncToGenerator(function* () {
-        let calculatedNodes = yield (0, _utils.listNodes)(root);
-
-        if (filter) {
-          calculatedNodes = calculatedNodes.filter(filter);
-        }
-
+        const calculatedNodes = yield (0, _utils.listNodes)(pattern, options);
         setNodes(calculatedNodes);
       });
 
@@ -105,23 +98,23 @@ function FuzzyPathComponent({
 
       return getNodes;
     })()();
-  }, [root, filter]); // search files by pattern
+  }, [pattern, options]); // search files by fuzzyPattern
 
   (0, _react.useEffect)(() => {
-    const searchResults = (0, _utils.fuzzySearchNodes)(nodes, pattern);
+    const searchResults = (0, _utils.fuzzySearchNodes)(nodes, fuzzyPattern);
     const searchResultsSliced = searchResults.slice(0, MATCHES_LIMIT).map(match => ({
       key: match.path,
-      label: match.relativePath,
+      label: match.path,
       value: match
     }));
     setMatches(searchResultsSliced);
-  }, [nodes, pattern]);
+  }, [nodes, fuzzyPattern]);
   return _react.default.createElement(_ink.Box, {
     flexDirection: "column"
   }, _react.default.createElement(_input.InputComponent, {
     message: message,
     placeholder: placeholder,
-    onChange: setPattern
+    onChange: setFuzzyPattern
   }), matches && highlightedItem && _react.default.createElement(_choicesList.ChoicesList, {
     highlightedItem: highlightedItem,
     items: matches,
@@ -132,14 +125,14 @@ function FuzzyPathComponent({
 function fuzzyPath({
   message,
   placeholder,
-  root,
-  filter
+  pattern,
+  options
 }) {
   return onSubmit => _react.default.createElement(FuzzyPathComponent, {
     message: message,
     placeholder: placeholder,
-    root: root,
-    filter: filter,
+    pattern: pattern,
+    options: options,
     onSubmit: onSubmit
   });
 }

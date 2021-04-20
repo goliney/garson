@@ -1,6 +1,4 @@
-import fs from 'fs';
-import path from 'path';
-import util from 'util';
+import glob, { IOptions } from 'glob';
 import {
   compareFilePathsByFuzzyScore,
   scoreFilePathFuzzy,
@@ -8,10 +6,8 @@ import {
   IItemScore,
 } from 'vscode-fuzzy-scorer';
 
-export interface PathNode {
-  isDir: boolean;
+export interface FuzzySearchItem {
   path: string;
-  relativePath: string;
   score: IItemScore | null;
 }
 
@@ -26,64 +22,38 @@ export interface ScoreMatch {
   end: number;
 }
 
-const readdir = util.promisify(fs.readdir);
-
-export async function listNodes(nodePath: string, root?: string): Promise<PathNode[]> {
-  const relativeRoot = root || nodePath;
-  try {
-    const nodes = await readdir(nodePath);
-    const currentNode = [
-      {
-        isDir: true,
-        path: nodePath,
-        relativePath: path.relative(relativeRoot, nodePath),
-        score: null,
-      },
-    ];
-    if (nodes.length === 0) {
-      return currentNode;
-    }
-    // recursively get child nodes
-    const nodesWithPath = nodes.map(nodeName =>
-      listNodes(path.join(nodePath, nodeName), relativeRoot)
-    );
-    const subNodes = await Promise.all(nodesWithPath);
-    return subNodes.reduce((acc, val) => acc.concat(val), currentNode);
-  } catch (err) {
-    if (err.code === 'ENOTDIR') {
-      return [
-        {
-          isDir: false,
-          path: nodePath,
-          relativePath: path.relative(relativeRoot, nodePath),
-          score: null,
-        },
-      ];
-    }
-    return [];
-  }
+export async function listNodes(pattern: string, options: IOptions = {}): Promise<string[]> {
+  return new Promise((resolve, reject) => {
+    glob(pattern, options, (err, results) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(results);
+      }
+    });
+  });
 }
 
-export function fuzzySearchNodes(nodes: PathNode[] | null, pattern: string): PathNode[] {
+export function fuzzySearchNodes(nodes: string[] | null, pattern: string): FuzzySearchItem[] {
   if (!nodes) {
     return [];
   }
 
   if (!pattern) {
-    return nodes.map(node => ({ ...node }));
+    return nodes.map(path => ({ path, score: null }));
   }
 
   const query = prepareQuery(pattern);
 
   const cache = {};
 
-  const results = [...nodes].sort((r1, r2) =>
-    compareFilePathsByFuzzyScore({ pathA: r1.relativePath, pathB: r2.relativePath, query, cache })
+  const results = [...nodes].sort((pathA, pathB) =>
+    compareFilePathsByFuzzyScore({ pathA, pathB, query, cache })
   );
 
-  return results.map(item => ({
-    ...item,
-    score: scoreFilePathFuzzy({ path: item.relativePath, query, cache }),
+  return results.map(path => ({
+    path,
+    score: scoreFilePathFuzzy({ path, query, cache }),
   }));
 }
 
