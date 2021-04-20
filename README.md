@@ -215,18 +215,22 @@ Example:
 // garson.config.js
 const { garson, prompts, actions } = require('garson');
 
+const cwd = '/Users/goliney/Workspace/garson/src';
 module.exports = garson()
   .prompt(
     'file',
     prompts.fuzzyPath({
       message: 'Enter file:',
-      root: '/Users/goliney/Workspace/garson/src',
-      filter: node => !node.isDir, // filter out directories
+      pattern: '**',
+      options: {
+        nodir: true,
+        cwd,
+      },
     })
   )
   .action(results => {
     const { file } = results;
-    actions.spawn(`wc ${file.path}`);
+    actions.spawn(`nano ${cwd}/${file.path}`);
   });
 ```
 ![fuzzy path search prompt example](examples/fuzzy-path-search/example.gif)

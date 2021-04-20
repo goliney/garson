@@ -1,5 +1,6 @@
 const { garson, prompts, actions } = require('../../dist');
 
+const cwd = '/Users/goliney/Workspace/garson/src';
 module.exports = garson()
   .prompt(
     'file',
@@ -8,11 +9,11 @@ module.exports = garson()
       pattern: '**',
       options: {
         nodir: true,
-        cwd: '/Users/goliney/Workspace/garson/src',
+        cwd,
       },
     })
   )
   .action(results => {
     const { file } = results;
-    actions.spawn(`nano ${file.path}`);
+    actions.spawn(`nano ${cwd}/${file.path}`);
   });
