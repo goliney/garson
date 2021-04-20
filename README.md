@@ -193,20 +193,18 @@ Provides a fuzzy search for a file or a folder in a specified directory.
      <td>Text to display when the input value is empty</td>
    </tr>
    <tr>
-     <td>root</td>
+     <td>pattern</td>
      <td>String</td>
-     <td>Yes</td>
-     <td>Path to a root directory where we are searching</td>
+     <td>No</td>
+     <td>Glob pattern. Defaults to <code>'*'</code></td>
    </tr>
    <tr>
-     <td>filter</td>
-     <td>Function</td>
+     <td>options</td>
+     <td>Object</td>
      <td>No</td>
      <td>
-       A filter function that is applied to the found path nodes.
-       It is useful for allowing the selection of files or directories only.
-       Path node object contains <code>isDir</code>, <code>path</code>, <code>relativePath</code> and
-       <code>score</code> properties.
+       Options object that is passed to <code>glob</code>.
+       See the full list of options [here](https://github.com/isaacs/node-glob#options)
      </td>
    </tr>
  </tbody>

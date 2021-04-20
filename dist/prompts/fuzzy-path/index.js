@@ -125,7 +125,7 @@ function FuzzyPathComponent({
 function fuzzyPath({
   message,
   placeholder,
-  pattern,
+  pattern = '*',
   options
 }) {
   return onSubmit => _react.default.createElement(FuzzyPathComponent, {

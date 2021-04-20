@@ -79,7 +79,7 @@ export function FuzzyPathComponent({
   );
 }
 
-export function fuzzyPath({ message, placeholder, pattern, options }: FuzzyPath) {
+export function fuzzyPath({ message, placeholder, pattern = '*', options }: FuzzyPath) {
   return (onSubmit: OnSubmitCallback) => (
     <FuzzyPathComponent
       message={message}
