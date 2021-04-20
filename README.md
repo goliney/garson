@@ -204,7 +204,7 @@ Provides a fuzzy search for a file or a folder in a specified directory.
      <td>No</td>
      <td>
        Options object that is passed to <code>glob</code>.
-       See the full list of options [here](https://github.com/isaacs/node-glob#options)
+       See the full list of options <a href="https://github.com/isaacs/node-glob#options">here</a>
      </td>
    </tr>
  </tbody>
