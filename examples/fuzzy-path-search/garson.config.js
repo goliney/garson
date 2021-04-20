@@ -5,10 +5,10 @@ module.exports = garson()
     'file',
     prompts.fuzzyPath({
       message: 'Enter file:',
-      pattern: '/Users/goliney/Workspace/garson/**',
+      pattern: '**',
       options: {
         nodir: true,
-        ignore: '**/node_modules/**',
+        cwd: '/Users/goliney/Workspace/garson/src',
       },
     })
   )
