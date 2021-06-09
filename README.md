@@ -16,6 +16,8 @@ Build interactive config-based command-line interfaces with JavaScript :wink:
 
 - [Install](#install)
 - [Usage](#usage)
+  * [As a global dependency](#as-a-global-dependency)
+  * [As a local dependency](#as-a-local-dependency)
 - [Configuration](#configuration)
 - [Prompts](#prompts)
   * [Input `prompts.input()`](#input-promptsinput)
@@ -36,7 +38,7 @@ npm install garson
 
 ## Usage
 
-### As global dependency
+### As a global dependency
 Run:
 ```shell script
 npx garson
@@ -46,7 +48,7 @@ You can change the default path with `--config` option.
 
 See `npx garson --help` for a full list of options.
 
-### As local dependency
+### As a local dependency
 Create a script in package.json:
 ```json
 {
