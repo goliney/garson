@@ -1,12 +1,12 @@
 {
   "name": "garson",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "bin": "dist/bin/index.js",
   "files": [
     "dist"
   ],
-  "description": "Interactive config-based command line tool",
+  "description": "Interactive config-based command-line tool",
   "homepage": "https://github.com/goliney/garson",
   "bugs": "https://github.com/goliney/garson/issues",
   "keywords": [
@@ -59,9 +59,9 @@
     "core-js": "^3.6.4",
     "figures": "^3.2.0",
     "glob": "^7.1.6",
-    "ink": "^3.0.3",
+    "ink": "^3.0.8",
     "ink-text-input": "^4.0.0",
-    "react": "^16.9.0",
+    "react": ">=16.8.0",
     "vscode-fuzzy-scorer": "^0.0.4"
   }
 }

@@ -35,6 +35,8 @@ npm install garson
 ```
 
 ## Usage
+
+### As global dependency
 Run:
 ```shell script
 npx garson
@@ -43,6 +45,17 @@ This command will look for `garson.config.js` file in the current directory.
 You can change the default path with `--config` option.
 
 See `npx garson --help` for a full list of options.
+
+### As local dependency
+Create a script in package.json:
+```json
+{
+  "scripts": {
+    "garson": "garson --config=./path-to/garson.config.js"
+  }
+}
+```
+Now you can run `npm run garson`.
 
 ## Configuration
 
