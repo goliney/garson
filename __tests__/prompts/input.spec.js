@@ -2,7 +2,7 @@ import { garson, prompts } from '../../src';
 import { runner } from '../../src/bin/runner';
 import { app } from '../../src/app';
 import { ENTER } from '../../src/_helpers/keys';
-import { write, stripColorsFromLastFrame } from '../helpers';
+import { write, trimFrame, stripColorsFromLastFrame } from '../helpers';
 
 jest.mock('../../src/app');
 
@@ -48,10 +48,10 @@ describe('Input', () => {
     expect(stripColorsFromLastFrame()).toMatchSnapshot();
 
     await write('Chandler');
-    expect(stripColorsFromLastFrame()).toMatchSnapshot();
+    expect(trimFrame(stripColorsFromLastFrame())).toMatchSnapshot();
 
     await write(ENTER);
-    expect(stripColorsFromLastFrame()).toMatchSnapshot();
+    expect(trimFrame(stripColorsFromLastFrame())).toMatchSnapshot();
 
     await write(ENTER);
     expect(actionSpy).toHaveBeenCalledWith({ firstName: 'Chandler', lastName: 'Bing' });
@@ -60,10 +60,10 @@ describe('Input', () => {
   test('No labels', async () => {
     runner(configNoLabels);
     await new Promise(resolve => setTimeout(resolve));
-    expect(stripColorsFromLastFrame()).toMatchSnapshot();
+    expect(trimFrame(stripColorsFromLastFrame())).toMatchSnapshot();
 
     await write('Something');
-    expect(stripColorsFromLastFrame()).toMatchSnapshot();
+    expect(trimFrame(stripColorsFromLastFrame())).toMatchSnapshot();
 
     await write(ENTER);
     expect(actionSpy).toHaveBeenCalledWith({ noLabels: 'Something' });

@@ -6,7 +6,7 @@
 	<br />
 </h1>
 
-![build](https://github.com/goliney/garson/actions/workflows/main.yml/badge.svg)
+[![build](https://github.com/goliney/garson/actions/workflows/main.yml/badge.svg)](https://github.com/goliney/garson/actions/workflows/main.yml)
 [![npm version](https://badge.fury.io/js/garson.svg)](https://www.npmjs.com/package/garson)
 
 Build interactive config-based command-line interfaces with JavaScript :wink:
