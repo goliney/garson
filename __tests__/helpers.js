@@ -5,6 +5,15 @@ export async function write(content) {
   await new Promise(resolve => setTimeout(resolve));
 }
 
+export function trimFrame(text) {
+  // for some reason, on github lines appear with trailing
+  // space after text input
+  return text
+    .split('\n')
+    .map(line => line.trim())
+    .join('\n');
+}
+
 export function stripColors(text) {
   return text.replace(
     // eslint-disable-next-line no-control-regex

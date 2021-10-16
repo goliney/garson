@@ -100,91 +100,91 @@ exports[`Fuzzy Path Search Initial render 1`] = `
 `;
 
 exports[`Fuzzy Path Search Search 1`] = `
-"? Enter file: bar 
+"? Enter file: bar
 ▇ bar-lorem.js  .
-  foo-bar.js  .
-  amet-bar.js  urna
-  elit-bar.txt  lorem
-  ipsum-lorem.js  urna"
+foo-bar.js  .
+amet-bar.js  urna
+elit-bar.txt  lorem
+ipsum-lorem.js  urna"
 `;
 
 exports[`Fuzzy Path Search Search 2`] = `
-"? Enter file: ba 
+"? Enter file: ba
 ▇ bar-lorem.js  .
-  foo-bar.js  .
-  amet-bar.js  urna
-  elit-bar.txt  lorem
-  ipsum-lorem.js  urna"
+foo-bar.js  .
+amet-bar.js  urna
+elit-bar.txt  lorem
+ipsum-lorem.js  urna"
 `;
 
 exports[`Fuzzy Path Search Search 3`] = `
-"? Enter file: b 
+"? Enter file: b
 ▇ bar-lorem.js  .
-  foo-bar.js  .
-  amet-bar.js  urna
-  elit-bar.txt  lorem
-  ipsum-lorem.js  urna"
+foo-bar.js  .
+amet-bar.js  urna
+elit-bar.txt  lorem
+ipsum-lorem.js  urna"
 `;
 
 exports[`Fuzzy Path Search Search 4`] = `
 "? Enter file: (Use arrow keys or start typing)
 ▇ bar-lorem.js  .
-  foo-bar.js  .
-  elit-bar.txt  lorem
-  amet-bar.js  urna
-  ipsum-lorem.js  urna"
+foo-bar.js  .
+elit-bar.txt  lorem
+amet-bar.js  urna
+ipsum-lorem.js  urna"
 `;
 
 exports[`Fuzzy Path Search Search 5`] = `
-"? Enter file: foo 
+"? Enter file: foo
 ▇ foo-bar.js  .
-  bar-lorem.js  .
-  amet-bar.js  urna
-  elit-bar.txt  lorem
-  ipsum-lorem.js  urna"
+bar-lorem.js  .
+amet-bar.js  urna
+elit-bar.txt  lorem
+ipsum-lorem.js  urna"
 `;
 
 exports[`Fuzzy Path Search Search 6`] = `
-"? Enter file: fo 
+"? Enter file: fo
 ▇ foo-bar.js  .
-  bar-lorem.js  .
-  amet-bar.js  urna
-  elit-bar.txt  lorem
-  ipsum-lorem.js  urna"
+bar-lorem.js  .
+amet-bar.js  urna
+elit-bar.txt  lorem
+ipsum-lorem.js  urna"
 `;
 
 exports[`Fuzzy Path Search Search 7`] = `
-"? Enter file: f 
+"? Enter file: f
 ▇ foo-bar.js  .
-  bar-lorem.js  .
-  amet-bar.js  urna
-  elit-bar.txt  lorem
-  ipsum-lorem.js  urna"
+bar-lorem.js  .
+amet-bar.js  urna
+elit-bar.txt  lorem
+ipsum-lorem.js  urna"
 `;
 
 exports[`Fuzzy Path Search Search 8`] = `
 "? Enter file: (Use arrow keys or start typing)
 ▇ bar-lorem.js  .
-  foo-bar.js  .
-  elit-bar.txt  lorem
-  amet-bar.js  urna
-  ipsum-lorem.js  urna"
+foo-bar.js  .
+elit-bar.txt  lorem
+amet-bar.js  urna
+ipsum-lorem.js  urna"
 `;
 
 exports[`Fuzzy Path Search Search 9`] = `
-"? Enter file: lorem 
+"? Enter file: lorem
 ▇ bar-lorem.js  .
-  ipsum-lorem.js  urna
-  elit-bar.txt  lorem
-  foo-bar.js  .
-  amet-bar.js  urna"
+ipsum-lorem.js  urna
+elit-bar.txt  lorem
+foo-bar.js  .
+amet-bar.js  urna"
 `;
 
 exports[`Fuzzy Path Search Search 10`] = `
-"? Enter file: lorem 
-  bar-lorem.js  .
+"? Enter file: lorem
+bar-lorem.js  .
 ▇ ipsum-lorem.js  urna
-  elit-bar.txt  lorem
-  foo-bar.js  .
-  amet-bar.js  urna"
+elit-bar.txt  lorem
+foo-bar.js  .
+amet-bar.js  urna"
 `;
