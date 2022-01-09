@@ -1,6 +1,6 @@
 {
   "name": "garson",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "dist/index.js",
   "bin": "dist/bin/index.js",
   "files": [
