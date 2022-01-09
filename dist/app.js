@@ -5,9 +5,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.app = void 0;
 
-var _ink = require("ink");
-
 var _react = _interopRequireDefault(require("react"));
+
+var _ink = require("ink");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

@@ -20,13 +20,10 @@ if (program.config) {
   const CONFIG_FILEPATH = _path.default.join(cwd, program.config);
 
   if (_fs.default.existsSync(CONFIG_FILEPATH)) {
-    /* eslint-disable @typescript-eslint/no-var-requires,global-require,import/no-dynamic-require */
     const _require = require('./runner'),
           runner = _require.runner;
 
     const garsonConfig = require(CONFIG_FILEPATH);
-    /* eslint-enable @typescript-eslint/no-var-requires,global-require,import/no-dynamic-require */
-
 
     runner(garsonConfig);
   } else {
