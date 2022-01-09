@@ -6,14 +6,16 @@ import { MultiChoiceOption } from './components/item';
 
 export function useMultiChoicesNavigation(
   items: MultiChoiceOption[],
-  onChangeMiddleware: onChoiceChangeMiddlewareCallback<MultiChoiceOption> = () => {}
+  onChangeMiddleware: onChoiceChangeMiddlewareCallback<MultiChoiceOption> = () => {
+    return;
+  }
 ) {
   const [highlightedItem, setHighlightedItem] = useState(items[0]);
   const [selectedItems, setSelectedItems] = useState<MultiChoiceOption[]>([]);
 
   // pre-select default items
   useEffect(() => {
-    setSelectedItems(items.filter(item => item.isSelected));
+    setSelectedItems(items.filter((item) => item.isSelected));
   }, [items]);
 
   const highlightPrevItem = useCallback(() => {
@@ -35,8 +37,8 @@ export function useMultiChoicesNavigation(
   }, [highlightedItem, items]);
 
   const toggleSelection = useCallback(() => {
-    const oldSelectedItems = items.filter(item => selectedItems.includes(item));
-    const newSelectedItems = items.filter(item => {
+    const oldSelectedItems = items.filter((item) => selectedItems.includes(item));
+    const newSelectedItems = items.filter((item) => {
       const isAlreadySelected = selectedItems.includes(item);
       const isHighlighted = item === highlightedItem;
       return (isAlreadySelected && !isHighlighted) || (!isAlreadySelected && isHighlighted);
@@ -46,7 +48,7 @@ export function useMultiChoicesNavigation(
   }, [highlightedItem, selectedItems, items, onChangeMiddleware]);
 
   const handleKey = useCallback(
-    key => {
+    (key) => {
       switch (key) {
         case ARROW_UP:
           highlightPrevItem();

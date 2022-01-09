@@ -39,7 +39,9 @@ function _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== "und
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function useMultiChoicesNavigation(items, onChangeMiddleware = () => {}) {
+function useMultiChoicesNavigation(items, onChangeMiddleware = () => {
+  return;
+}) {
   const _useState = (0, _react.useState)(items[0]),
         _useState2 = _slicedToArray(_useState, 2),
         highlightedItem = _useState2[0],

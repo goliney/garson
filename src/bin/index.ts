@@ -17,10 +17,8 @@ if (program.config) {
   const CONFIG_FILEPATH = path.join(cwd, program.config);
 
   if (fs.existsSync(CONFIG_FILEPATH)) {
-    /* eslint-disable @typescript-eslint/no-var-requires,global-require,import/no-dynamic-require */
     const { runner } = require('./runner');
     const garsonConfig = require(CONFIG_FILEPATH);
-    /* eslint-enable @typescript-eslint/no-var-requires,global-require,import/no-dynamic-require */
     runner(garsonConfig);
   } else {
     throw new Error(`Config file was not found: ${CONFIG_FILEPATH}`);

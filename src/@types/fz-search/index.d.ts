@@ -2,7 +2,6 @@
 // TypeScript Version: 3.5.3
 
 declare module 'fz-search' {
-  // eslint-disable-next-line import/no-default-export
   export default class FuzzySearch<T> {
     public constructor(options: FuzzySearchOptions<T>);
 
